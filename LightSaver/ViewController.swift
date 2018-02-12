@@ -10,15 +10,18 @@ import UIKit
 import SceneKit
 import ARKit
 
-class ViewController: UIViewController, ARSCNViewDelegate {
+class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
 
     @IBOutlet var sceneView: ARSCNView!
+    var drawing: Bool = false
+    var color: UIColor = UIColor.red
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Set the view's delegate
         sceneView.delegate = self
+        sceneView.session.delegate = self
         
         // Show statistics such as fps and timing information
         sceneView.showsStatistics = true
@@ -28,6 +31,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         // Set the scene to the view
         sceneView.scene = scene
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -52,6 +57,21 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // Release any cached data, images, etc that aren't in use.
     }
 
+    func renderer(_ renderer: SCNSceneRenderer, willRenderScene scene: SCNScene, atTime time: TimeInterval) {
+        if drawing, let transform = sceneView.pointOfView?.transform, let position = sceneView.pointOfView?.position {
+            
+            let offset = SCNVector3(-0.1 * transform.m31, -0.1 * transform.m32, -0.1 * transform.m33)
+            let drawPosition = SCNVector3.init(offset.x + position.x, offset.y + position.y, offset.z + position.z)
+            
+            let sphereNode = SCNNode(geometry: SCNSphere(radius: 0.01))
+            sphereNode.geometry?.firstMaterial?.diffuse.contents = UIColor.red
+            sphereNode.position = drawPosition
+            
+            sceneView.scene.rootNode.addChildNode(sphereNode)
+        }
+        
+    }
+
     // MARK: - ARSCNViewDelegate
     
 /*
@@ -62,10 +82,23 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         return node
     }
 */
+    @IBAction func drawButtonDown(_ sender: Any) {
+        drawing = true
+    }
+    
+    @IBAction func drawButtonUpInside(_ sender: Any) {
+        drawing = false
+    }
+    
+    @IBAction func drawButtonUpOutside(_ sender: Any) {
+        drawing = false
+    }
+    
+    func session(_ session: ARSession, didUpdate frame: ARFrame) {
+    }
     
     func session(_ session: ARSession, didFailWithError error: Error) {
         // Present an error message to the user
-        
     }
     
     func sessionWasInterrupted(_ session: ARSession) {

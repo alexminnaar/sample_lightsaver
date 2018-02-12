@@ -1,27 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A278a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
-    <device id="retina4_7" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
+    <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tXr-a1-R10">
             <objects>
-                <viewController id="BV1-FR-VrT" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <arscnView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="BrB-h1-WRS">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <viewController id="BV1-FR-VrT" customClass="ViewController" customModule="LightSaver" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8wR-kV-L0j">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    </arscnView>
+                        <subviews>
+                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BrB-h1-WRS">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                            </arscnView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q0V-0f-12p">
+                                <rect key="frame" x="151" y="705" width="73" height="73"/>
+                                <state key="normal" image="Draw Button Active"/>
+                                <connections>
+                                    <action selector="drawButtonDown:" destination="BV1-FR-VrT" eventType="touchDown" id="3cP-Mp-Kcy"/>
+                                    <action selector="drawButtonUpInside:" destination="BV1-FR-VrT" eventType="touchUpInside" id="S2y-ny-vZd"/>
+                                    <action selector="drawButtonUpOutside:" destination="BV1-FR-VrT" eventType="touchUpOutside" id="MSQ-iz-y7K"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="q0V-0f-12p" firstAttribute="bottom" secondItem="BuC-N7-NHZ" secondAttribute="bottom" id="Nak-iK-odL"/>
+                            <constraint firstItem="BrB-h1-WRS" firstAttribute="trailing" secondItem="BuC-N7-NHZ" secondAttribute="trailing" id="OAv-bc-Lyg"/>
+                            <constraint firstItem="BrB-h1-WRS" firstAttribute="top" secondItem="8wR-kV-L0j" secondAttribute="top" id="Sjt-m6-E2n"/>
+                            <constraint firstItem="BrB-h1-WRS" firstAttribute="leading" secondItem="BuC-N7-NHZ" secondAttribute="leading" id="ZcA-Vw-REn"/>
+                            <constraint firstItem="q0V-0f-12p" firstAttribute="centerX" secondItem="8wR-kV-L0j" secondAttribute="centerX" id="t5V-R7-nNC"/>
+                            <constraint firstAttribute="bottom" secondItem="BrB-h1-WRS" secondAttribute="bottom" id="wgU-79-32o"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="BuC-N7-NHZ"/>
+                    </view>
                     <connections>
-                        <outlet property="sceneView" destination="BrB-h1-WRS" id="5nT-qQ-ynl"/>
+                        <outlet property="sceneView" destination="BrB-h1-WRS" id="lAl-Zp-VfU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="32.799999999999997" y="32.512315270935964"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Draw Button Active" width="73" height="73"/>
+    </resources>
 </document>
