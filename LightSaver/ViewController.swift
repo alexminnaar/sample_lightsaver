@@ -29,7 +29,12 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
     
     @IBOutlet var sceneView: ARSCNView!
     var drawing: Bool = false
-    var color: UIColor = UIColor.red
+    var color: UIColor = UIColor.blue
+    var colorLabel: String = ""
+    var green: UIColor = UIColor.init(red: 0x00, green: 0xff, blue: 0xe1, alpha: 0xff)
+    var purple: UIColor = UIColor.init(red: 0.58, green: 0x00, blue: 0xff, alpha: 0xff)
+    var pink: UIColor = UIColor.init(red: 0xff, green: 0x00, blue: 0xa4, alpha: 0xff)
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -97,7 +102,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
             sphereNode.geometry?.firstMaterial?.diffuse.contents = color
             sphereNode.position = drawPosition
             
-            let asset = MapsyncAsset.init("sphere", position, 0.0)
+            let asset = MapsyncAsset.init(colorLabel, position, 0.0)
             
             mapsyncAssets.append(asset)
             sceneView.scene.rootNode.addChildNode(sphereNode)
@@ -116,8 +121,24 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
         return node
     }
 */
-    @IBAction func drawButtonDown(_ sender: Any) {
+    @IBAction func drawButtonDown(_ sender: UIButton) {
         drawing = true
+        switch sender.tag {
+        case 0:
+            color = purple
+            colorLabel = "purple"
+            
+        case 1:
+            color = green
+            colorLabel = "green"
+            
+        case 2:
+            color = pink
+            colorLabel = "pink"
+            
+        default:
+            color = UIColor.blue
+        }
     }
     
     @IBAction func drawButtonUpInside(_ sender: Any) {
@@ -169,7 +190,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
     private func reloadAssets() {
         mapsyncSession?.reloadAssets(callback: { (mapsyncAssets) in
             for asset in mapsyncAssets {
-                self.addAssetToScene(asset.position)
+                self.addAssetToScene(asset)
             }
             
             DispatchQueue.main.async {
@@ -179,12 +200,28 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
         })
     }
     
-    private func addAssetToScene(_ position: SCNVector3) {
+    private func addAssetToScene(_ asset: MapsyncAsset) {
         let sphereNode = SCNNode(geometry: SCNSphere(radius: 0.01))
-        sphereNode.geometry?.firstMaterial?.diffuse.contents = color
-        sphereNode.position = position
+        sphereNode.geometry?.firstMaterial?.diffuse.contents = getColor(asset.assetID)
+        sphereNode.position = asset.position
         
         sceneView.scene.rootNode.addChildNode(sphereNode)
+    }
+    
+    private func getColor(_ label: String) -> UIColor {
+        switch label {
+        case "purple":
+            return purple
+            
+        case "green":
+            return green
+            
+        case "pink":
+            return pink
+            
+        default:
+            return color
+        }
     }
     
     func session(_ session: ARSession, didUpdate frame: ARFrame) {
@@ -241,9 +278,6 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
             
         case .noAssetFound:
             print ("no asset found")
-            
-        default:
-            print("error mapsync status")
         }
     }
     

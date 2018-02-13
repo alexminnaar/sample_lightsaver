@@ -93,10 +93,11 @@
                             <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BrB-h1-WRS">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </arscnView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q0V-0f-12p">
-                                <rect key="frame" x="151" y="705" width="73" height="73"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q0V-0f-12p" userLabel="Purple Button">
+                                <rect key="frame" x="98" y="705" width="73" height="73"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="Draw Button Active"/>
+                                <state key="normal" image="Purple Active"/>
+                                <state key="selected" image="Purple Pressed"/>
                                 <connections>
                                     <action selector="drawButtonDown:" destination="BV1-FR-VrT" eventType="touchDown" id="3cP-Mp-Kcy"/>
                                     <action selector="drawButtonUpInside:" destination="BV1-FR-VrT" eventType="touchUpInside" id="S2y-ny-vZd"/>
@@ -129,6 +130,28 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pnH-rf-uEF" userLabel="Green Button">
+                                <rect key="frame" x="16" y="705" width="73" height="73"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="Green Active"/>
+                                <state key="selected" image="Green Pressed"/>
+                                <connections>
+                                    <action selector="drawButtonDown:" destination="BV1-FR-VrT" eventType="touchDown" id="KT9-0k-JQh"/>
+                                    <action selector="drawButtonUpInside:" destination="BV1-FR-VrT" eventType="touchUpInside" id="fQu-op-gow"/>
+                                    <action selector="drawButtonUpOutside:" destination="BV1-FR-VrT" eventType="touchUpOutside" id="o6E-3d-rtH"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DuB-KW-cwQ" userLabel="Pink Button">
+                                <rect key="frame" x="16" y="624" width="73" height="73"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="Pink Active"/>
+                                <state key="selected" image="Pink Pressed"/>
+                                <connections>
+                                    <action selector="drawButtonDown:" destination="BV1-FR-VrT" eventType="touchDown" id="F0v-nC-DFT"/>
+                                    <action selector="drawButtonUpInside:" destination="BV1-FR-VrT" eventType="touchUpInside" id="XTH-Qd-pPh"/>
+                                    <action selector="drawButtonUpOutside:" destination="BV1-FR-VrT" eventType="touchUpOutside" id="92c-gd-61B"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -152,7 +175,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Draw Button Active" width="73" height="73"/>
+        <image name="Green Active" width="73" height="73"/>
+        <image name="Green Pressed" width="73" height="73"/>
+        <image name="Pink Active" width="73" height="73"/>
+        <image name="Pink Pressed" width="73" height="73"/>
+        <image name="Purple Active" width="73" height="73"/>
+        <image name="Purple Pressed" width="73" height="73"/>
         <image name="Reload Button Active" width="370" height="157"/>
         <image name="Reload Button Pressed" width="369" height="156"/>
         <image name="Save Button Active" width="537" height="314"/>
