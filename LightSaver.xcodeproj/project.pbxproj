@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B46FC87F9AA6BEEA7F57878 /* Pods_LightSaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 189668393D0AA745A4EE45CD /* Pods_LightSaver.framework */; };
 		264C2C552032166500F1958E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 264C2C542032166500F1958E /* AppDelegate.swift */; };
 		264C2C572032166500F1958E /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 264C2C562032166500F1958E /* art.scnassets */; };
 		264C2C592032166500F1958E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 264C2C582032166500F1958E /* ViewController.swift */; };
@@ -15,6 +16,7 @@
 		264C2C612032166500F1958E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 264C2C5F2032166500F1958E /* LaunchScreen.storyboard */; };
 		264C2C6C2032166500F1958E /* LightSaverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 264C2C6B2032166500F1958E /* LightSaverTests.swift */; };
 		264C2C772032166500F1958E /* LightSaverUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 264C2C762032166500F1958E /* LightSaverUITests.swift */; };
+		264C2C85203235A100F1958E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 264C2C84203235A100F1958E /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		189668393D0AA745A4EE45CD /* Pods_LightSaver.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LightSaver.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2315A52480A638FB803342FE /* Pods-LightSaver.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LightSaver.release.xcconfig"; path = "Pods/Target Support Files/Pods-LightSaver/Pods-LightSaver.release.xcconfig"; sourceTree = "<group>"; };
 		264C2C512032166500F1958E /* LightSaver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LightSaver.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		264C2C542032166500F1958E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		264C2C562032166500F1958E /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -49,6 +53,8 @@
 		264C2C722032166500F1958E /* LightSaverUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LightSaverUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		264C2C762032166500F1958E /* LightSaverUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightSaverUITests.swift; sourceTree = "<group>"; };
 		264C2C782032166500F1958E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		264C2C84203235A100F1958E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		70474B1E4B5F7ADFAA29AAF0 /* Pods-LightSaver.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LightSaver.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LightSaver/Pods-LightSaver.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B46FC87F9AA6BEEA7F57878 /* Pods_LightSaver.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +90,8 @@
 				264C2C6A2032166500F1958E /* LightSaverTests */,
 				264C2C752032166500F1958E /* LightSaverUITests */,
 				264C2C522032166500F1958E /* Products */,
+				7638E25276ED18A6B6A171BB /* Pods */,
+				4F1C9F185122543E32F239A5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -106,6 +115,7 @@
 				264C2C5D2032166500F1958E /* Assets.xcassets */,
 				264C2C5F2032166500F1958E /* LaunchScreen.storyboard */,
 				264C2C622032166500F1958E /* Info.plist */,
+				264C2C84203235A100F1958E /* LoginViewController.swift */,
 			);
 			path = LightSaver;
 			sourceTree = "<group>";
@@ -128,6 +138,23 @@
 			path = LightSaverUITests;
 			sourceTree = "<group>";
 		};
+		4F1C9F185122543E32F239A5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				189668393D0AA745A4EE45CD /* Pods_LightSaver.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7638E25276ED18A6B6A171BB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				70474B1E4B5F7ADFAA29AAF0 /* Pods-LightSaver.debug.xcconfig */,
+				2315A52480A638FB803342FE /* Pods-LightSaver.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,9 +162,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 264C2C7B2032166500F1958E /* Build configuration list for PBXNativeTarget "LightSaver" */;
 			buildPhases = (
+				DC1BC168363E943AFBBDFBB2 /* [CP] Check Pods Manifest.lock */,
 				264C2C4D2032166500F1958E /* Sources */,
 				264C2C4E2032166500F1958E /* Frameworks */,
 				264C2C4F2032166500F1958E /* Resources */,
+				263C90E46B05FEFBE7D00930 /* [CP] Embed Pods Frameworks */,
+				5E9B1950BCB87005EE9DB919 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -258,11 +288,74 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		263C90E46B05FEFBE7D00930 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-LightSaver/Pods-LightSaver-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AWSCore/AWSCore.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSS3/AWSS3.framework",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${PODS_ROOT}/MapsyncLib/MapsyncLib.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSS3.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapsyncLib.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LightSaver/Pods-LightSaver-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5E9B1950BCB87005EE9DB919 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LightSaver/Pods-LightSaver-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DC1BC168363E943AFBBDFBB2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LightSaver-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		264C2C4D2032166500F1958E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				264C2C85203235A100F1958E /* LoginViewController.swift in Sources */,
 				264C2C592032166500F1958E /* ViewController.swift in Sources */,
 				264C2C552032166500F1958E /* AppDelegate.swift in Sources */,
 			);
@@ -428,6 +521,7 @@
 		};
 		264C2C7C2032166500F1958E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 70474B1E4B5F7ADFAA29AAF0 /* Pods-LightSaver.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -443,6 +537,7 @@
 		};
 		264C2C7D2032166500F1958E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2315A52480A638FB803342FE /* Pods-LightSaver.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

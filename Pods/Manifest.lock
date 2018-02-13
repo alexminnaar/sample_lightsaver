@@ -1,0 +1,28 @@
+PODS:
+  - Alamofire (4.6.0)
+  - AWSCore (2.6.10)
+  - AWSS3 (2.6.10):
+    - AWSCore (= 2.6.10)
+  - MapsyncLib (1.0.0):
+    - Alamofire (~> 4.6.0)
+    - AWSS3 (~> 2.6.10)
+    - SwiftyJSON (~> 4.0.0)
+  - SwiftyJSON (4.0.0)
+
+DEPENDENCIES:
+  - MapsyncLib (from `./MapsyncLib.podspec`)
+
+EXTERNAL SOURCES:
+  MapsyncLib:
+    :podspec: ./MapsyncLib.podspec
+
+SPEC CHECKSUMS:
+  Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
+  AWSCore: 5bb072a6b5b185f43ddbd239d6554d2f8a285ad2
+  AWSS3: 1124570c2c2dba6be7e6e67d123cc5181073c53d
+  MapsyncLib: 0d51dd4c3df22ad058da23edaadd61aa2aed4bb3
+  SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
+
+PODFILE CHECKSUM: 54c44332e974e4486f0f48888c035739ca5e9287
+
+COCOAPODS: 1.3.1

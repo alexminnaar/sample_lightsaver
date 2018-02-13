@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ybO-af-Ld9">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,6 +10,78 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Login View Controller-->
+        <scene sceneID="05i-2q-GEl">
+            <objects>
+                <viewController id="ybO-af-Ld9" customClass="LoginViewController" customModule="LightSaver" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xIA-1i-j9h">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="PAi-8L-L4x">
+                                <rect key="frame" x="119.66666666666669" y="290" width="137" height="232.33333333333337"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ma1-qc-5dx">
+                                        <rect key="frame" x="0.0" y="0.0" width="137" height="33.666666666666664"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hev-Cr-luG" userLabel="Username Input">
+                                        <rect key="frame" x="0.0" y="38.666666666666686" width="137" height="34"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drawing" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L6R-lD-5Am">
+                                        <rect key="frame" x="0.0" y="77.666666666666686" width="137" height="33.666666666666657"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="npp-F2-cEQ" userLabel="Drawing Input">
+                                        <rect key="frame" x="0.0" y="116.33333333333331" width="137" height="34"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xEf-PY-nDt">
+                                        <rect key="frame" x="0.0" y="155.33333333333331" width="137" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="Start Drawing"/>
+                                        <connections>
+                                            <action selector="startDrawingButton:" destination="ybO-af-Ld9" eventType="touchUpInside" id="Ch5-6P-wQn"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sBg-0K-igP">
+                                        <rect key="frame" x="0.0" y="196.33333333333331" width="137" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="Reload Drawing"/>
+                                        <connections>
+                                            <action selector="reloadDrawingButton:" destination="ybO-af-Ld9" eventType="touchUpInside" id="oDQ-tP-Dfq"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="PAi-8L-L4x" firstAttribute="centerX" secondItem="xIA-1i-j9h" secondAttribute="centerX" id="Rz6-td-xOx"/>
+                            <constraint firstItem="PAi-8L-L4x" firstAttribute="centerY" secondItem="xIA-1i-j9h" secondAttribute="centerY" id="o9M-lR-xDq"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="0Hg-vf-jUQ"/>
+                    </view>
+                    <connections>
+                        <outlet property="drawingInput" destination="npp-F2-cEQ" id="VPQ-t9-YE2"/>
+                        <outlet property="usernameInput" destination="Hev-Cr-luG" id="sfc-3P-zV6"/>
+                        <segue destination="BV1-FR-VrT" kind="showDetail" identifier="newSegue" id="eay-fx-WWQ"/>
+                        <segue destination="BV1-FR-VrT" kind="showDetail" identifier="loadSegue" id="aFb-m7-olc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tXR-hq-2Kc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1137" y="33"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tXr-a1-R10">
             <objects>
@@ -21,8 +93,9 @@
                             <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BrB-h1-WRS">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </arscnView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q0V-0f-12p">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q0V-0f-12p">
                                 <rect key="frame" x="151" y="705" width="73" height="73"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="Draw Button Active"/>
                                 <connections>
                                     <action selector="drawButtonDown:" destination="BV1-FR-VrT" eventType="touchDown" id="3cP-Mp-Kcy"/>
@@ -30,19 +103,46 @@
                                     <action selector="drawButtonUpOutside:" destination="BV1-FR-VrT" eventType="touchUpOutside" id="MSQ-iz-y7K"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" enabled="NO" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vTt-h3-7Tp" userLabel="Save Button">
+                                <rect key="frame" x="250" y="713" width="98" height="57"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="Save Button Active"/>
+                                <state key="selected" image="Save Button Pressed"/>
+                                <connections>
+                                    <action selector="saveButtonPressed:" destination="BV1-FR-VrT" eventType="touchUpInside" id="bJG-sF-zC6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" enabled="NO" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nbH-KI-n13" userLabel="Reload Button">
+                                <rect key="frame" x="243" y="713" width="116" height="57"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="Reload Button Active"/>
+                                <state key="selected" image="Reload Button Pressed"/>
+                                <connections>
+                                    <action selector="reloadButtonPressed:" destination="BV1-FR-VrT" eventType="touchUpInside" id="p2T-Ld-sfe"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qgz-VM-uc1" userLabel="Notification">
+                                <rect key="frame" x="98" y="338" width="178" height="136"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="0.99596745090000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="q0V-0f-12p" firstAttribute="bottom" secondItem="BuC-N7-NHZ" secondAttribute="bottom" id="Nak-iK-odL"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="trailing" secondItem="BuC-N7-NHZ" secondAttribute="trailing" id="OAv-bc-Lyg"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="top" secondItem="8wR-kV-L0j" secondAttribute="top" id="Sjt-m6-E2n"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="leading" secondItem="BuC-N7-NHZ" secondAttribute="leading" id="ZcA-Vw-REn"/>
-                            <constraint firstItem="q0V-0f-12p" firstAttribute="centerX" secondItem="8wR-kV-L0j" secondAttribute="centerX" id="t5V-R7-nNC"/>
                             <constraint firstAttribute="bottom" secondItem="BrB-h1-WRS" secondAttribute="bottom" id="wgU-79-32o"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="BuC-N7-NHZ"/>
                     </view>
                     <connections>
+                        <outlet property="mapsyncNotification" destination="Qgz-VM-uc1" id="N7f-ca-W5c"/>
+                        <outlet property="reloadButton" destination="nbH-KI-n13" id="4Ei-b3-H4N"/>
+                        <outlet property="saveButton" destination="vTt-h3-7Tp" id="n11-ge-YKr"/>
                         <outlet property="sceneView" destination="BrB-h1-WRS" id="lAl-Zp-VfU"/>
                     </connections>
                 </viewController>
@@ -53,5 +153,12 @@
     </scenes>
     <resources>
         <image name="Draw Button Active" width="73" height="73"/>
+        <image name="Reload Button Active" width="370" height="157"/>
+        <image name="Reload Button Pressed" width="369" height="156"/>
+        <image name="Save Button Active" width="537" height="314"/>
+        <image name="Save Button Pressed" width="268" height="157"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="eay-fx-WWQ"/>
+    </inferredMetricsTieBreakers>
 </document>

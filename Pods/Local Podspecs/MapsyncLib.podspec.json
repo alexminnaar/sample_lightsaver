@@ -1,0 +1,34 @@
+{
+  "name": "MapsyncLib",
+  "version": "1.0.0",
+  "summary": "A simple API for persistent augmented reality.",
+  "homepage": "http://mapsync.io/",
+  "authors": {
+    "Mapsync": "mark@mapsync.io"
+  },
+  "license": {
+    "type": "Apache-2.0",
+    "file": "LICENSE"
+  },
+  "platforms": {
+    "ios": "11.0"
+  },
+  "source": {
+    "git": "https://amakermark@bitbucket.org/amakermark/mapsynclib.git",
+    "tag": "v0.0.5"
+  },
+  "ios": {
+    "vendored_frameworks": "MapsyncLib.framework"
+  },
+  "dependencies": {
+    "AWSS3": [
+      "~> 2.6.10"
+    ],
+    "Alamofire": [
+      "~> 4.6.0"
+    ],
+    "SwiftyJSON": [
+      "~> 4.0.0"
+    ]
+  }
+}

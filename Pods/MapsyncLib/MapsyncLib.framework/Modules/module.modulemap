@@ -1,0 +1,11 @@
+framework module MapsyncLib {
+  umbrella header "MapsyncLib.h"
+
+  export *
+  module * { export * }
+}
+
+module MapsyncLib.Swift {
+    header "MapsyncLib-Swift.h"
+    requires objc
+}
