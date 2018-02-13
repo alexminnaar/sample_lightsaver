@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="PAi-8L-L4x">
-                                <rect key="frame" x="119.66666666666669" y="290" width="137" height="232.33333333333337"/>
+                                <rect key="frame" x="119" y="290" width="137" height="232.33333333333337"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ma1-qc-5dx">
                                         <rect key="frame" x="0.0" y="0.0" width="137" height="33.666666666666664"/>
@@ -93,9 +93,8 @@
                             <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BrB-h1-WRS">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </arscnView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q0V-0f-12p" userLabel="Purple Button">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q0V-0f-12p" userLabel="Purple Button">
                                 <rect key="frame" x="98" y="705" width="73" height="73"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="Purple Active"/>
                                 <state key="selected" image="Purple Pressed"/>
                                 <connections>
@@ -104,35 +103,43 @@
                                     <action selector="drawButtonUpOutside:" destination="BV1-FR-VrT" eventType="touchUpOutside" id="MSQ-iz-y7K"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" enabled="NO" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vTt-h3-7Tp" userLabel="Save Button">
+                            <button opaque="NO" contentMode="scaleAspectFill" enabled="NO" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vTt-h3-7Tp" userLabel="Save Button">
                                 <rect key="frame" x="250" y="713" width="98" height="57"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="57" id="3LB-eU-B5z"/>
+                                    <constraint firstAttribute="width" constant="98" id="x6A-58-Q7A"/>
+                                </constraints>
                                 <state key="normal" image="Save Button Active"/>
                                 <state key="selected" image="Save Button Pressed"/>
                                 <connections>
                                     <action selector="saveButtonPressed:" destination="BV1-FR-VrT" eventType="touchUpInside" id="bJG-sF-zC6"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" enabled="NO" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nbH-KI-n13" userLabel="Reload Button">
+                            <button opaque="NO" contentMode="scaleAspectFill" enabled="NO" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nbH-KI-n13" userLabel="Reload Button">
                                 <rect key="frame" x="243" y="713" width="116" height="57"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="57" id="atr-QA-fs9"/>
+                                    <constraint firstAttribute="width" constant="116" id="gFE-eu-I2n"/>
+                                </constraints>
                                 <state key="normal" image="Reload Button Active"/>
                                 <state key="selected" image="Reload Button Pressed"/>
                                 <connections>
                                     <action selector="reloadButtonPressed:" destination="BV1-FR-VrT" eventType="touchUpInside" id="p2T-Ld-sfe"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qgz-VM-uc1" userLabel="Notification">
-                                <rect key="frame" x="98" y="338" width="178" height="136"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qgz-VM-uc1" userLabel="Notification">
+                                <rect key="frame" x="98.666666666666686" y="338" width="178" height="136"/>
                                 <color key="backgroundColor" red="1" green="1" blue="0.99596745090000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="178" id="8eu-dG-8rq"/>
+                                    <constraint firstAttribute="height" constant="136" id="W4U-az-WgJ"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pnH-rf-uEF" userLabel="Green Button">
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pnH-rf-uEF" userLabel="Green Button">
                                 <rect key="frame" x="16" y="705" width="73" height="73"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="Green Active"/>
                                 <state key="selected" image="Green Pressed"/>
                                 <connections>
@@ -141,9 +148,8 @@
                                     <action selector="drawButtonUpOutside:" destination="BV1-FR-VrT" eventType="touchUpOutside" id="o6E-3d-rtH"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DuB-KW-cwQ" userLabel="Pink Button">
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DuB-KW-cwQ" userLabel="Pink Button">
                                 <rect key="frame" x="16" y="624" width="73" height="73"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="Pink Active"/>
                                 <state key="selected" image="Pink Pressed"/>
                                 <connections>
@@ -155,10 +161,26 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="pnH-rf-uEF" firstAttribute="leading" secondItem="BuC-N7-NHZ" secondAttribute="leading" constant="16" id="0ic-8n-p2O"/>
+                            <constraint firstItem="pnH-rf-uEF" firstAttribute="top" secondItem="DuB-KW-cwQ" secondAttribute="bottom" constant="8" id="1TH-DF-Up0"/>
+                            <constraint firstItem="BuC-N7-NHZ" firstAttribute="trailing" secondItem="nbH-KI-n13" secondAttribute="trailing" constant="16" id="5SD-lO-8bA"/>
+                            <constraint firstItem="BrB-h1-WRS" firstAttribute="leading" secondItem="BuC-N7-NHZ" secondAttribute="leading" id="GUl-fe-QQI"/>
+                            <constraint firstAttribute="bottom" secondItem="BrB-h1-WRS" secondAttribute="bottom" id="LAK-U0-wjA"/>
+                            <constraint firstItem="q0V-0f-12p" firstAttribute="leading" secondItem="pnH-rf-uEF" secondAttribute="trailing" constant="9" id="N4Y-Y7-VKc"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="trailing" secondItem="BuC-N7-NHZ" secondAttribute="trailing" id="OAv-bc-Lyg"/>
+                            <constraint firstItem="BrB-h1-WRS" firstAttribute="trailing" secondItem="BuC-N7-NHZ" secondAttribute="trailing" id="RI8-lg-bHQ"/>
+                            <constraint firstItem="Qgz-VM-uc1" firstAttribute="centerY" secondItem="8wR-kV-L0j" secondAttribute="centerY" id="RLj-mw-vLS"/>
+                            <constraint firstItem="BuC-N7-NHZ" firstAttribute="bottom" secondItem="nbH-KI-n13" secondAttribute="bottom" constant="8" id="RjA-aK-35X"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="top" secondItem="8wR-kV-L0j" secondAttribute="top" id="Sjt-m6-E2n"/>
+                            <constraint firstItem="BuC-N7-NHZ" firstAttribute="bottom" secondItem="vTt-h3-7Tp" secondAttribute="bottom" constant="8" id="UiO-85-Pb9"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="leading" secondItem="BuC-N7-NHZ" secondAttribute="leading" id="ZcA-Vw-REn"/>
+                            <constraint firstItem="BuC-N7-NHZ" firstAttribute="trailing" secondItem="vTt-h3-7Tp" secondAttribute="trailing" constant="27" id="fb0-Hf-Hu8"/>
+                            <constraint firstItem="Qgz-VM-uc1" firstAttribute="centerX" secondItem="8wR-kV-L0j" secondAttribute="centerX" id="mGt-Iq-vmR"/>
+                            <constraint firstItem="DuB-KW-cwQ" firstAttribute="leading" secondItem="BuC-N7-NHZ" secondAttribute="leading" constant="16" id="qW6-UP-bSc"/>
+                            <constraint firstItem="q0V-0f-12p" firstAttribute="bottom" secondItem="BuC-N7-NHZ" secondAttribute="bottom" id="vD2-3R-122"/>
+                            <constraint firstItem="pnH-rf-uEF" firstAttribute="bottom" secondItem="BuC-N7-NHZ" secondAttribute="bottom" id="vNr-Hn-KA2"/>
                             <constraint firstAttribute="bottom" secondItem="BrB-h1-WRS" secondAttribute="bottom" id="wgU-79-32o"/>
+                            <constraint firstItem="BrB-h1-WRS" firstAttribute="top" secondItem="8wR-kV-L0j" secondAttribute="top" id="yr0-rs-2X0"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="BuC-N7-NHZ"/>
                     </view>

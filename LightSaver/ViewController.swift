@@ -65,7 +65,11 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
         mapsyncSession = MapsyncSession.init(arSession: sceneView.session, mapsyncMode: mapsyncMode, appID: appID!, userID: userID!, mapID: mapID!, statusCallback: mapsyncStatusCallback)
         
         setUI(.unknown)
-        mapsyncNotification.isHidden = true
+        if mapsyncMode == .localization {
+            showMapsyncNotification("Scan around for your design and press reload when ready.")
+        } else {
+            mapsyncNotification.isHidden = true
+        }
         
     }
     
@@ -106,7 +110,6 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
             
             mapsyncAssets.append(asset)
             sceneView.scene.rootNode.addChildNode(sphereNode)
-            
         }
         
     }
@@ -152,10 +155,6 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
     @IBAction func saveButtonPressed(_ sender: Any) {
         showMapsyncNotification("Saving")
         if mapsyncAssets.count > 0 {
-            DispatchQueue.main.async {
-                self.setUI(.unknown)
-                self.mapsyncNotification.isHidden = true
-            }
             mapsyncSession?.uploadMap(callback: { (didUpload) in
                 if !didUpload {
                     print("didn't upload map")
@@ -171,6 +170,11 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
                     return
                 }
                 print("stored placement")
+                
+                DispatchQueue.main.async {
+                    self.setUI(.unknown)
+                    self.mapsyncNotification.isHidden = true
+                }
 
             })
         }
