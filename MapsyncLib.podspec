@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
     s.license           = { :type => 'Apache-2.0', :file => 'LICENSE' }
 
     s.platform          = :ios
-    s.source            = { :git => 'https://amakermark@bitbucket.org/amakermark/mapsynclib.git', :tag => 'v0.0.5' }
+    s.source            = { :git => 'https://amakermark@bitbucket.org/amakermark/mapsynclib.git', :branch => 'beta_update' }
 
     s.ios.deployment_target = '11.0'
     s.ios.vendored_frameworks = 'MapsyncLib.framework'
@@ -16,5 +16,5 @@ Pod::Spec.new do |s|
 	s.dependency "AWSS3", "~> 2.6.10"
     s.dependency "Alamofire", "~> 4.6.0"
     s.dependency "SwiftyJSON", "~> 4.0.0"
-
+    s.dependency "SwiftHash"
 end

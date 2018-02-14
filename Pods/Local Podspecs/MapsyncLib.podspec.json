@@ -15,7 +15,7 @@
   },
   "source": {
     "git": "https://amakermark@bitbucket.org/amakermark/mapsynclib.git",
-    "tag": "v0.0.5"
+    "branch": "beta_update"
   },
   "ios": {
     "vendored_frameworks": "MapsyncLib.framework"
@@ -29,6 +29,9 @@
     ],
     "SwiftyJSON": [
       "~> 4.0.0"
+    ],
+    "SwiftHash": [
+
     ]
   }
 }

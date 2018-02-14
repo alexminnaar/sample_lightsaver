@@ -26,8 +26,8 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
     @IBOutlet var reloadButton: UIButton!
     @IBOutlet var mapsyncNotification: UILabel!
     
-    
     @IBOutlet var sceneView: ARSCNView!
+    
     var drawing: Bool = false
     var color: UIColor = UIColor.blue
     var colorLabel: String = ""
@@ -49,7 +49,6 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
         // Set the scene to the view
         sceneView.scene = scene
         
-        // Mapsync
         //Pulls username from userdefaults set in LoginViewController
         let defaults = UserDefaults.standard
         if let username = defaults.string(forKey:"username") {
@@ -62,8 +61,15 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
             self.mapID = mapID
         }
         
-        mapsyncSession = MapsyncSession.init(arSession: sceneView.session, mapsyncMode: mapsyncMode, appID: appID!, userID: userID!, mapID: mapID!, statusCallback: mapsyncStatusCallback)
-        
+        //Initialize MapsyncSession
+        do {
+        self.mapsyncSession = try MapsyncSession.init(arSession: sceneView.session, mapsyncMode: mapsyncMode, userID: userID!, mapID: mapID!, developerKey: DEV_KEY, statusCallback: mapsyncStatusCallback)
+        }
+        catch {
+            print("Failed to initialize Mapsync Session")
+        }
+
+        //Set up UI
         setUI(.unknown)
         if mapsyncMode == .localization {
             showMapsyncNotification("Scan around for your design and press reload when ready.")
@@ -78,7 +84,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
         
         let configuration = ARWorldTrackingConfiguration()
         configuration.planeDetection = .horizontal
-        configuration.worldAlignment = ARConfiguration.WorldAlignment.gravityAndHeading
+        configuration.worldAlignment = ARConfiguration.WorldAlignment.gravityAndHeading //Required for Mapsync
         sceneView.session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
         
     }
@@ -92,40 +98,33 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Release any cached data, images, etc that aren't in use.
     }
 
     func renderer(_ renderer: SCNSceneRenderer, willRenderScene scene: SCNScene, atTime time: TimeInterval) {
         
         if drawing, let transform = sceneView.pointOfView?.transform, let position = sceneView.pointOfView?.position {
             
+            //Draw position should be in front of screen
             let offset = SCNVector3(-0.4 * transform.m31, -0.4 * transform.m32, -0.4 * transform.m33)
             let drawPosition = SCNVector3.init(offset.x + position.x, offset.y + position.y, offset.z + position.z)
             
+            //Create a colored sphere
             let sphereNode = SCNNode(geometry: SCNSphere(radius: 0.01))
             sphereNode.geometry?.firstMaterial?.diffuse.contents = color
             sphereNode.position = drawPosition
-            
-            let asset = MapsyncAsset.init(colorLabel, position, 0.0)
-            
-            mapsyncAssets.append(asset)
             sceneView.scene.rootNode.addChildNode(sphereNode)
+            
+            //Save a corresponding MapsyncAsset
+            let asset = MapsyncAsset.init(colorLabel, position, 0.0)
+            mapsyncAssets.append(asset)
+            
         }
         
     }
-
-    // MARK: - ARSCNViewDelegate
     
-/*
-    // Override to create and configure nodes for anchors added to the view's session.
-    func renderer(_ renderer: SCNSceneRenderer, nodeFor anchor: ARAnchor) -> SCNNode? {
-        let node = SCNNode()
-     
-        return node
-    }
-*/
     @IBAction func drawButtonDown(_ sender: UIButton) {
         drawing = true
+        
         switch sender.tag {
         case 0:
             color = purple
@@ -152,6 +151,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
         drawing = false
     }
     
+    //Uploads map and Mapsync Assets
     @IBAction func saveButtonPressed(_ sender: Any) {
         showMapsyncNotification("Saving")
         if mapsyncAssets.count > 0 {
@@ -180,6 +180,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
         }
     }
     
+    //Uploads map and reloads assets
     @IBAction func reloadButtonPressed(_ sender: Any) {
         showMapsyncNotification("Reloading")
         mapsyncSession?.uploadMap(callback: { (didUpload) in
@@ -230,12 +231,13 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
     
     func session(_ session: ARSession, didUpdate frame: ARFrame) {
         if sessionStarted {
+            //Required for Mapsync
             mapsyncSession?.update(frame: frame)
         }
     }
     
     func session(_ session: ARSession, cameraDidChangeTrackingState camera: ARCamera) {
-        
+        //Only display Save/Reload once ARSession starts
         switch camera.trackingState {
         case .normal:
             if !sessionStarted {
@@ -262,26 +264,31 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
         
     }
     
-    // Mapsync
+    // Mapsync status handling
     func mapsyncStatusCallback(status: MapsyncStatus){
         switch status {
         case .initialized:
             print("initialized")
             
         case .localizationError:
-            print("localization error")
+            print("relocalization error")
+            showMapsyncNotification("Drawing not found")
             
         case .serverError:
             print("server error")
+            showMapsyncNotification("Server Error")
             
         case .noMapFound:
             print("no map found")
+            showMapsyncNotification("Drawing not found")
             
         case .networkFailure:
             print("network failure")
+            showMapsyncNotification("Network Error")
             
         case .noAssetFound:
             print ("no asset found")
+            showMapsyncNotification("Drawing not found")
         }
     }
     

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0B46FC87F9AA6BEEA7F57878 /* Pods_LightSaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 189668393D0AA745A4EE45CD /* Pods_LightSaver.framework */; };
+		2615AE032033948A00777129 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2615AE022033948A00777129 /* Config.swift */; };
 		264C2C552032166500F1958E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 264C2C542032166500F1958E /* AppDelegate.swift */; };
 		264C2C572032166500F1958E /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 264C2C562032166500F1958E /* art.scnassets */; };
 		264C2C592032166500F1958E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 264C2C582032166500F1958E /* ViewController.swift */; };
@@ -39,6 +40,7 @@
 /* Begin PBXFileReference section */
 		189668393D0AA745A4EE45CD /* Pods_LightSaver.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LightSaver.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2315A52480A638FB803342FE /* Pods-LightSaver.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LightSaver.release.xcconfig"; path = "Pods/Target Support Files/Pods-LightSaver/Pods-LightSaver.release.xcconfig"; sourceTree = "<group>"; };
+		2615AE022033948A00777129 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		264C2C512032166500F1958E /* LightSaver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LightSaver.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		264C2C542032166500F1958E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		264C2C562032166500F1958E /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				264C2C5F2032166500F1958E /* LaunchScreen.storyboard */,
 				264C2C622032166500F1958E /* Info.plist */,
 				264C2C84203235A100F1958E /* LoginViewController.swift */,
+				2615AE022033948A00777129 /* Config.swift */,
 			);
 			path = LightSaver;
 			sourceTree = "<group>";
@@ -300,6 +303,7 @@
 				"${BUILT_PRODUCTS_DIR}/AWSS3/AWSS3.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${PODS_ROOT}/MapsyncLib/MapsyncLib.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftHash/SwiftHash.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -308,6 +312,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSS3.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapsyncLib.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftHash.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -356,6 +361,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				264C2C85203235A100F1958E /* LoginViewController.swift in Sources */,
+				2615AE032033948A00777129 /* Config.swift in Sources */,
 				264C2C592032166500F1958E /* ViewController.swift in Sources */,
 				264C2C552032166500F1958E /* AppDelegate.swift in Sources */,
 			);
@@ -526,6 +532,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NUG79H4J5C;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = LightSaver/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.markstauber.LightSaver;
@@ -542,6 +549,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NUG79H4J5C;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = LightSaver/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.markstauber.LightSaver;
