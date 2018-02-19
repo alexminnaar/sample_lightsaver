@@ -1,9 +1,9 @@
 PODS:
   - Alamofire (4.6.0)
-  - AWSCore (2.6.10)
-  - AWSS3 (2.6.10):
-    - AWSCore (= 2.6.10)
-  - MapsyncLib (1.0.0):
+  - AWSCore (2.6.12)
+  - AWSS3 (2.6.12):
+    - AWSCore (= 2.6.12)
+  - MapsyncLib (0.1.0):
     - Alamofire (~> 4.6.0)
     - AWSS3 (~> 2.6.10)
     - SwiftHash
@@ -18,16 +18,11 @@ EXTERNAL SOURCES:
   MapsyncLib:
     :podspec: ./MapsyncLib.podspec
 
-CHECKOUT OPTIONS:
-  MapsyncLib:
-    :commit: cebfdecad8c8036c1f62cf948eaf6f13dcd689ef
-    :git: https://amakermark@bitbucket.org/amakermark/mapsynclib.git
-
 SPEC CHECKSUMS:
   Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
-  AWSCore: 5bb072a6b5b185f43ddbd239d6554d2f8a285ad2
-  AWSS3: 1124570c2c2dba6be7e6e67d123cc5181073c53d
-  MapsyncLib: 89d7a3a8de9824f4014f9b5ad522023ab1e6efde
+  AWSCore: d0d6e4f6831754aaf98058d2306a016ae71510fe
+  AWSS3: c35608e0cdd5172f9e1d943221fd5fde01c5f749
+  MapsyncLib: 1e49b8d45ef5c704999ffa715503637688481278
   SwiftHash: c805de5a434eacfa0dac7210745a50c55d7fe33d
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
 

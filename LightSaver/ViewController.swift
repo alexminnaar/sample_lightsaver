@@ -13,10 +13,10 @@ import MapsyncLib
 
 class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
 
-    // Mapsync
-    var mapsyncSession: MapsyncSession?
-    var mapsyncAssets: [MapsyncAsset] = [MapsyncAsset]()
-    var mapsyncMode: MapsyncMode = .unknown
+    // Map
+    var mapsyncSession: MapSession?
+    var mapsyncAssets: [MapAsset] = [MapAsset]()
+    var mapsyncMode: MapMode = .unknown
     var appID: String?
     var userID: String?
     var mapID: String?
@@ -60,22 +60,17 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
         if let mapID = defaults.string(forKey:"drawing_id") {
             self.mapID = mapID
         }
-        
-        //Initialize MapsyncSession
-        do {
-        self.mapsyncSession = try MapsyncSession.init(arSession: sceneView.session, mapsyncMode: mapsyncMode, userID: userID!, mapID: mapID!, developerKey: DEV_KEY, statusCallback: mapsyncStatusCallback)
-        }
-        catch {
-            print("Failed to initialize Mapsync Session")
-        }
 
         //Set up UI
         setUI(.unknown)
         if mapsyncMode == .localization {
-            showMapsyncNotification("Scan around for your design and press reload when ready.")
+            showMapNotification("Scan around for your design to reload.")
         } else {
             mapsyncNotification.isHidden = true
         }
+        
+        //Initialize MapSession
+        self.mapsyncSession = MapSession.init(arSession: sceneView.session, mapMode: mapsyncMode, userID: userID!, mapID: mapID!, developerKey: DEV_KEY, assetsFoundCallback: reloadAssetsCallback, statusCallback: mapsyncStatusCallback)
         
     }
     
@@ -84,7 +79,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
         
         let configuration = ARWorldTrackingConfiguration()
         configuration.planeDetection = .horizontal
-        configuration.worldAlignment = ARConfiguration.WorldAlignment.gravityAndHeading //Required for Mapsync
+        configuration.worldAlignment = ARConfiguration.WorldAlignment.gravityAndHeading //Required for Map
         sceneView.session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
         
     }
@@ -114,8 +109,8 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
             sphereNode.position = drawPosition
             sceneView.scene.rootNode.addChildNode(sphereNode)
             
-            //Save a corresponding MapsyncAsset
-            let asset = MapsyncAsset.init(colorLabel, position, 0.0)
+            //Save a corresponding MapAsset
+            let asset = MapAsset.init(colorLabel, position, 0.0)
             mapsyncAssets.append(asset)
             
         }
@@ -151,19 +146,10 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
         drawing = false
     }
     
-    //Uploads map and Mapsync Assets
+    //Uploads map and Map Assets
     @IBAction func saveButtonPressed(_ sender: Any) {
-        showMapsyncNotification("Saving")
+        showMapNotification("Saving")
         if mapsyncAssets.count > 0 {
-            mapsyncSession?.uploadMap(callback: { (didUpload) in
-                if !didUpload {
-                    print("didn't upload map")
-                    return
-                }
-                print("uploaded map")
-
-            })
-            
             mapsyncSession?.storePlacement(assets: mapsyncAssets, callback: { (didUpload) in
                 if !didUpload {
                     print("didn't store placement")
@@ -182,30 +168,25 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
     
     //Uploads map and reloads assets
     @IBAction func reloadButtonPressed(_ sender: Any) {
-        showMapsyncNotification("Reloading")
-        mapsyncSession?.uploadMap(callback: { (didUpload) in
-            if !didUpload {
-                return
-            }
-            
-            self.reloadAssets()
-        })
+        showMapNotification("Reloading")
     }
     
-    private func reloadAssets() {
-        mapsyncSession?.reloadAssets(callback: { (mapsyncAssets) in
-            for asset in mapsyncAssets {
-                self.addAssetToScene(asset)
-            }
-            
-            DispatchQueue.main.async {
-                self.setUI(.unknown)
-                self.mapsyncNotification.isHidden = true
-            }
-        })
+    private func reloadAssetsCallback(mapAssets: [MapAsset]) {
+        print("Reloading \(mapAssets.count) assets to the scene")
+        if mapAssets.count > 0 {
+            print("first asset: \(mapAssets.first!.assetID)")
+        }
+        for asset in mapAssets {
+            self.addAssetToScene(asset)
+        }
+        
+        DispatchQueue.main.async {
+            self.setUI(.unknown)
+            self.mapsyncNotification.isHidden = true
+        }
     }
     
-    private func addAssetToScene(_ asset: MapsyncAsset) {
+    private func addAssetToScene(_ asset: MapAsset) {
         let sphereNode = SCNNode(geometry: SCNSphere(radius: 0.01))
         sphereNode.geometry?.firstMaterial?.diffuse.contents = getColor(asset.assetID)
         sphereNode.position = asset.position
@@ -231,7 +212,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
     
     func session(_ session: ARSession, didUpdate frame: ARFrame) {
         if sessionStarted {
-            //Required for Mapsync
+            //Required for Map
             mapsyncSession?.update(frame: frame)
         }
     }
@@ -264,35 +245,44 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
         
     }
     
-    // Mapsync status handling
-    func mapsyncStatusCallback(status: MapsyncStatus){
+    // Map status handling
+    func mapsyncStatusCallback(status: MapStatus){
         switch status {
         case .initialized:
             print("initialized")
             
         case .localizationError:
             print("relocalization error")
-            showMapsyncNotification("Drawing not found")
+            showMapNotification("Drawing not found")
             
         case .serverError:
             print("server error")
-            showMapsyncNotification("Server Error")
+            showMapNotification("Server Error")
             
         case .noMapFound:
             print("no map found")
-            showMapsyncNotification("Drawing not found")
+            showMapNotification("Drawing not found")
             
         case .networkFailure:
             print("network failure")
-            showMapsyncNotification("Network Error")
+            showMapNotification("Network Error")
             
         case .noAssetFound:
-            print ("no asset found")
-            showMapsyncNotification("Drawing not found")
+            print("no asset found")
+            showMapNotification("Drawing not found")
+            
+        case .authenticationError:
+            print("authentication error")
+            showMapNotification("Authentication Error. Please add your jido development key!")
+            sceneView.session.pause()
+            
+        case .localizationTimeout:
+            print("localization timeout")
+            showMapNotification("Localization Timeout")
         }
     }
     
-    private func setUI(_ mode: MapsyncMode){
+    private func setUI(_ mode: MapMode){
         switch mode {
         case .mapping:
             saveButton.isEnabled = true
@@ -303,8 +293,8 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
         case .localization:
             saveButton.isEnabled = false
             saveButton.isHidden = true
-            reloadButton.isEnabled = true
-            reloadButton.isHidden = false
+            reloadButton.isEnabled = false
+            reloadButton.isHidden = true
         
         default:
             saveButton.isEnabled = false
@@ -315,11 +305,11 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
     }
     
     // MARK: - User Instruction
-    func showMapsyncNotification(_ instruction: String) {
+    func showMapNotification(_ instruction: String) {
         mapsyncNotification.layer.cornerRadius = 5
         mapsyncNotification.layer.masksToBounds = true
         mapsyncNotification.text = instruction
         mapsyncNotification.isHidden = false
-        
+        print("Showing notifcation: \(instruction)")
     }
 }
