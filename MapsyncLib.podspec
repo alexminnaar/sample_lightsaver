@@ -1,14 +1,14 @@
 Pod::Spec.new do |s|  
     s.name              = 'MapsyncLib'
-    s.version           = '1.0.0'
+    s.version           = '0.1.0'
     s.summary           = 'A simple API for persistent augmented reality.'
     s.homepage          = 'http://mapsync.io/'
 
-    s.author            = { 'Mapsync' => 'mark@mapsync.io' }
+    s.author            = { 'Mapsync' => 'mark@jidomaps.com' }
     s.license           = { :type => 'Apache-2.0', :file => 'LICENSE' }
 
     s.platform          = :ios
-    s.source            = { :git => 'https://amakermark@bitbucket.org/amakermark/mapsynclib.git', :branch => 'beta_update' }
+    s.source            = { :git => 'https://amakermark@bitbucket.org/amakermark/mapsynclib.git', :tag => 'v0.1.0' }
 
     s.ios.deployment_target = '11.0'
     s.ios.vendored_frameworks = 'MapsyncLib.framework'

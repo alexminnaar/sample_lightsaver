@@ -1,10 +1,10 @@
 {
   "name": "MapsyncLib",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "summary": "A simple API for persistent augmented reality.",
   "homepage": "http://mapsync.io/",
   "authors": {
-    "Mapsync": "mark@mapsync.io"
+    "Mapsync": "mark@jidomaps.com"
   },
   "license": {
     "type": "Apache-2.0",
@@ -15,7 +15,7 @@
   },
   "source": {
     "git": "https://amakermark@bitbucket.org/amakermark/mapsynclib.git",
-    "branch": "beta_update"
+    "tag": "v0.1.0"
   },
   "ios": {
     "vendored_frameworks": "MapsyncLib.framework"
