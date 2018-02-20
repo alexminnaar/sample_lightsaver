@@ -13,10 +13,12 @@ import MapsyncLib
 
 class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
 
-    // Map
-    var mapsyncSession: MapSession?
-    var mapsyncAssets: [MapAsset] = [MapAsset]()
-    var mapsyncMode: MapMode = .unknown
+    // Map Session Members
+    var mapSession: MapSession?
+    var mapAssets: [MapAsset] = [MapAsset]() //Stores assets to be saved
+    var mapMode: MapMode = .unknown //Is set to .mapping or .localization mode by LoginViewController
+    
+    
     var appID: String?
     var userID: String?
     var mapID: String?
@@ -24,7 +26,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
     
     @IBOutlet var saveButton: UIButton!
     @IBOutlet var reloadButton: UIButton!
-    @IBOutlet var mapsyncNotification: UILabel!
+    @IBOutlet var mapNotification: UILabel!
     
     @IBOutlet var sceneView: ARSCNView!
     
@@ -49,7 +51,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
         // Set the scene to the view
         sceneView.scene = scene
         
-        //Pulls username from userdefaults set in LoginViewController
+        //Pulls username info from userdefaults set in LoginViewController
         let defaults = UserDefaults.standard
         if let username = defaults.string(forKey:"username") {
             self.userID = username
@@ -63,14 +65,14 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
 
         //Set up UI
         setUI(.unknown)
-        if mapsyncMode == .localization {
+        if mapMode == .localization {
             showMapNotification("Scan around for your design to reload.")
         } else {
-            mapsyncNotification.isHidden = true
+            mapNotification.isHidden = true
         }
         
         //Initialize MapSession
-        self.mapsyncSession = MapSession.init(arSession: sceneView.session, mapMode: mapsyncMode, userID: userID!, mapID: mapID!, developerKey: DEV_KEY, assetsFoundCallback: reloadAssetsCallback, statusCallback: mapsyncStatusCallback)
+        self.mapSession = MapSession.init(arSession: sceneView.session, mapMode: mapMode, userID: userID!, mapID: mapID!, developerKey: DEV_KEY, assetsFoundCallback: reloadAssetsCallback, statusCallback: mapStatusCallback)
         
     }
     
@@ -111,7 +113,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
             
             //Save a corresponding MapAsset
             let asset = MapAsset.init(colorLabel, position, 0.0)
-            mapsyncAssets.append(asset)
+            mapAssets.append(asset)
             
         }
         
@@ -149,8 +151,8 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
     //Uploads map and Map Assets
     @IBAction func saveButtonPressed(_ sender: Any) {
         showMapNotification("Saving")
-        if mapsyncAssets.count > 0 {
-            mapsyncSession?.storePlacement(assets: mapsyncAssets, callback: { (didUpload) in
+        if mapAssets.count > 0 {
+            mapSession?.storePlacement(assets: mapAssets, callback: { (didUpload) in
                 if !didUpload {
                     print("didn't store placement")
                     return
@@ -159,7 +161,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
                 
                 DispatchQueue.main.async {
                     self.setUI(.unknown)
-                    self.mapsyncNotification.isHidden = true
+                    self.mapNotification.isHidden = true
                 }
 
             })
@@ -182,7 +184,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
         
         DispatchQueue.main.async {
             self.setUI(.unknown)
-            self.mapsyncNotification.isHidden = true
+            self.mapNotification.isHidden = true
         }
     }
     
@@ -213,7 +215,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
     func session(_ session: ARSession, didUpdate frame: ARFrame) {
         if sessionStarted {
             //Required for Map
-            mapsyncSession?.update(frame: frame)
+            mapSession?.update(frame: frame)
         }
     }
     
@@ -223,7 +225,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
         case .normal:
             if !sessionStarted {
                 sessionStarted = true
-                setUI(mapsyncMode)
+                setUI(mapMode)
             }
         case .notAvailable, .limited:
             print("tracking limited")
@@ -246,10 +248,10 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
     }
     
     // Map status handling
-    func mapsyncStatusCallback(status: MapStatus){
+    func mapStatusCallback(status: MapStatus){
         switch status {
         case .initialized:
-            print("initialized")
+            print("session initialized")
             
         case .localizationError:
             print("relocalization error")
@@ -306,10 +308,10 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
     
     // MARK: - User Instruction
     func showMapNotification(_ instruction: String) {
-        mapsyncNotification.layer.cornerRadius = 5
-        mapsyncNotification.layer.masksToBounds = true
-        mapsyncNotification.text = instruction
-        mapsyncNotification.isHidden = false
+        mapNotification.layer.cornerRadius = 5
+        mapNotification.layer.masksToBounds = true
+        mapNotification.text = instruction
+        mapNotification.isHidden = false
         print("Showing notifcation: \(instruction)")
     }
 }

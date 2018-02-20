@@ -50,14 +50,14 @@ class LoginViewController: UIViewController {
     }
     
     
-    // Set Mapsync Mode based on button pressed
+    // Set Map Mode based on button pressed
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if let viewController = segue.destination as? ViewController {
             if segue.identifier == "newSegue" {
-                viewController.mapsyncMode = .mapping
+                viewController.mapMode = .mapping
             } else if segue.identifier == "loadSegue" {
-                viewController.mapsyncMode = .localization
+                viewController.mapMode = .localization
             }
         }
     }

@@ -531,7 +531,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = UCAX7CGVX3;
+				DEVELOPMENT_TEAM = NUG79H4J5C;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = LightSaver/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -548,7 +548,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = UCAX7CGVX3;
+				DEVELOPMENT_TEAM = NUG79H4J5C;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = LightSaver/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

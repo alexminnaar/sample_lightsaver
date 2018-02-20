@@ -8,4 +8,4 @@
 
 import Foundation
 
-public var DEV_KEY = "PUT DEV KEY HERE"
+public var DEV_KEY = "AKIAI5MLNMDCDMPXW6EAI3BnlEapF50RXM6+bKfbquhUlYSxZ3opymGkkiaq"
