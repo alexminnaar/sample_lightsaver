@@ -68,8 +68,8 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
         if mapMode == .localization {
             showMapNotification("Scan around the area while your design reloads.")
             searching = true
-            DispatchQueue.main.asyncAfter(deadline: .now() + 20) {
-                // If still searching after 20 seconds, instruct to restart mapping
+            DispatchQueue.main.asyncAfter(deadline: .now() + 25) {
+                // If still searching after 25 seconds, instruct to restart mapping
                 if self.searching {
                     self.showMapNotification("Design not found. Restart app and try again.")
                 }
