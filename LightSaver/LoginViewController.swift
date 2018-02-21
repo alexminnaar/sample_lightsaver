@@ -26,7 +26,6 @@ class LoginViewController: UIViewController {
             drawingInput.text = drawingID
         }
         
-        
     }
 
     override func didReceiveMemoryWarning() {

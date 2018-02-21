@@ -23,9 +23,9 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
     var userID: String?
     var mapID: String?
     var sessionStarted: Bool = false
+    var searching: Bool = false
     
     @IBOutlet var saveButton: UIButton!
-    @IBOutlet var reloadButton: UIButton!
     @IBOutlet var mapNotification: UILabel!
     
     @IBOutlet var sceneView: ARSCNView!
@@ -64,9 +64,16 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
         }
 
         //Set up UI
-        setUI(.unknown)
+        showButton(false, saveButton)
         if mapMode == .localization {
-            showMapNotification("Scan around for your design to reload.")
+            showMapNotification("Scan around the area while your design reloads.")
+            searching = true
+            DispatchQueue.main.asyncAfter(deadline: .now() + 20) {
+                // If still searching after 20 seconds, instruct to restart mapping
+                if self.searching {
+                    self.showMapNotification("Design not found. Restart app and try again.")
+                }
+            }
         } else {
             mapNotification.isHidden = true
         }
@@ -79,9 +86,10 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        //Required for MapSession
         let configuration = ARWorldTrackingConfiguration()
         configuration.planeDetection = .horizontal
-        configuration.worldAlignment = ARConfiguration.WorldAlignment.gravityAndHeading //Required for Map
+        configuration.worldAlignment = ARConfiguration.WorldAlignment.gravityAndHeading
         sceneView.session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
         
     }
@@ -160,7 +168,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
                 print("stored placement")
                 
                 DispatchQueue.main.async {
-                    self.setUI(.unknown)
+                    self.showButton(false, self.saveButton)
                     self.mapNotification.isHidden = true
                 }
 
@@ -168,23 +176,19 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
         }
     }
     
-    //Uploads map and reloads assets
-    @IBAction func reloadButtonPressed(_ sender: Any) {
-        showMapNotification("Reloading")
-    }
-    
     private func reloadAssetsCallback(mapAssets: [MapAsset]) {
         print("Reloading \(mapAssets.count) assets to the scene")
-        if mapAssets.count > 0 {
-            print("first asset: \(mapAssets.first!.assetID)")
-        }
+        
         for asset in mapAssets {
             self.addAssetToScene(asset)
         }
         
         DispatchQueue.main.async {
-            self.setUI(.unknown)
-            self.mapNotification.isHidden = true
+            self.showMapNotification("Design Found!")
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                self.mapNotification.isHidden = true
+                self.searching = false
+            }
         }
     }
     
@@ -225,7 +229,9 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
         case .normal:
             if !sessionStarted {
                 sessionStarted = true
-                setUI(mapMode)
+                if mapMode == .mapping {
+                    showButton(true, saveButton)
+                }
             }
         case .notAvailable, .limited:
             print("tracking limited")
@@ -284,26 +290,9 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
         }
     }
     
-    private func setUI(_ mode: MapMode){
-        switch mode {
-        case .mapping:
-            saveButton.isEnabled = true
-            saveButton.isHidden = false
-            reloadButton.isEnabled = false
-            reloadButton.isHidden = true
-            
-        case .localization:
-            saveButton.isEnabled = false
-            saveButton.isHidden = true
-            reloadButton.isEnabled = false
-            reloadButton.isHidden = true
-        
-        default:
-            saveButton.isEnabled = false
-            saveButton.isHidden = true
-            reloadButton.isEnabled = false
-            reloadButton.isHidden = true
-        }
+    private func showButton(_ show: Bool, _ button: UIButton){
+        button.isHidden = !show
+        button.isEnabled = show
     }
     
     // MARK: - User Instruction

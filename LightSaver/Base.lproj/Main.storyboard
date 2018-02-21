@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ybO-af-Ld9">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,38 +15,38 @@
             <objects>
                 <viewController id="ybO-af-Ld9" customClass="LoginViewController" customModule="LightSaver" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xIA-1i-j9h">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="PAi-8L-L4x">
-                                <rect key="frame" x="231.5" y="184" width="137" height="232"/>
+                                <rect key="frame" x="119" y="290" width="137" height="232.33333333333337"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ma1-qc-5dx">
-                                        <rect key="frame" x="0.0" y="0.0" width="137" height="33.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="137" height="33.666666666666664"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hev-Cr-luG" userLabel="Username Input">
-                                        <rect key="frame" x="0.0" y="38.5" width="137" height="34"/>
+                                        <rect key="frame" x="0.0" y="38.666666666666686" width="137" height="34"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drawing" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L6R-lD-5Am">
-                                        <rect key="frame" x="0.0" y="77.5" width="137" height="33.5"/>
+                                        <rect key="frame" x="0.0" y="77.666666666666686" width="137" height="33.666666666666657"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="npp-F2-cEQ" userLabel="Drawing Input">
-                                        <rect key="frame" x="0.0" y="116" width="137" height="34"/>
+                                        <rect key="frame" x="0.0" y="116.33333333333331" width="137" height="34"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xEf-PY-nDt">
-                                        <rect key="frame" x="0.0" y="155" width="137" height="36"/>
+                                        <rect key="frame" x="0.0" y="155.33333333333331" width="137" height="36"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="Start Drawing">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -52,7 +56,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sBg-0K-igP">
-                                        <rect key="frame" x="0.0" y="196" width="137" height="36"/>
+                                        <rect key="frame" x="0.0" y="196.33333333333331" width="137" height="36"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="Reload Drawing">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -88,14 +92,14 @@
             <objects>
                 <viewController id="BV1-FR-VrT" customClass="ViewController" customModule="LightSaver" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8wR-kV-L0j">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BrB-h1-WRS">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </arscnView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q0V-0f-12p" userLabel="Purple Button">
-                                <rect key="frame" x="98" y="527" width="73" height="73"/>
+                                <rect key="frame" x="98" y="705" width="73" height="73"/>
                                 <state key="normal" image="Purple Active"/>
                                 <state key="selected" image="Purple Pressed"/>
                                 <connections>
@@ -105,7 +109,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFill" enabled="NO" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vTt-h3-7Tp" userLabel="Save Button">
-                                <rect key="frame" x="475" y="535" width="98" height="57"/>
+                                <rect key="frame" x="250" y="713" width="98" height="57"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="57" id="3LB-eU-B5z"/>
                                     <constraint firstAttribute="width" constant="98" id="x6A-58-Q7A"/>
@@ -116,20 +120,8 @@
                                     <action selector="saveButtonPressed:" destination="BV1-FR-VrT" eventType="touchUpInside" id="bJG-sF-zC6"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleAspectFill" enabled="NO" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nbH-KI-n13" userLabel="Reload Button">
-                                <rect key="frame" x="468" y="535" width="116" height="57"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="57" id="atr-QA-fs9"/>
-                                    <constraint firstAttribute="width" constant="116" id="gFE-eu-I2n"/>
-                                </constraints>
-                                <state key="normal" image="Reload Button Active"/>
-                                <state key="selected" image="Reload Button Pressed"/>
-                                <connections>
-                                    <action selector="reloadButtonPressed:" destination="BV1-FR-VrT" eventType="touchUpInside" id="p2T-Ld-sfe"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qgz-VM-uc1" userLabel="Notification">
-                                <rect key="frame" x="211" y="232" width="178" height="136"/>
+                                <rect key="frame" x="98.666666666666686" y="338" width="178" height="136"/>
                                 <color key="backgroundColor" red="1" green="1" blue="0.99596745090000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="178" id="8eu-dG-8rq"/>
@@ -140,7 +132,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pnH-rf-uEF" userLabel="Green Button">
-                                <rect key="frame" x="16" y="527" width="73" height="73"/>
+                                <rect key="frame" x="16" y="705" width="73" height="73"/>
                                 <state key="normal" image="Green Active"/>
                                 <state key="selected" image="Green Pressed"/>
                                 <connections>
@@ -150,7 +142,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DuB-KW-cwQ" userLabel="Pink Button">
-                                <rect key="frame" x="16" y="446" width="73" height="73"/>
+                                <rect key="frame" x="16" y="624" width="73" height="73"/>
                                 <state key="normal" image="Pink Active"/>
                                 <state key="selected" image="Pink Pressed"/>
                                 <connections>
@@ -164,14 +156,12 @@
                         <constraints>
                             <constraint firstItem="pnH-rf-uEF" firstAttribute="leading" secondItem="BuC-N7-NHZ" secondAttribute="leading" constant="16" id="0ic-8n-p2O"/>
                             <constraint firstItem="pnH-rf-uEF" firstAttribute="top" secondItem="DuB-KW-cwQ" secondAttribute="bottom" constant="8" id="1TH-DF-Up0"/>
-                            <constraint firstItem="BuC-N7-NHZ" firstAttribute="trailing" secondItem="nbH-KI-n13" secondAttribute="trailing" constant="16" id="5SD-lO-8bA"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="leading" secondItem="BuC-N7-NHZ" secondAttribute="leading" id="GUl-fe-QQI"/>
                             <constraint firstAttribute="bottom" secondItem="BrB-h1-WRS" secondAttribute="bottom" id="LAK-U0-wjA"/>
                             <constraint firstItem="q0V-0f-12p" firstAttribute="leading" secondItem="pnH-rf-uEF" secondAttribute="trailing" constant="9" id="N4Y-Y7-VKc"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="trailing" secondItem="BuC-N7-NHZ" secondAttribute="trailing" id="OAv-bc-Lyg"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="trailing" secondItem="BuC-N7-NHZ" secondAttribute="trailing" id="RI8-lg-bHQ"/>
                             <constraint firstItem="Qgz-VM-uc1" firstAttribute="centerY" secondItem="8wR-kV-L0j" secondAttribute="centerY" id="RLj-mw-vLS"/>
-                            <constraint firstItem="BuC-N7-NHZ" firstAttribute="bottom" secondItem="nbH-KI-n13" secondAttribute="bottom" constant="8" id="RjA-aK-35X"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="top" secondItem="8wR-kV-L0j" secondAttribute="top" id="Sjt-m6-E2n"/>
                             <constraint firstItem="BuC-N7-NHZ" firstAttribute="bottom" secondItem="vTt-h3-7Tp" secondAttribute="bottom" constant="8" id="UiO-85-Pb9"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="leading" secondItem="BuC-N7-NHZ" secondAttribute="leading" id="ZcA-Vw-REn"/>
@@ -187,7 +177,6 @@
                     </view>
                     <connections>
                         <outlet property="mapNotification" destination="Qgz-VM-uc1" id="N7f-ca-W5c"/>
-                        <outlet property="reloadButton" destination="nbH-KI-n13" id="4Ei-b3-H4N"/>
                         <outlet property="saveButton" destination="vTt-h3-7Tp" id="n11-ge-YKr"/>
                         <outlet property="sceneView" destination="BrB-h1-WRS" id="lAl-Zp-VfU"/>
                     </connections>
@@ -204,8 +193,6 @@
         <image name="Pink Pressed" width="73" height="73"/>
         <image name="Purple Active" width="73" height="73"/>
         <image name="Purple Pressed" width="73" height="73"/>
-        <image name="Reload Button Active" width="370" height="157"/>
-        <image name="Reload Button Pressed" width="369" height="156"/>
         <image name="Save Button Active" width="537" height="314"/>
         <image name="Save Button Pressed" width="268" height="157"/>
     </resources>
