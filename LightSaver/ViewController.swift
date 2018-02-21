@@ -37,7 +37,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
     var green: UIColor = UIColor.init(red: 0x00, green: 0xff, blue: 0xe1, alpha: 0xff)
     var purple: UIColor = UIColor.init(red: 0.58, green: 0x00, blue: 0xff, alpha: 0xff)
     var pink: UIColor = UIColor.init(red: 0xff, green: 0x00, blue: 0xa4, alpha: 0xff)
-    var drawingThreshold: Int = 500
+    var drawingThreshold: Int = 250
     
     
     override func viewDidLoad() {
