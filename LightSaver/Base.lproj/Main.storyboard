@@ -164,11 +164,19 @@
                                     <action selector="backButton:" destination="BV1-FR-VrT" eventType="touchUpInside" id="AMZ-6S-0yT"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Drawing Instruction" translatesAutoresizingMaskIntoConstraints="NO" id="iLH-LP-MuI">
+                                <rect key="frame" x="78" y="295.66666666666669" width="219" height="221.00000000000006"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="221" id="l5F-SE-OgF"/>
+                                    <constraint firstAttribute="width" constant="219" id="sY1-nx-Xgf"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="pnH-rf-uEF" firstAttribute="leading" secondItem="BuC-N7-NHZ" secondAttribute="leading" constant="16" id="0ic-8n-p2O"/>
                             <constraint firstItem="pnH-rf-uEF" firstAttribute="top" secondItem="DuB-KW-cwQ" secondAttribute="bottom" constant="8" id="1TH-DF-Up0"/>
+                            <constraint firstItem="iLH-LP-MuI" firstAttribute="centerY" secondItem="8wR-kV-L0j" secondAttribute="centerY" id="51E-G5-UNq"/>
                             <constraint firstItem="pIb-jc-l9Z" firstAttribute="leading" secondItem="BuC-N7-NHZ" secondAttribute="leading" constant="16" id="Fng-Os-gaL"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="leading" secondItem="BuC-N7-NHZ" secondAttribute="leading" id="GUl-fe-QQI"/>
                             <constraint firstAttribute="bottom" secondItem="BrB-h1-WRS" secondAttribute="bottom" id="LAK-U0-wjA"/>
@@ -178,6 +186,7 @@
                             <constraint firstItem="Qgz-VM-uc1" firstAttribute="centerY" secondItem="8wR-kV-L0j" secondAttribute="centerY" id="RLj-mw-vLS"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="top" secondItem="8wR-kV-L0j" secondAttribute="top" id="Sjt-m6-E2n"/>
                             <constraint firstItem="BuC-N7-NHZ" firstAttribute="bottom" secondItem="vTt-h3-7Tp" secondAttribute="bottom" constant="8" id="UiO-85-Pb9"/>
+                            <constraint firstItem="iLH-LP-MuI" firstAttribute="centerX" secondItem="8wR-kV-L0j" secondAttribute="centerX" id="VdU-Fe-1Zc"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="leading" secondItem="BuC-N7-NHZ" secondAttribute="leading" id="ZcA-Vw-REn"/>
                             <constraint firstItem="BuC-N7-NHZ" firstAttribute="trailing" secondItem="vTt-h3-7Tp" secondAttribute="trailing" constant="27" id="fb0-Hf-Hu8"/>
                             <constraint firstItem="Qgz-VM-uc1" firstAttribute="centerX" secondItem="8wR-kV-L0j" secondAttribute="centerX" id="mGt-Iq-vmR"/>
@@ -191,6 +200,7 @@
                         <viewLayoutGuide key="safeArea" id="BuC-N7-NHZ"/>
                     </view>
                     <connections>
+                        <outlet property="drawingInstruction" destination="iLH-LP-MuI" id="NJQ-04-3yA"/>
                         <outlet property="mapNotification" destination="Qgz-VM-uc1" id="N7f-ca-W5c"/>
                         <outlet property="saveButton" destination="vTt-h3-7Tp" id="n11-ge-YKr"/>
                         <outlet property="sceneView" destination="BrB-h1-WRS" id="lAl-Zp-VfU"/>
@@ -204,6 +214,7 @@
     </scenes>
     <resources>
         <image name="Back Button Active" width="61" height="53"/>
+        <image name="Drawing Instruction" width="501" height="479"/>
         <image name="Green Active" width="73" height="73"/>
         <image name="Green Pressed" width="73" height="73"/>
         <image name="Pink Active" width="73" height="73"/>

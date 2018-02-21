@@ -27,6 +27,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
     
     @IBOutlet var saveButton: UIButton!
     @IBOutlet var mapNotification: UILabel!
+    @IBOutlet var drawingInstruction: UIImageView!
     
     @IBOutlet var sceneView: ARSCNView!
     
@@ -69,6 +70,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
         mapNotification.layer.cornerRadius = 5
         mapNotification.layer.masksToBounds = true
         if mapMode == .localization {
+            drawingInstruction.isHidden = true
             showMapNotification("Scan around the area while your design reloads.")
             searching = true
             //Search for up to 25 seconds before instructing to restart
@@ -80,11 +82,17 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
             }
         } else {
             mapNotification.isHidden = true
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                self.drawingInstruction.isHidden = true
+            }
+
         }
         
         
         //Initialize MapSession
         self.mapSession = MapSession.init(arSession: sceneView.session, mapMode: mapMode, userID: userID!, mapID: mapID!, developerKey: DEV_KEY, assetsFoundCallback: reloadAssetsCallback, statusCallback: mapStatusCallback)
+        
+        
         
     }
     
