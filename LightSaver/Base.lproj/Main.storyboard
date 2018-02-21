@@ -78,6 +78,8 @@
                     </view>
                     <connections>
                         <outlet property="drawingInput" destination="npp-F2-cEQ" id="VPQ-t9-YE2"/>
+                        <outlet property="reloadDrawingButton" destination="sBg-0K-igP" id="Cgr-ZU-e8K"/>
+                        <outlet property="startDrawingButton" destination="xEf-PY-nDt" id="SHB-vY-VjN"/>
                         <outlet property="usernameInput" destination="Hev-Cr-luG" id="sfc-3P-zV6"/>
                         <segue destination="BV1-FR-VrT" kind="showDetail" identifier="newSegue" id="eay-fx-WWQ"/>
                         <segue destination="BV1-FR-VrT" kind="showDetail" identifier="loadSegue" id="aFb-m7-olc"/>

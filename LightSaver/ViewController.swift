@@ -36,7 +36,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
     var green: UIColor = UIColor.init(red: 0x00, green: 0xff, blue: 0xe1, alpha: 0xff)
     var purple: UIColor = UIColor.init(red: 0.58, green: 0x00, blue: 0xff, alpha: 0xff)
     var pink: UIColor = UIColor.init(red: 0xff, green: 0x00, blue: 0xa4, alpha: 0xff)
-    var drawingThreshold: Int = 100
+    var drawingThreshold: Int = 500
     
     
     override func viewDidLoad() {
@@ -66,18 +66,22 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
 
         //Set up UI
         showButton(false, saveButton)
+        mapNotification.layer.cornerRadius = 5
+        mapNotification.layer.masksToBounds = true
         if mapMode == .localization {
             showMapNotification("Scan around the area while your design reloads.")
             searching = true
+            //Search for up to 25 seconds before instructing to restart
             DispatchQueue.main.asyncAfter(deadline: .now() + 25) {
                 // If still searching after 25 seconds, instruct to restart mapping
                 if self.searching {
-                    self.showMapNotification("Design not found. Restart app and try again.")
+                    self.showMapNotification("Design not found.  Please try again.")
                 }
             }
         } else {
             mapNotification.isHidden = true
         }
+        
         
         //Initialize MapSession
         self.mapSession = MapSession.init(arSession: sceneView.session, mapMode: mapMode, userID: userID!, mapID: mapID!, developerKey: DEV_KEY, assetsFoundCallback: reloadAssetsCallback, statusCallback: mapStatusCallback)
@@ -126,7 +130,10 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
                 let asset = MapAsset.init(colorLabel, position, 0.0)
                 mapAssets.append(asset)
             } else {
-                showMapNotification("Great Job! Now save your drawing for others to see.")
+                DispatchQueue.main.async {
+                    self.showMapNotification("Great Job! Now save your drawing for others to see.")
+
+                }
             }
         }
         
@@ -306,8 +313,6 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
     
     // MARK: - User Instruction
     func showMapNotification(_ instruction: String) {
-        mapNotification.layer.cornerRadius = 5
-        mapNotification.layer.masksToBounds = true
         mapNotification.text = instruction
         mapNotification.isHidden = false
         print("Showing notifcation: \(instruction)")

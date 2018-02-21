@@ -15,6 +15,9 @@ class LoginViewController: UIViewController {
     @IBOutlet var drawingInput: UITextField!
     var appID: String = Bundle.main.bundleIdentifier!
     
+    @IBOutlet var startDrawingButton: UIButton!
+    @IBOutlet var reloadDrawingButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -26,41 +29,55 @@ class LoginViewController: UIViewController {
             drawingInput.text = drawingID
         }
         
+        let tap = UITapGestureRecognizer(target: self.view, action: Selector("endEditing:"))
+        tap.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(tap)
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    @IBAction func startDrawingButton(_ sender: Any) {
+    @IBAction func startDrawingButton(_ sender: UIButton) {
         if checkEmptyInput() {
             return
         }
         setUserDefaults()
-        performSegue(withIdentifier: "newSegue", sender: self)
+        startDrawingButton.isEnabled = false
+        reloadDrawingButton.isEnabled = false
+        //Brief pause to make sure any prior ARSessions are properly closed
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            self.performSegue(withIdentifier: "newSegue", sender: self)
+        }
     }
     
-    @IBAction func reloadDrawingButton(_ sender: Any) {
+    @IBAction func reloadDrawingButton(_ sender: UIButton) {
         if checkEmptyInput() {
             return
         }
         setUserDefaults()
-        performSegue(withIdentifier: "loadSegue", sender: self)
+        startDrawingButton.isEnabled = false
+        reloadDrawingButton.isEnabled = false
+        //Brief pause to make sure any prior ARSessions are properly closed
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            self.performSegue(withIdentifier: "loadSegue", sender: self)
+        }
     }
     
     
     // Set Map Mode based on button pressed
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if let viewController = segue.destination as? ViewController {
-            if segue.identifier == "newSegue" {
-                viewController.mapMode = .mapping
-            } else if segue.identifier == "loadSegue" {
-                viewController.mapMode = .localization
+            if let viewController = segue.destination as? ViewController {
+                if segue.identifier == "newSegue" {
+                    viewController.mapMode = .mapping
+                } else if segue.identifier == "loadSegue" {
+                    viewController.mapMode = .localization
+                }
+                startDrawingButton.isEnabled = true
+                reloadDrawingButton.isEnabled = true
             }
-        }
     }
- 
     
     private func setUserDefaults() {
         let username = usernameInput.text
