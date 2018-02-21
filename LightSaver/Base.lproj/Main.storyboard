@@ -151,11 +151,23 @@
                                     <action selector="drawButtonUpOutside:" destination="BV1-FR-VrT" eventType="touchUpOutside" id="92c-gd-61B"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pIb-jc-l9Z">
+                                <rect key="frame" x="16" y="56" width="47" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="47" id="Yom-zw-U9r"/>
+                                    <constraint firstAttribute="height" constant="45" id="wde-Mz-mhw"/>
+                                </constraints>
+                                <state key="normal" image="Back Button Active"/>
+                                <connections>
+                                    <action selector="backButton:" destination="BV1-FR-VrT" eventType="touchUpInside" id="AMZ-6S-0yT"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="pnH-rf-uEF" firstAttribute="leading" secondItem="BuC-N7-NHZ" secondAttribute="leading" constant="16" id="0ic-8n-p2O"/>
                             <constraint firstItem="pnH-rf-uEF" firstAttribute="top" secondItem="DuB-KW-cwQ" secondAttribute="bottom" constant="8" id="1TH-DF-Up0"/>
+                            <constraint firstItem="pIb-jc-l9Z" firstAttribute="leading" secondItem="BuC-N7-NHZ" secondAttribute="leading" constant="16" id="Fng-Os-gaL"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="leading" secondItem="BuC-N7-NHZ" secondAttribute="leading" id="GUl-fe-QQI"/>
                             <constraint firstAttribute="bottom" secondItem="BrB-h1-WRS" secondAttribute="bottom" id="LAK-U0-wjA"/>
                             <constraint firstItem="q0V-0f-12p" firstAttribute="leading" secondItem="pnH-rf-uEF" secondAttribute="trailing" constant="9" id="N4Y-Y7-VKc"/>
@@ -169,6 +181,7 @@
                             <constraint firstItem="Qgz-VM-uc1" firstAttribute="centerX" secondItem="8wR-kV-L0j" secondAttribute="centerX" id="mGt-Iq-vmR"/>
                             <constraint firstItem="DuB-KW-cwQ" firstAttribute="leading" secondItem="BuC-N7-NHZ" secondAttribute="leading" constant="16" id="qW6-UP-bSc"/>
                             <constraint firstItem="q0V-0f-12p" firstAttribute="bottom" secondItem="BuC-N7-NHZ" secondAttribute="bottom" id="vD2-3R-122"/>
+                            <constraint firstItem="pIb-jc-l9Z" firstAttribute="top" secondItem="BuC-N7-NHZ" secondAttribute="top" constant="12" id="vEc-D6-fcB"/>
                             <constraint firstItem="pnH-rf-uEF" firstAttribute="bottom" secondItem="BuC-N7-NHZ" secondAttribute="bottom" id="vNr-Hn-KA2"/>
                             <constraint firstAttribute="bottom" secondItem="BrB-h1-WRS" secondAttribute="bottom" id="wgU-79-32o"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="top" secondItem="8wR-kV-L0j" secondAttribute="top" id="yr0-rs-2X0"/>
@@ -179,6 +192,7 @@
                         <outlet property="mapNotification" destination="Qgz-VM-uc1" id="N7f-ca-W5c"/>
                         <outlet property="saveButton" destination="vTt-h3-7Tp" id="n11-ge-YKr"/>
                         <outlet property="sceneView" destination="BrB-h1-WRS" id="lAl-Zp-VfU"/>
+                        <segue destination="ybO-af-Ld9" kind="showDetail" identifier="backSegue" id="NUQ-lr-kDy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
@@ -187,6 +201,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Back Button Active" width="61" height="53"/>
         <image name="Green Active" width="73" height="73"/>
         <image name="Green Pressed" width="73" height="73"/>
         <image name="Pink Active" width="73" height="73"/>

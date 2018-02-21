@@ -36,6 +36,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
     var green: UIColor = UIColor.init(red: 0x00, green: 0xff, blue: 0xe1, alpha: 0xff)
     var purple: UIColor = UIColor.init(red: 0.58, green: 0x00, blue: 0xff, alpha: 0xff)
     var pink: UIColor = UIColor.init(red: 0xff, green: 0x00, blue: 0xa4, alpha: 0xff)
+    var drawingThreshold: Int = 100
     
     
     override func viewDidLoad() {
@@ -109,20 +110,24 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
         
         if drawing, let transform = sceneView.pointOfView?.transform, let position = sceneView.pointOfView?.position {
             
-            //Draw position should be in front of screen
-            let offset = SCNVector3(-0.4 * transform.m31, -0.4 * transform.m32, -0.4 * transform.m33)
-            let drawPosition = SCNVector3.init(offset.x + position.x, offset.y + position.y, offset.z + position.z)
-            
-            //Create a colored sphere
-            let sphereNode = SCNNode(geometry: SCNSphere(radius: 0.01))
-            sphereNode.geometry?.firstMaterial?.diffuse.contents = color
-            sphereNode.position = drawPosition
-            sceneView.scene.rootNode.addChildNode(sphereNode)
-            
-            //Save a corresponding MapAsset
-            let asset = MapAsset.init(colorLabel, position, 0.0)
-            mapAssets.append(asset)
-            
+            // Draw until we reach a large enough drawing.
+            if mapAssets.count < drawingThreshold {
+                //Draw position should be in front of screen
+                let offset = SCNVector3(-0.4 * transform.m31, -0.4 * transform.m32, -0.4 * transform.m33)
+                let drawPosition = SCNVector3.init(offset.x + position.x, offset.y + position.y, offset.z + position.z)
+                
+                //Create a colored sphere
+                let sphereNode = SCNNode(geometry: SCNSphere(radius: 0.01))
+                sphereNode.geometry?.firstMaterial?.diffuse.contents = color
+                sphereNode.position = drawPosition
+                sceneView.scene.rootNode.addChildNode(sphereNode)
+                
+                //Save a corresponding MapAsset
+                let asset = MapAsset.init(colorLabel, position, 0.0)
+                mapAssets.append(asset)
+            } else {
+                showMapNotification("Great Job! Now save your drawing for others to see.")
+            }
         }
         
     }
@@ -156,6 +161,10 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
         drawing = false
     }
     
+    @IBAction func backButton(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     //Uploads map and Map Assets
     @IBAction func saveButtonPressed(_ sender: Any) {
         showMapNotification("Saving")
@@ -185,7 +194,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
         
         DispatchQueue.main.async {
             self.showMapNotification("Design Found!")
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                 self.mapNotification.isHidden = true
                 self.searching = false
             }
