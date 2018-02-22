@@ -124,7 +124,7 @@
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qgz-VM-uc1" userLabel="Notification">
                                 <rect key="frame" x="98.666666666666686" y="338" width="178" height="136"/>
-                                <color key="backgroundColor" red="1" green="1" blue="0.99596745090000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.71255667098445596" green="0.71255667098445596" blue="0.71255667098445596" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="178" id="8eu-dG-8rq"/>
                                     <constraint firstAttribute="height" constant="136" id="W4U-az-WgJ"/>

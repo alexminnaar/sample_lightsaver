@@ -60,7 +60,7 @@ class LoginViewController: UIViewController {
         startDrawingButton.isEnabled = false
         reloadDrawingButton.isEnabled = false
         //Brief pause to make sure any prior ARSessions are properly closed
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
             self.performSegue(withIdentifier: "loadSegue", sender: self)
         }
     }

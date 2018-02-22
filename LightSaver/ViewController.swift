@@ -69,25 +69,8 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
         showButton(false, saveButton)
         mapNotification.layer.cornerRadius = 5
         mapNotification.layer.masksToBounds = true
-        if mapMode == .localization {
-            drawingInstruction.isHidden = true
-            showMapNotification("Scan around the area while your design reloads.")
-            searching = true
-            //Search for up to 25 seconds before instructing to restart
-            DispatchQueue.main.asyncAfter(deadline: .now() + 25) {
-                // If still searching after 25 seconds, instruct to restart mapping
-                if self.searching {
-                    self.showMapNotification("Design not found.  Please try again.")
-                }
-            }
-        } else {
-            mapNotification.isHidden = true
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                self.drawingInstruction.isHidden = true
-            }
-
-        }
-        
+        drawingInstruction.isHidden = true
+        showMapNotification("Scan around your area to start!")
         
         //Initialize MapSession
         self.mapSession = MapSession.init(arSession: sceneView.session, mapMode: mapMode, userID: userID!, mapID: mapID!, developerKey: DEV_KEY, assetsFoundCallback: reloadAssetsCallback, statusCallback: mapStatusCallback)
@@ -120,7 +103,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
 
     func renderer(_ renderer: SCNSceneRenderer, willRenderScene scene: SCNScene, atTime time: TimeInterval) {
         
-        if drawing, let transform = sceneView.pointOfView?.transform, let position = sceneView.pointOfView?.position {
+        if sessionStarted, drawing, let transform = sceneView.pointOfView?.transform, let position = sceneView.pointOfView?.position {
             
             // Draw until we reach a large enough drawing.
             if mapAssets.count < drawingThreshold {
@@ -255,6 +238,22 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
                 sessionStarted = true
                 if mapMode == .mapping {
                     showButton(true, saveButton)
+                    mapNotification.isHidden = true
+                    drawingInstruction.isHidden = false
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                        self.drawingInstruction.isHidden = true
+                    }
+                } else if mapMode == .localization {
+                    drawingInstruction.isHidden = true
+                    showMapNotification("Great! Continue scanning the area while your design reloads.")
+                    searching = true
+                    //Search for up to 25 seconds before instructing to restart
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 20) {
+                        // If still searching after 25 seconds, instruct to restart mapping
+                        if self.searching {
+                            self.showMapNotification("Design not found.  Please try again.")
+                        }
+                    }
                 }
             }
         case .notAvailable, .limited:
