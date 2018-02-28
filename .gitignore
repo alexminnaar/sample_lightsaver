@@ -4,6 +4,7 @@
 *.mlmodel
 log
 tmp
+*.swp
 
 ###############
 *.pyc

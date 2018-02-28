@@ -174,6 +174,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #if __has_feature(modules)
 @import ObjectiveC;
 @import SceneKit;
+@import UIKit;
 #endif
 
 #pragma clang diagnostic ignored "-Wproperty-attribute-mismatch"
@@ -197,9 +198,8 @@ SWIFT_CLASS("_TtC10MapsyncLib8MapAsset")
 @end
 
 typedef SWIFT_ENUM(NSInteger, MapMode) {
-  MapModeUnknown = 0,
-  MapModeMapping = 1,
-  MapModeLocalization = 2,
+  MapModeMapping = 0,
+  MapModeLocalization = 1,
 };
 
 @class ARSession;
@@ -242,6 +242,8 @@ typedef SWIFT_ENUM(NSInteger, MapStatus) {
   MapStatusLocalizationError = 6,
   MapStatusNoAssetFound = 7,
 };
+
+
 
 SWIFT_MODULE_NAMESPACE_POP
 #pragma clang diagnostic pop

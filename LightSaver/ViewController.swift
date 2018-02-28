@@ -15,8 +15,8 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
 
     // Map Session Members
     var mapSession: MapSession?
-    var mapAssets: [MapAsset] = [MapAsset]() //Stores assets to be saved
-    var mapMode: MapMode = .unknown //Is set to .mapping or .localization mode by LoginViewController
+    var mapAssets: [MapAsset] = [MapAsset]() // Stores assets to be saved
+    var mapMode: MapMode? // Is set to .mapping or .localization mode by LoginViewController
     
     
     var appID: String?
@@ -73,7 +73,8 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
         showMapNotification("Scan around your area to start!")
         
         //Initialize MapSession
-        self.mapSession = MapSession.init(arSession: sceneView.session, mapMode: mapMode, userID: userID!, mapID: mapID!, developerKey: DEV_KEY, assetsFoundCallback: reloadAssetsCallback, statusCallback: mapStatusCallback)
+        self.mapSession = MapSession.init(arSession: sceneView.session, mapMode: mapMode!, userID: userID!, mapID: mapID!,
+                                          developerKey: DEV_KEY, assetsFoundCallback: reloadAssetsCallback, statusCallback: mapStatusCallback)
         
         
         
