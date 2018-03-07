@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|  
     s.name              = 'MapsyncLib'
-    s.version           = '0.1.2'
+    s.version           = '0.1.5'
     s.summary           = 'A simple API for persistent augmented reality.'
     s.homepage          = 'http://mapsync.io/'
 
@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
     s.license           = { :type => 'Apache-2.0', :file => 'LICENSE' }
 
     s.platform          = :ios
-    s.source            = { :git => 'https://github.com/jidomaps/jido_pods.git', :tag => 'v0.1.2' }
+    s.source            = { :git => 'https://github.com/jidomaps/jido_pods.git', :tag => 'v0.1.5' }
 
     s.ios.deployment_target = '11.0'
     s.ios.vendored_frameworks = 'MapsyncLib.framework'

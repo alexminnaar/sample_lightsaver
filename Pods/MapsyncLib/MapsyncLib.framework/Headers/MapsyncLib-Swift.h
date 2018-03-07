@@ -187,6 +187,19 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 SWIFT_MODULE_NAMESPACE_PUSH("MapsyncLib")
 
+SWIFT_CLASS("_TtC10MapsyncLib3Map")
+@interface Map : NSObject
+@property (nonatomic, copy) NSString * _Nonnull userID;
+@property (nonatomic, copy) NSString * _Nonnull mapID;
+@property (nonatomic) double latitude;
+@property (nonatomic) double longitude;
+@property (nonatomic) double altitude;
+@property (nonatomic) double horizontalAccuracy;
+@property (nonatomic) double verticalAccuracy;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
+@end
+
+
 SWIFT_CLASS("_TtC10MapsyncLib8MapAsset")
 @interface MapAsset : NSObject
 @property (nonatomic, copy) NSString * _Nonnull assetID;
@@ -215,6 +228,7 @@ SWIFT_CLASS("_TtC10MapsyncLib10MapSession")
 - (nonnull instancetype)initWithArSession:(ARSession * _Nonnull)arSession mapMode:(enum MapMode)mapMode userID:(NSString * _Nonnull)userID mapID:(NSString * _Nonnull)mapID developerKey:(NSString * _Nonnull)developerKey assetsFoundCallback:(void (^ _Nonnull)(NSArray<MapAsset *> * _Nonnull))assetsFoundCallback statusCallback:(void (^ _Nonnull)(enum MapStatus))statusCallback OBJC_DESIGNATED_INITIALIZER;
 - (void)updateWithFrame:(ARFrame * _Nonnull)frame;
 - (BOOL)storePlacementWithAssets:(NSArray<MapAsset *> * _Nonnull)assets callback:(void (^ _Nonnull)(BOOL))callback SWIFT_WARN_UNUSED_RESULT;
+- (BOOL)listNearbyMapsWithUserID:(NSString * _Nullable)userID longitude:(double)longitude latitude:(double)latitude longitudeDelta:(double)longitudeDelta latitudeDelta:(double)latitudeDelta mapsFoundCallback:(void (^ _Nonnull)(NSArray<Map *> * _Nonnull))mapsFoundCallback SWIFT_WARN_UNUSED_RESULT;
 - (void)resetWithSceneView:(ARSCNView * _Nonnull)sceneView;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 @end
@@ -227,6 +241,9 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class) float CONFIDENCE_THRESHOLD;)
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class) NSInteger TIMEOUT_THRESHOLD;)
 + (NSInteger)TIMEOUT_THRESHOLD SWIFT_WARN_UNUSED_RESULT;
 + (void)setTIMEOUT_THRESHOLD:(NSInteger)value;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class) BOOL CONTINOUSLY_UPDATED_RELOCALIZATION;)
++ (BOOL)CONTINOUSLY_UPDATED_RELOCALIZATION SWIFT_WARN_UNUSED_RESULT;
++ (void)setCONTINOUSLY_UPDATED_RELOCALIZATION:(BOOL)value;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class) BOOL USE_BETA_ALGO;)
 + (BOOL)USE_BETA_ALGO SWIFT_WARN_UNUSED_RESULT;
 + (void)setUSE_BETA_ALGO:(BOOL)value;

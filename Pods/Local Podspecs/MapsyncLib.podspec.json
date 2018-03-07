@@ -1,6 +1,6 @@
 {
   "name": "MapsyncLib",
-  "version": "0.1.2",
+  "version": "0.1.5",
   "summary": "A simple API for persistent augmented reality.",
   "homepage": "http://mapsync.io/",
   "authors": {
@@ -15,7 +15,7 @@
   },
   "source": {
     "git": "https://github.com/jidomaps/jido_pods.git",
-    "tag": "v0.1.2"
+    "tag": "v0.1.5"
   },
   "ios": {
     "vendored_frameworks": "MapsyncLib.framework"

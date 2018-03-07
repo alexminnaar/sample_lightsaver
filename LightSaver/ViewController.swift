@@ -39,6 +39,8 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
     var pink: UIColor = UIColor.init(red: 0xff, green: 0x00, blue: 0xa4, alpha: 0xff)
     var drawingThreshold: Int = 250
     
+    var alreadyReloaded = false
+    var sceneAssets: [SCNNode] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,6 +75,8 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
         showMapNotification("Scan around your area to start!")
         
         //Initialize MapSession
+        MapSession.CONTINOUSLY_UPDATED_RELOCALIZATION = true
+        MapSession.CONFIDENCE_THRESHOLD = 0.10
         self.mapSession = MapSession.init(arSession: sceneView.session, mapMode: mapMode!, userID: userID!, mapID: mapID!,
                                           developerKey: DEV_KEY, assetsFoundCallback: reloadAssetsCallback, statusCallback: mapStatusCallback)
         
@@ -187,25 +191,38 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
     private func reloadAssetsCallback(mapAssets: [MapAsset]) {
         print("Reloading \(mapAssets.count) assets to the scene")
         
-        for asset in mapAssets {
-            self.addAssetToScene(asset)
-        }
-        
-        DispatchQueue.main.async {
+        self.addAssetToScene(mapAssets)
+
+        if !alreadyReloaded {
             self.showMapNotification("Design Found!")
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                 self.mapNotification.isHidden = true
                 self.searching = false
             }
+            alreadyReloaded = true
         }
     }
     
-    private func addAssetToScene(_ asset: MapAsset) {
-        let sphereNode = SCNNode(geometry: SCNSphere(radius: 0.01))
-        sphereNode.geometry?.firstMaterial?.diffuse.contents = getColor(asset.assetID)
-        sphereNode.position = asset.position
-        
-        sceneView.scene.rootNode.addChildNode(sphereNode)
+    private func addAssetToScene(_ assets: [MapAsset]) {
+        if !alreadyReloaded {
+            for asset in assets {
+                let sphere = SCNSphere(radius: 0.01)
+                let sphereNode = SCNNode(geometry: sphere)
+                sphereNode.geometry?.firstMaterial?.diffuse.contents = getColor(asset.assetID)
+                sphereNode.position = asset.position
+                sphereNode.opacity = CGFloat(asset.confidence)
+
+                sceneAssets.append(sphereNode)
+                sceneView.scene.rootNode.addChildNode(sphereNode)
+            }
+        } else {
+            for (i, asset) in assets.enumerated() {
+                SCNTransaction.animationDuration = 1.0
+                sceneAssets[i].opacity = CGFloat(asset.confidence)
+                sceneAssets[i].position = asset.position
+            }
+        }
+
     }
     
     private func getColor(_ label: String) -> UIColor {
