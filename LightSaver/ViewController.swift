@@ -121,9 +121,10 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
                 sphereNode.geometry?.firstMaterial?.diffuse.contents = color
                 sphereNode.position = drawPosition
                 sceneView.scene.rootNode.addChildNode(sphereNode)
+                sceneAssets.append(sphereNode)
                 
                 //Save a corresponding MapAsset
-                let asset = MapAsset.init(colorLabel, position, 0.0)
+                let asset = MapAsset.init(colorLabel, drawPosition, 0.0)
                 mapAssets.append(asset)
             } else {
                 DispatchQueue.main.async {
@@ -171,7 +172,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
     //Uploads map and Map Assets
     @IBAction func saveButtonPressed(_ sender: Any) {
         showMapNotification("Saving")
-        if mapAssets.count > 0 {
+        if mapAssets.count > 0 && mapSession?.mapSessionUUID != nil {
             mapSession?.storePlacement(assets: mapAssets, callback: { (didUpload) in
                 if !didUpload {
                     print("didn't store placement")
@@ -310,7 +311,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
             
         case .noMapFound:
             print("no map found")
-            showMapNotification("Drawing not found")
+            showMapNotification("No map found")
             
         case .networkFailure:
             print("network failure")
@@ -328,6 +329,11 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
         case .localizationTimeout:
             print("localization timeout")
             showMapNotification("Localization Timeout")
+
+        case .configError:
+            print("ARSession not properly configured")
+            showMapNotification("ARSession not properly configured.")
+
         }
     }
     

@@ -3,7 +3,7 @@ PODS:
   - AWSCore (2.6.12)
   - AWSS3 (2.6.12):
     - AWSCore (= 2.6.12)
-  - MapsyncLib (0.1.5):
+  - MapsyncLib (0.1.6):
     - Alamofire (~> 4.6.0)
     - AWSS3 (~> 2.6.10)
     - SwiftHash
@@ -22,7 +22,7 @@ SPEC CHECKSUMS:
   Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
   AWSCore: d0d6e4f6831754aaf98058d2306a016ae71510fe
   AWSS3: c35608e0cdd5172f9e1d943221fd5fde01c5f749
-  MapsyncLib: a4a0a5c162b29706f477ecdceff44b144c30f911
+  MapsyncLib: aea544153a805b3c00a910b4fc547d0cb3ee1d5f
   SwiftHash: c805de5a434eacfa0dac7210745a50c55d7fe33d
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
 
