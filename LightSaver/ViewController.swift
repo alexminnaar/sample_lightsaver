@@ -190,18 +190,21 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
     
     @IBAction func drawButtonUpInside(_ sender: Any) {
         drawing = false
+        
+        saveDrawing()
     }
     
     @IBAction func drawButtonUpOutside(_ sender: Any) {
         drawing = false
+        
+        saveDrawing()
     }
     
     @IBAction func backButton(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
     
-    //Uploads map and Map Assets
-    @IBAction func saveButtonPressed(_ sender: Any) {
+    private func saveDrawing() {
         showMapNotification("Saving")
         if mapAssets.count > 0 && jidoSession?.mappingUUID != nil {
             var count = 0
@@ -225,6 +228,11 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
         }
     }
     
+    //Uploads map and Map Assets
+    @IBAction func saveButtonPressed(_ sender: Any) {
+//        saveDrawing()
+    }
+    
     private func reloadAssetsCallback(mapAssets: [MapAsset]) {
         print("Reloading \(mapAssets.count) assets to the scene")
         
@@ -235,7 +243,9 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                 self.mapNotification.isHidden = true
                 self.searching = false
+                self.scanProgressBar.isHidden = true
             }
+            
             alreadyReloaded = true
         }
     }

@@ -172,7 +172,7 @@
                                 </constraints>
                             </imageView>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="mUl-3R-B6E">
-                                <rect key="frame" x="27" y="138" width="321" height="2"/>
+                                <rect key="frame" x="27" y="123" width="321" height="2"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </progressView>
                         </subviews>
