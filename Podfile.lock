@@ -1,10 +1,16 @@
 PODS:
   - Alamofire (4.6.0)
-  - AWSCore (2.6.12)
-  - AWSS3 (2.6.12):
-    - AWSCore (= 2.6.12)
-  - MapsyncLib (0.1.6):
+  - AWSCloudWatch (2.6.23):
+    - AWSCore (= 2.6.23)
+  - AWSCore (2.6.23)
+  - AWSDynamoDB (2.6.23):
+    - AWSCore (= 2.6.23)
+  - AWSS3 (2.6.23):
+    - AWSCore (= 2.6.23)
+  - JidoMaps (0.2.6):
     - Alamofire (~> 4.6.0)
+    - AWSCloudWatch
+    - AWSDynamoDB
     - AWSS3 (~> 2.6.10)
     - SwiftHash
     - SwiftyJSON (~> 4.0.0)
@@ -12,20 +18,22 @@ PODS:
   - SwiftyJSON (4.0.0)
 
 DEPENDENCIES:
-  - MapsyncLib (from `./MapsyncLib.podspec`)
+  - JidoMaps (from `JidoMaps.podspec`)
 
 EXTERNAL SOURCES:
-  MapsyncLib:
-    :podspec: ./MapsyncLib.podspec
+  JidoMaps:
+    :podspec: JidoMaps.podspec
 
 SPEC CHECKSUMS:
   Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
-  AWSCore: d0d6e4f6831754aaf98058d2306a016ae71510fe
-  AWSS3: c35608e0cdd5172f9e1d943221fd5fde01c5f749
-  MapsyncLib: aea544153a805b3c00a910b4fc547d0cb3ee1d5f
+  AWSCloudWatch: fa041a8253f580e1dc49772cb9b2941b5f4ea0ec
+  AWSCore: d56f69d7312e652e51c70f3b25e1687a5c2d06ca
+  AWSDynamoDB: 5003441fbcc45e31eb977c8533f99c773e54c3eb
+  AWSS3: 198942f234628f1ad1c373725d65c33ebfe87af6
+  JidoMaps: 1d06359ad2fa04dc5b630477ccf9e9d62ab9573b
   SwiftHash: c805de5a434eacfa0dac7210745a50c55d7fe33d
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
 
-PODFILE CHECKSUM: cb7a938f34c2fdb408a61c5ccc8be3f270eca26f
+PODFILE CHECKSUM: f1fc8dc9c8f70b4662fe8154a8db668746219714
 
 COCOAPODS: 1.4.0

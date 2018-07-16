@@ -1,0 +1,11 @@
+framework module JidoMaps {
+  umbrella header "JidoMaps.h"
+
+  export *
+  module * { export * }
+}
+
+module JidoMaps.Swift {
+    header "JidoMaps-Swift.h"
+    requires objc
+}

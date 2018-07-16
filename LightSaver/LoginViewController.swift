@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import MapsyncLib
+import JidoMaps
 
 class LoginViewController: UIViewController {
 
@@ -70,9 +70,9 @@ class LoginViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             if let viewController = segue.destination as? ViewController {
                 if segue.identifier == "newSegue" {
-                    viewController.mapMode = .mapping
+                    viewController.sessionMode = .mapping
                 } else if segue.identifier == "loadSegue" {
-                    viewController.mapMode = .localization
+                    viewController.sessionMode = .localization
                 }
                 startDrawingButton.isEnabled = true
                 reloadDrawingButton.isEnabled = true

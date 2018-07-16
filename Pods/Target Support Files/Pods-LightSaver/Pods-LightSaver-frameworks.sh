@@ -134,18 +134,22 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/AWSCloudWatch/AWSCloudWatch.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/AWSCore/AWSCore.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/AWSDynamoDB/AWSDynamoDB.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/AWSS3/AWSS3.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework"
-  install_framework "${PODS_ROOT}/MapsyncLib/MapsyncLib.framework"
+  install_framework "${PODS_ROOT}/JidoMaps/JidoMaps.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftHash/SwiftHash.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/AWSCloudWatch/AWSCloudWatch.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/AWSCore/AWSCore.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/AWSDynamoDB/AWSDynamoDB.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/AWSS3/AWSS3.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework"
-  install_framework "${PODS_ROOT}/MapsyncLib/MapsyncLib.framework"
+  install_framework "${PODS_ROOT}/JidoMaps/JidoMaps.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftHash/SwiftHash.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework"
 fi

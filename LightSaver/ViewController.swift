@@ -9,19 +9,19 @@
 import UIKit
 import SceneKit
 import ARKit
-import MapsyncLib
+import JidoMaps
 
 class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
 
     // Map Session Members
-    var mapSession: MapSession?
+    var jidoSession: JidoSession?
     var mapAssets: [MapAsset] = [MapAsset]() // Stores assets to be saved
-    var mapMode: MapMode? // Is set to .mapping or .localization mode by LoginViewController
+    var sessionMode: SessionMode? // Is set to .mapping or .localization mode by LoginViewController
     
     
     var appID: String?
     var userID: String?
-    var mapID: String?
+    var mapId: String?
     var sessionStarted: Bool = false
     var searching: Bool = false
     
@@ -37,7 +37,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
     var green: UIColor = UIColor.init(red: 0x00, green: 0xff, blue: 0xe1, alpha: 0xff)
     var purple: UIColor = UIColor.init(red: 0.58, green: 0x00, blue: 0xff, alpha: 0xff)
     var pink: UIColor = UIColor.init(red: 0xff, green: 0x00, blue: 0xa4, alpha: 0xff)
-    var drawingThreshold: Int = 250
+    var drawingThreshold: Int = 350
     
     var alreadyReloaded = false
     var sceneAssets: [SCNNode] = []
@@ -64,7 +64,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
             self.appID = appID
         }
         if let mapID = defaults.string(forKey:"drawing_id") {
-            self.mapID = mapID
+            self.mapId = mapID
         }
 
         //Set up UI
@@ -75,22 +75,29 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
         showMapNotification("Scan around your area to start!")
         
         //Initialize MapSession
-        MapSession.CONTINOUSLY_UPDATED_RELOCALIZATION = true
-        MapSession.CONFIDENCE_THRESHOLD = 0.10
-        self.mapSession = MapSession.init(arSession: sceneView.session, mapMode: mapMode!, userID: userID!, mapID: mapID!,
-                                          developerKey: DEV_KEY, assetsFoundCallback: reloadAssetsCallback, statusCallback: mapStatusCallback)
-        
-        
-        
+        self.jidoSession = JidoSession(arSession: sceneView.session, mapMode: sessionMode!, userID: self.userID!, mapID: mapId!, developerKey: DEV_KEY, screenHeight: view.frame.height, screenWidth: view.frame.width, assetsFoundCallback: self.reloadAssetsCallback, progressCallback: self.incrementScanProgress, statusCallback: self.mapStatusCallback, objectDetectedCallback: { objects in (([DetectedObject]) -> (Void)).self
+            if objects.count == 0 {
+                return
+            }
+        })
     }
     
+    func incrementScanProgress(scanProgressCount: Int) {
+        print("SCAN PROGRESS: \(scanProgressCount)")
+    }
+    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         //Required for MapSession
         let configuration = ARWorldTrackingConfiguration()
-        configuration.planeDetection = .horizontal
-        configuration.worldAlignment = ARConfiguration.WorldAlignment.gravityAndHeading
+        if #available(iOS 11.3, *) {
+            configuration.planeDetection = [.horizontal, .vertical]
+        } else {
+            configuration.planeDetection = .horizontal
+        }
+        configuration.worldAlignment = ARConfiguration.WorldAlignment.gravity
         sceneView.session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
         
     }
@@ -129,7 +136,6 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
             } else {
                 DispatchQueue.main.async {
                     self.showMapNotification("Great Job! Now save your drawing for others to see.")
-
                 }
             }
         }
@@ -172,8 +178,14 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
     //Uploads map and Map Assets
     @IBAction func saveButtonPressed(_ sender: Any) {
         showMapNotification("Saving")
-        if mapAssets.count > 0 && mapSession?.mapSessionUUID != nil {
-            mapSession?.storePlacement(assets: mapAssets, callback: { (didUpload) in
+        if mapAssets.count > 0 && jidoSession?.mappingUUID != nil {
+            var count = 0
+            for asset in self.mapAssets {
+                asset.assetID += "-\(count)"
+                count += 1
+            }
+            
+            jidoSession?.storePlacement(assets: mapAssets, callback: { (didUpload) in
                 if !didUpload {
                     print("didn't store placement")
                     return
@@ -184,7 +196,6 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
                     self.showButton(false, self.saveButton)
                     self.mapNotification.isHidden = true
                 }
-
             })
         }
     }
@@ -209,9 +220,9 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
             for asset in assets {
                 let sphere = SCNSphere(radius: 0.01)
                 let sphereNode = SCNNode(geometry: sphere)
-                sphereNode.geometry?.firstMaterial?.diffuse.contents = getColor(asset.assetID)
+                sphereNode.geometry?.firstMaterial?.diffuse.contents = getColor(String(asset.assetID.split(separator: "-")[0]))
                 sphereNode.position = asset.position
-                sphereNode.opacity = CGFloat(asset.confidence)
+                sphereNode.opacity = CGFloat(1)
 
                 sceneAssets.append(sphereNode)
                 sceneView.scene.rootNode.addChildNode(sphereNode)
@@ -219,7 +230,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
         } else {
             for (i, asset) in assets.enumerated() {
                 SCNTransaction.animationDuration = 1.0
-                sceneAssets[i].opacity = CGFloat(asset.confidence)
+                sceneAssets[i].opacity = CGFloat(1)
                 sceneAssets[i].position = asset.position
             }
         }
@@ -245,7 +256,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
     func session(_ session: ARSession, didUpdate frame: ARFrame) {
         if sessionStarted {
             //Required for Map
-            mapSession?.update(frame: frame)
+            jidoSession?.update(frame: frame)
         }
     }
     
@@ -255,14 +266,14 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
         case .normal:
             if !sessionStarted {
                 sessionStarted = true
-                if mapMode == .mapping {
+                if sessionMode == .mapping {
                     showButton(true, saveButton)
                     mapNotification.isHidden = true
                     drawingInstruction.isHidden = false
                     DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                         self.drawingInstruction.isHidden = true
                     }
-                } else if mapMode == .localization {
+                } else if sessionMode == .localization {
                     drawingInstruction.isHidden = true
                     showMapNotification("Great! Continue scanning the area while your design reloads.")
                     searching = true
@@ -334,6 +345,9 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
             print("ARSession not properly configured")
             showMapNotification("ARSession not properly configured.")
 
+        case .developerKeyMissingOrMalformed:
+            print("Developer key missing")
+            showMapNotification("Authentication Error")
         }
     }
     
@@ -347,5 +361,18 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
         mapNotification.text = instruction
         mapNotification.isHidden = false
         print("Showing notifcation: \(instruction)")
+    }
+    
+    func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
+        print("PLANE DETECTED")
+        self.jidoSession?.planeDetected(anchor: anchor)
+    }
+    
+    func renderer(_ renderer: SCNSceneRenderer, didRemove node: SCNNode, for anchor: ARAnchor){
+        self.jidoSession?.planeRemoved(anchor: anchor)
+    }
+    
+    func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
+        self.jidoSession?.planeUpdated(anchor: anchor)
     }
 }

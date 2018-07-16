@@ -299,19 +299,23 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-LightSaver/Pods-LightSaver-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AWSCloudWatch/AWSCloudWatch.framework",
 				"${BUILT_PRODUCTS_DIR}/AWSCore/AWSCore.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSDynamoDB/AWSDynamoDB.framework",
 				"${BUILT_PRODUCTS_DIR}/AWSS3/AWSS3.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${PODS_ROOT}/MapsyncLib/MapsyncLib.framework",
+				"${PODS_ROOT}/JidoMaps/JidoMaps.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftHash/SwiftHash.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCloudWatch.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSDynamoDB.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSS3.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapsyncLib.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JidoMaps.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftHash.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
