@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ybO-af-Ld9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ybO-af-Ld9">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -171,6 +171,10 @@
                                     <constraint firstAttribute="width" constant="219" id="sY1-nx-Xgf"/>
                                 </constraints>
                             </imageView>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="mUl-3R-B6E">
+                                <rect key="frame" x="27" y="138" width="321" height="2"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </progressView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -203,6 +207,7 @@
                         <outlet property="drawingInstruction" destination="iLH-LP-MuI" id="NJQ-04-3yA"/>
                         <outlet property="mapNotification" destination="Qgz-VM-uc1" id="N7f-ca-W5c"/>
                         <outlet property="saveButton" destination="vTt-h3-7Tp" id="n11-ge-YKr"/>
+                        <outlet property="scanProgressBar" destination="mUl-3R-B6E" id="svr-ef-Ysv"/>
                         <outlet property="sceneView" destination="BrB-h1-WRS" id="lAl-Zp-VfU"/>
                         <segue destination="ybO-af-Ld9" kind="showDetail" identifier="backSegue" id="NUQ-lr-kDy"/>
                     </connections>

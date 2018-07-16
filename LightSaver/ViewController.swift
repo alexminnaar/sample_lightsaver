@@ -28,6 +28,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
     @IBOutlet var saveButton: UIButton!
     @IBOutlet var mapNotification: UILabel!
     @IBOutlet var drawingInstruction: UIImageView!
+    @IBOutlet weak var scanProgressBar: UIProgressView!
     
     @IBOutlet var sceneView: ARSCNView!
     
@@ -42,8 +43,21 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
     var alreadyReloaded = false
     var sceneAssets: [SCNNode] = []
     
+    private let TARGET_PROGRESS_POINTS = 5
+    
+    private static let progress1Color = UIColor(red: 251.0 / 255.0 , green: 75.0 / 255.0, blue: 75.0 / 255.0, alpha: 1.0)
+    private static let progress2Color = UIColor(red: 255.0 / 255.0 , green: 168.0 / 255.0, blue: 121.0 / 255.0, alpha: 1.0)
+    private static let progress3Color = UIColor(red: 255.0 / 255.0 , green: 193.0 / 255.0, blue: 99.0 / 255.0, alpha: 1.0)
+    private static let progress4Color = UIColor(red: 254.0 / 255.0 , green: 255.0 / 255.0, blue: 92.0 / 255.0, alpha: 1.0)
+    private static let progress5Color = UIColor(red: 192.0 / 255.0 , green: 255.0 / 255.0, blue: 51.0 / 255.0, alpha: 1.0)
+    
+    private static let progressColors = [progress1Color, progress2Color, progress3Color, progress4Color, progress5Color]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.scanProgressBar.progress = 0.0
+        self.scanProgressBar.layer.transform = CATransform3DMakeScale(1.0, 5.0, 0.0)
         
         // Set the view's delegate
         sceneView.delegate = self
@@ -84,8 +98,19 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
     
     func incrementScanProgress(scanProgressCount: Int) {
         print("SCAN PROGRESS: \(scanProgressCount)")
+        
+        
+        if sessionMode == .localization && scanProgressCount > 4 && !self.alreadyReloaded {
+            return
+        }
+        
+        DispatchQueue.main.async {
+            self.scanProgressBar.progress = min(Float(scanProgressCount) / Float(self.TARGET_PROGRESS_POINTS), 1.0)
+            
+            let colorIndex = min(scanProgressCount - 1, 4)
+            self.scanProgressBar.progressTintColor = ViewController.progressColors[colorIndex]
+        }
     }
-    
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
