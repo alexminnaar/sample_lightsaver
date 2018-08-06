@@ -25,7 +25,6 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
     var sessionStarted: Bool = false
     var searching: Bool = false
     
-    @IBOutlet var saveButton: UIButton!
     @IBOutlet var mapNotification: UILabel!
     @IBOutlet var drawingInstruction: UIImageView!
     @IBOutlet weak var scanProgressBar: UIProgressView!
@@ -62,6 +61,8 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
         // Set the view's delegate
         sceneView.delegate = self
         sceneView.session.delegate = self
+        sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
+
         
         // Create a new scene
         let scene = SCNScene(named: "art.scnassets/ship.scn")!
@@ -82,7 +83,6 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
         }
 
         //Set up UI
-        showButton(false, saveButton)
         mapNotification.layer.cornerRadius = 5
         mapNotification.layer.masksToBounds = true
         drawingInstruction.isHidden = true
@@ -221,55 +221,53 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
                 print("stored placement")
                 
                 DispatchQueue.main.async {
-                    self.showButton(false, self.saveButton)
                     self.mapNotification.isHidden = true
                 }
             })
         }
     }
-    
-    //Uploads map and Map Assets
-    @IBAction func saveButtonPressed(_ sender: Any) {
-//        saveDrawing()
-    }
+
     
     private func reloadAssetsCallback(mapAssets: [MapAsset]) {
-        print("Reloading \(mapAssets.count) assets to the scene")
-        
-        self.addAssetToScene(mapAssets)
-
-        if !alreadyReloaded {
-            self.showMapNotification("Design Found!")
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                self.mapNotification.isHidden = true
-                self.searching = false
-                self.scanProgressBar.isHidden = true
-            }
+        DispatchQueue.main.async {
+            print("Reloading \(mapAssets.count) assets to the scene")
             
-            alreadyReloaded = true
+            self.addAssetToScene(mapAssets)
+
+            if !self.alreadyReloaded {
+                self.showMapNotification("Design Found!")
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                    self.mapNotification.isHidden = true
+                    self.searching = false
+                    self.scanProgressBar.isHidden = true
+                }
+                
+                self.alreadyReloaded = true
+            }
         }
     }
     
     private func addAssetToScene(_ assets: [MapAsset]) {
-        if !alreadyReloaded {
+        if !self.alreadyReloaded {
             for asset in assets {
                 let sphere = SCNSphere(radius: 0.01)
                 let sphereNode = SCNNode(geometry: sphere)
-                sphereNode.geometry?.firstMaterial?.diffuse.contents = getColor(String(asset.assetID.split(separator: "-")[0]))
+                sphereNode.geometry?.firstMaterial?.diffuse.contents = self.getColor(String(asset.assetID.split(separator: "-")[0]))
                 sphereNode.position = asset.position
                 sphereNode.opacity = CGFloat(1)
 
-                sceneAssets.append(sphereNode)
-                sceneView.scene.rootNode.addChildNode(sphereNode)
+                self.sceneAssets.append(sphereNode)
+                self.sceneView.scene.rootNode.addChildNode(sphereNode)
             }
+            print("here! \(self.sceneAssets.count)")
         } else {
+            print("here2! \(self.sceneAssets.count)")
             for (i, asset) in assets.enumerated() {
                 SCNTransaction.animationDuration = 1.0
-                sceneAssets[i].opacity = CGFloat(1)
-                sceneAssets[i].position = asset.position
+                self.sceneAssets[i].opacity = CGFloat(1)
+                self.sceneAssets[i].position = asset.position
             }
         }
-
     }
     
     private func getColor(_ label: String) -> UIColor {
@@ -302,7 +300,6 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
             if !sessionStarted {
                 sessionStarted = true
                 if sessionMode == .mapping {
-                    showButton(true, saveButton)
                     mapNotification.isHidden = true
                     drawingInstruction.isHidden = false
                     DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
@@ -312,8 +309,8 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
                     drawingInstruction.isHidden = true
                     showMapNotification("Great! Continue scanning the area while your design reloads.")
                     searching = true
-                    //Search for up to 25 seconds before instructing to restart
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 20) {
+                    //Search for up to 60 seconds before instructing to restart
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 60) {
                         // If still searching after 25 seconds, instruct to restart mapping
                         if self.searching {
                             self.showMapNotification("Design not found.  Please try again.")
