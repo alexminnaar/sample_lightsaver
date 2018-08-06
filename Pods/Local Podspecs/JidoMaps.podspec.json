@@ -1,19 +1,19 @@
 {
   "name": "JidoMaps",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "summary": "A short description of JidoMaps.",
   "description": "beta test pod.",
-  "homepage": "http://mapsync.io",
+  "homepage": "http://www.jidomaps.com/",
   "license": "MIT",
   "authors": {
-    "Jaeyong Sung": "jae@mapsync.io"
+    "Jaeyong Sung": "jae@jidomaps.com"
   },
   "platforms": {
     "ios": "11.0"
   },
   "source": {
     "git": "https://github.com/jidomaps/jido_pods.git",
-    "tag": "v0.2.6"
+    "tag": "v0.2.7"
   },
   "ios": {
     "vendored_frameworks": "JidoMaps.framework"

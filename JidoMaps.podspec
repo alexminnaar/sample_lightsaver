@@ -1,17 +1,17 @@
 Pod::Spec.new do |s|
   s.name         = "JidoMaps"
-  s.version      = "0.2.6"
+  s.version      = "0.2.7"
   s.summary      = "A short description of JidoMaps."
 
   s.description  = <<-DESC
   beta test pod.  
                    DESC
 
-  s.homepage     = "http://mapsync.io"
+  s.homepage     = "http://www.jidomaps.com/"
   s.license      = "MIT"
-  s.author       = { "Jaeyong Sung" => "jae@mapsync.io" }
+  s.author       = { "Jaeyong Sung" => "jae@jidomaps.com" }
   s.platform     = :ios, "11.0"
-  s.source       = { :git => 'https://github.com/jidomaps/jido_pods.git', :tag => 'v0.2.6' }
+  s.source       = { :git => 'https://github.com/jidomaps/jido_pods.git', :tag => 'v0.2.7' }
   s.ios.deployment_target = '11.0'
   s.ios.vendored_frameworks = 'JidoMaps.framework'
   s.exclude_files = "Classes/Exclude"
