@@ -201,6 +201,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
     }
     
     @IBAction func backButton(_ sender: Any) {
+        jidoSession?.dispose()
         self.dismiss(animated: true, completion: nil)
     }
     
