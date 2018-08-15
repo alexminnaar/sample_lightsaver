@@ -191,7 +191,10 @@
                     </view>
                     <connections>
                         <outlet property="drawingInstruction" destination="iLH-LP-MuI" id="NJQ-04-3yA"/>
+                        <outlet property="greenButton" destination="pnH-rf-uEF" id="E7Y-sc-Fv0"/>
                         <outlet property="mapNotification" destination="Qgz-VM-uc1" id="N7f-ca-W5c"/>
+                        <outlet property="pinkButton" destination="DuB-KW-cwQ" id="GOz-uV-kjr"/>
+                        <outlet property="purpleButton" destination="q0V-0f-12p" id="WXX-5f-BJP"/>
                         <outlet property="scanProgressBar" destination="mUl-3R-B6E" id="svr-ef-Ysv"/>
                         <outlet property="sceneView" destination="BrB-h1-WRS" id="lAl-Zp-VfU"/>
                         <segue destination="ybO-af-Ld9" kind="showDetail" identifier="backSegue" id="NUQ-lr-kDy"/>

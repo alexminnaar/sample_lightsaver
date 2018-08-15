@@ -8,16 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		0B46FC87F9AA6BEEA7F57878 /* Pods_LightSaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 189668393D0AA745A4EE45CD /* Pods_LightSaver.framework */; };
-		2615AE032033948A00777129 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2615AE022033948A00777129 /* Config.swift */; };
 		264C2C552032166500F1958E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 264C2C542032166500F1958E /* AppDelegate.swift */; };
 		264C2C572032166500F1958E /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 264C2C562032166500F1958E /* art.scnassets */; };
 		264C2C592032166500F1958E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 264C2C582032166500F1958E /* ViewController.swift */; };
 		264C2C5C2032166500F1958E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 264C2C5A2032166500F1958E /* Main.storyboard */; };
-		264C2C5E2032166500F1958E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 264C2C5D2032166500F1958E /* Assets.xcassets */; };
 		264C2C612032166500F1958E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 264C2C5F2032166500F1958E /* LaunchScreen.storyboard */; };
 		264C2C6C2032166500F1958E /* LightSaverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 264C2C6B2032166500F1958E /* LightSaverTests.swift */; };
 		264C2C772032166500F1958E /* LightSaverUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 264C2C762032166500F1958E /* LightSaverUITests.swift */; };
 		264C2C85203235A100F1958E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 264C2C84203235A100F1958E /* LoginViewController.swift */; };
+		943D53EF2124BA0200C6076E /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943D53EE2124BA0100C6076E /* Config.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,13 +39,11 @@
 /* Begin PBXFileReference section */
 		189668393D0AA745A4EE45CD /* Pods_LightSaver.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LightSaver.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2315A52480A638FB803342FE /* Pods-LightSaver.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LightSaver.release.xcconfig"; path = "Pods/Target Support Files/Pods-LightSaver/Pods-LightSaver.release.xcconfig"; sourceTree = "<group>"; };
-		2615AE022033948A00777129 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		264C2C512032166500F1958E /* LightSaver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LightSaver.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		264C2C542032166500F1958E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		264C2C562032166500F1958E /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
 		264C2C582032166500F1958E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		264C2C5B2032166500F1958E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		264C2C5D2032166500F1958E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		264C2C602032166500F1958E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		264C2C622032166500F1958E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		264C2C672032166500F1958E /* LightSaverTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LightSaverTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -57,6 +54,8 @@
 		264C2C782032166500F1958E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		264C2C84203235A100F1958E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		70474B1E4B5F7ADFAA29AAF0 /* Pods-LightSaver.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LightSaver.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LightSaver/Pods-LightSaver.debug.xcconfig"; sourceTree = "<group>"; };
+		943D53EE2124BA0100C6076E /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		943D53F02124BA3300C6076E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,14 +110,14 @@
 			isa = PBXGroup;
 			children = (
 				264C2C542032166500F1958E /* AppDelegate.swift */,
-				264C2C562032166500F1958E /* art.scnassets */,
+				943D53EE2124BA0100C6076E /* Config.swift */,
+				264C2C84203235A100F1958E /* LoginViewController.swift */,
 				264C2C582032166500F1958E /* ViewController.swift */,
+				943D53F02124BA3300C6076E /* Assets.xcassets */,
+				264C2C562032166500F1958E /* art.scnassets */,
 				264C2C5A2032166500F1958E /* Main.storyboard */,
-				264C2C5D2032166500F1958E /* Assets.xcassets */,
 				264C2C5F2032166500F1958E /* LaunchScreen.storyboard */,
 				264C2C622032166500F1958E /* Info.plist */,
-				264C2C84203235A100F1958E /* LoginViewController.swift */,
-				2615AE022033948A00777129 /* Config.swift */,
 			);
 			path = LightSaver;
 			sourceTree = "<group>";
@@ -270,7 +269,6 @@
 			files = (
 				264C2C572032166500F1958E /* art.scnassets in Resources */,
 				264C2C612032166500F1958E /* LaunchScreen.storyboard in Resources */,
-				264C2C5E2032166500F1958E /* Assets.xcassets in Resources */,
 				264C2C5C2032166500F1958E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -365,7 +363,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				264C2C85203235A100F1958E /* LoginViewController.swift in Sources */,
-				2615AE032033948A00777129 /* Config.swift in Sources */,
+				943D53EF2124BA0200C6076E /* Config.swift in Sources */,
 				264C2C592032166500F1958E /* ViewController.swift in Sources */,
 				264C2C552032166500F1958E /* AppDelegate.swift in Sources */,
 			);
@@ -510,7 +508,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;

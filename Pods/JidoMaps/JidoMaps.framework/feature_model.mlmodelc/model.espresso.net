@@ -1510,101 +1510,15 @@
     },
     {
       "pad_r" : 0,
-      "fused_relu" : 0,
-      "fused_tanh" : 0,
-      "pad_fill_mode" : 0,
-      "pad_b" : 0,
-      "pad_l" : 0,
-      "top" : "BoxPredictor_0\/ClassPredictor\/BiasAdd:0",
-      "blob_weights" : 95,
-      "K" : 512,
-      "blob_biases" : 93,
-      "name" : "BoxPredictor_0\/ClassPredictor\/convolution:0",
-      "has_batch_norm" : 0,
-      "type" : "convolution",
-      "n_groups" : 1,
-      "pad_t" : 0,
-      "has_biases" : 1,
-      "C" : 273,
-      "bottom" : "FeatureExtractor\/MobilenetV1\/MobilenetV1\/Conv2d_11_pointwise\/Relu6:0",
-      "weights" : {
-
-      },
-      "pad_mode" : 1,
-      "Nx" : 1,
-      "pad_value" : 0,
-      "Ny" : 1,
-      "n_parallel" : 1
-    },
-    {
-      "name" : "BoxPredictor_0\/Reshape_1:0",
-      "bottom" : "BoxPredictor_0\/ClassPredictor\/BiasAdd:0",
-      "dst_n" : 0,
-      "mode" : 1,
-      "dst_seq" : 1,
-      "dst_k" : 91,
-      "weights" : {
-
-      },
-      "top" : "BoxPredictor_0\/Reshape_1:0",
-      "dst_h" : 1,
-      "dst_w" : 1083,
-      "type" : "reshape"
-    },
-    {
-      "pad_r" : 0,
-      "fused_relu" : 0,
-      "fused_tanh" : 0,
-      "pad_fill_mode" : 0,
-      "pad_b" : 0,
-      "pad_l" : 0,
-      "top" : "BoxPredictor_0\/BoxEncodingPredictor\/BiasAdd:0",
-      "blob_weights" : 99,
-      "K" : 512,
-      "blob_biases" : 97,
-      "name" : "BoxPredictor_0\/BoxEncodingPredictor\/convolution:0",
-      "has_batch_norm" : 0,
-      "type" : "convolution",
-      "n_groups" : 1,
-      "pad_t" : 0,
-      "has_biases" : 1,
-      "C" : 12,
-      "bottom" : "FeatureExtractor\/MobilenetV1\/MobilenetV1\/Conv2d_11_pointwise\/Relu6:0",
-      "weights" : {
-
-      },
-      "pad_mode" : 1,
-      "Nx" : 1,
-      "pad_value" : 0,
-      "Ny" : 1,
-      "n_parallel" : 1
-    },
-    {
-      "name" : "BoxPredictor_0\/Reshape:0",
-      "bottom" : "BoxPredictor_0\/BoxEncodingPredictor\/BiasAdd:0",
-      "dst_n" : 0,
-      "mode" : 1,
-      "dst_seq" : 1,
-      "dst_k" : 4,
-      "weights" : {
-
-      },
-      "top" : "BoxPredictor_0\/Reshape:0",
-      "dst_h" : 1,
-      "dst_w" : 1083,
-      "type" : "reshape"
-    },
-    {
-      "pad_r" : 0,
       "fused_relu" : 1,
       "fused_tanh" : 0,
       "pad_fill_mode" : 0,
       "pad_b" : 0,
       "pad_l" : 0,
       "top" : "relu_FeatureExtractor\/MobilenetV1\/MobilenetV1\/Conv2d_12_depthwise\/Relu6:0",
-      "blob_weights" : 103,
+      "blob_weights" : 95,
       "K" : 512,
-      "blob_biases" : 101,
+      "blob_biases" : 93,
       "stride_x" : 2,
       "name" : "FeatureExtractor\/MobilenetV1\/MobilenetV1\/Conv2d_12_depthwise\/depthwise:0",
       "has_batch_norm" : 0,
@@ -1669,9 +1583,9 @@
       "pad_b" : 0,
       "pad_l" : 0,
       "top" : "relu_FeatureExtractor\/MobilenetV1\/MobilenetV1\/Conv2d_12_pointwise\/Relu6:0",
-      "blob_weights" : 107,
+      "blob_weights" : 99,
       "K" : 512,
-      "blob_biases" : 105,
+      "blob_biases" : 97,
       "name" : "FeatureExtractor\/MobilenetV1\/MobilenetV1\/Conv2d_12_pointwise\/BatchNorm\/batchnorm\/mul_1:0",
       "has_batch_norm" : 0,
       "type" : "convolution",
@@ -1734,9 +1648,9 @@
       "pad_b" : 0,
       "pad_l" : 0,
       "top" : "relu_FeatureExtractor\/MobilenetV1\/MobilenetV1\/Conv2d_13_depthwise\/Relu6:0",
-      "blob_weights" : 111,
+      "blob_weights" : 103,
       "K" : 1024,
-      "blob_biases" : 109,
+      "blob_biases" : 101,
       "name" : "FeatureExtractor\/MobilenetV1\/MobilenetV1\/Conv2d_13_depthwise\/depthwise:0",
       "has_batch_norm" : 0,
       "type" : "convolution",
@@ -1799,9 +1713,9 @@
       "pad_b" : 0,
       "pad_l" : 0,
       "top" : "relu_FeatureExtractor\/MobilenetV1\/MobilenetV1\/Conv2d_13_pointwise\/Relu6:0",
-      "blob_weights" : 115,
+      "blob_weights" : 107,
       "K" : 1024,
-      "blob_biases" : 113,
+      "blob_biases" : 105,
       "name" : "FeatureExtractor\/MobilenetV1\/MobilenetV1\/Conv2d_13_pointwise\/BatchNorm\/batchnorm\/mul_1:0",
       "has_batch_norm" : 0,
       "type" : "convolution",
@@ -1858,101 +1772,15 @@
     },
     {
       "pad_r" : 0,
-      "fused_relu" : 0,
-      "fused_tanh" : 0,
-      "pad_fill_mode" : 0,
-      "pad_b" : 0,
-      "pad_l" : 0,
-      "top" : "BoxPredictor_1\/ClassPredictor\/BiasAdd:0",
-      "blob_weights" : 119,
-      "K" : 1024,
-      "blob_biases" : 117,
-      "name" : "BoxPredictor_1\/ClassPredictor\/convolution:0",
-      "has_batch_norm" : 0,
-      "type" : "convolution",
-      "n_groups" : 1,
-      "pad_t" : 0,
-      "has_biases" : 1,
-      "C" : 546,
-      "bottom" : "FeatureExtractor\/MobilenetV1\/MobilenetV1\/Conv2d_13_pointwise\/Relu6:0",
-      "weights" : {
-
-      },
-      "pad_mode" : 1,
-      "Nx" : 1,
-      "pad_value" : 0,
-      "Ny" : 1,
-      "n_parallel" : 1
-    },
-    {
-      "name" : "BoxPredictor_1\/Reshape_1:0",
-      "bottom" : "BoxPredictor_1\/ClassPredictor\/BiasAdd:0",
-      "dst_n" : 0,
-      "mode" : 1,
-      "dst_seq" : 1,
-      "dst_k" : 91,
-      "weights" : {
-
-      },
-      "top" : "BoxPredictor_1\/Reshape_1:0",
-      "dst_h" : 1,
-      "dst_w" : 600,
-      "type" : "reshape"
-    },
-    {
-      "pad_r" : 0,
-      "fused_relu" : 0,
-      "fused_tanh" : 0,
-      "pad_fill_mode" : 0,
-      "pad_b" : 0,
-      "pad_l" : 0,
-      "top" : "BoxPredictor_1\/BoxEncodingPredictor\/BiasAdd:0",
-      "blob_weights" : 123,
-      "K" : 1024,
-      "blob_biases" : 121,
-      "name" : "BoxPredictor_1\/BoxEncodingPredictor\/convolution:0",
-      "has_batch_norm" : 0,
-      "type" : "convolution",
-      "n_groups" : 1,
-      "pad_t" : 0,
-      "has_biases" : 1,
-      "C" : 24,
-      "bottom" : "FeatureExtractor\/MobilenetV1\/MobilenetV1\/Conv2d_13_pointwise\/Relu6:0",
-      "weights" : {
-
-      },
-      "pad_mode" : 1,
-      "Nx" : 1,
-      "pad_value" : 0,
-      "Ny" : 1,
-      "n_parallel" : 1
-    },
-    {
-      "name" : "BoxPredictor_1\/Reshape:0",
-      "bottom" : "BoxPredictor_1\/BoxEncodingPredictor\/BiasAdd:0",
-      "dst_n" : 0,
-      "mode" : 1,
-      "dst_seq" : 1,
-      "dst_k" : 4,
-      "weights" : {
-
-      },
-      "top" : "BoxPredictor_1\/Reshape:0",
-      "dst_h" : 1,
-      "dst_w" : 600,
-      "type" : "reshape"
-    },
-    {
-      "pad_r" : 0,
       "fused_relu" : 1,
       "fused_tanh" : 0,
       "pad_fill_mode" : 0,
       "pad_b" : 0,
       "pad_l" : 0,
       "top" : "relu_FeatureExtractor\/MobilenetV1\/Conv2d_13_pointwise_1_Conv2d_2_1x1_256\/Relu6:0",
-      "blob_weights" : 127,
+      "blob_weights" : 111,
       "K" : 1024,
-      "blob_biases" : 125,
+      "blob_biases" : 109,
       "name" : "FeatureExtractor\/MobilenetV1\/Conv2d_13_pointwise_1_Conv2d_2_1x1_256\/BatchNorm\/batchnorm\/mul_1:0",
       "has_batch_norm" : 0,
       "type" : "convolution",
@@ -2015,9 +1843,9 @@
       "pad_b" : 0,
       "pad_l" : 0,
       "top" : "relu_FeatureExtractor\/MobilenetV1\/Conv2d_13_pointwise_2_Conv2d_2_3x3_s2_512\/Relu6:0",
-      "blob_weights" : 131,
+      "blob_weights" : 115,
       "K" : 256,
-      "blob_biases" : 129,
+      "blob_biases" : 113,
       "stride_x" : 2,
       "name" : "FeatureExtractor\/MobilenetV1\/Conv2d_13_pointwise_2_Conv2d_2_3x3_s2_512\/BatchNorm\/batchnorm\/mul_1:0",
       "has_batch_norm" : 0,
@@ -2069,96 +1897,10 @@
 
       },
       "mode" : 6,
-      "top" : "FeatureExtractor\/MobilenetV1\/Conv2d_13_pointwise_2_Conv2d_2_3x3_s2_512\/Relu6:0",
+      "top" : "FeatureExtractor__MobilenetV1__Conv2d_13_pointwise_2_Conv2d_2_3x3_s2_512__Relu6__0",
       "type" : "activation",
       "name" : "FeatureExtractor\/MobilenetV1\/Conv2d_13_pointwise_2_Conv2d_2_3x3_s2_512\/Relu6:0",
       "beta" : 0
-    },
-    {
-      "pad_r" : 0,
-      "fused_relu" : 0,
-      "fused_tanh" : 0,
-      "pad_fill_mode" : 0,
-      "pad_b" : 0,
-      "pad_l" : 0,
-      "top" : "BoxPredictor_2\/ClassPredictor\/BiasAdd:0",
-      "blob_weights" : 135,
-      "K" : 512,
-      "blob_biases" : 133,
-      "name" : "BoxPredictor_2\/ClassPredictor\/convolution:0",
-      "has_batch_norm" : 0,
-      "type" : "convolution",
-      "n_groups" : 1,
-      "pad_t" : 0,
-      "has_biases" : 1,
-      "C" : 546,
-      "bottom" : "FeatureExtractor\/MobilenetV1\/Conv2d_13_pointwise_2_Conv2d_2_3x3_s2_512\/Relu6:0",
-      "weights" : {
-
-      },
-      "pad_mode" : 1,
-      "Nx" : 1,
-      "pad_value" : 0,
-      "Ny" : 1,
-      "n_parallel" : 1
-    },
-    {
-      "name" : "BoxPredictor_2\/Reshape_1:0",
-      "bottom" : "BoxPredictor_2\/ClassPredictor\/BiasAdd:0",
-      "dst_n" : 0,
-      "mode" : 1,
-      "dst_seq" : 1,
-      "dst_k" : 91,
-      "weights" : {
-
-      },
-      "top" : "BoxPredictor_2\/Reshape_1:0",
-      "dst_h" : 1,
-      "dst_w" : 150,
-      "type" : "reshape"
-    },
-    {
-      "pad_r" : 0,
-      "fused_relu" : 0,
-      "fused_tanh" : 0,
-      "pad_fill_mode" : 0,
-      "pad_b" : 0,
-      "pad_l" : 0,
-      "top" : "BoxPredictor_2\/BoxEncodingPredictor\/BiasAdd:0",
-      "blob_weights" : 139,
-      "K" : 512,
-      "blob_biases" : 137,
-      "name" : "BoxPredictor_2\/BoxEncodingPredictor\/convolution:0",
-      "has_batch_norm" : 0,
-      "type" : "convolution",
-      "n_groups" : 1,
-      "pad_t" : 0,
-      "has_biases" : 1,
-      "C" : 24,
-      "bottom" : "FeatureExtractor\/MobilenetV1\/Conv2d_13_pointwise_2_Conv2d_2_3x3_s2_512\/Relu6:0",
-      "weights" : {
-
-      },
-      "pad_mode" : 1,
-      "Nx" : 1,
-      "pad_value" : 0,
-      "Ny" : 1,
-      "n_parallel" : 1
-    },
-    {
-      "name" : "BoxPredictor_2\/Reshape:0",
-      "bottom" : "BoxPredictor_2\/BoxEncodingPredictor\/BiasAdd:0",
-      "dst_n" : 0,
-      "mode" : 1,
-      "dst_seq" : 1,
-      "dst_k" : 4,
-      "weights" : {
-
-      },
-      "top" : "BoxPredictor_2\/Reshape:0",
-      "dst_h" : 1,
-      "dst_w" : 150,
-      "type" : "reshape"
     },
     {
       "pad_r" : 0,
@@ -2168,9 +1910,9 @@
       "pad_b" : 0,
       "pad_l" : 0,
       "top" : "relu_FeatureExtractor\/MobilenetV1\/Conv2d_13_pointwise_1_Conv2d_3_1x1_128\/Relu6:0",
-      "blob_weights" : 143,
+      "blob_weights" : 119,
       "K" : 512,
-      "blob_biases" : 141,
+      "blob_biases" : 117,
       "name" : "FeatureExtractor\/MobilenetV1\/Conv2d_13_pointwise_1_Conv2d_3_1x1_128\/BatchNorm\/batchnorm\/mul_1:0",
       "has_batch_norm" : 0,
       "type" : "convolution",
@@ -2178,7 +1920,7 @@
       "pad_t" : 0,
       "has_biases" : 1,
       "C" : 128,
-      "bottom" : "FeatureExtractor\/MobilenetV1\/Conv2d_13_pointwise_2_Conv2d_2_3x3_s2_512\/Relu6:0",
+      "bottom" : "FeatureExtractor__MobilenetV1__Conv2d_13_pointwise_2_Conv2d_2_3x3_s2_512__Relu6__0",
       "weights" : {
 
       },
@@ -2232,22 +1974,8 @@
       "weights" : {
 
       },
-      "h" : 6,
-      "constant_blob" : 145,
-      "top" : "FeatureExtractor\/MobilenetV1\/zeros_1:0",
-      "w" : 1,
-      "type" : "load_constant",
-      "name" : "FeatureExtractor\/MobilenetV1\/zeros_1:0"
-    },
-    {
-      "k" : 128,
-      "bottom" : "",
-      "n" : 1,
-      "weights" : {
-
-      },
       "h" : 1,
-      "constant_blob" : 147,
+      "constant_blob" : 121,
       "top" : "FeatureExtractor\/MobilenetV1\/zeros:0",
       "w" : 5,
       "type" : "load_constant",
@@ -2303,6 +2031,20 @@
       "top" : "FeatureExtractor\/MobilenetV1\/concat:0",
       "type" : "transpose",
       "name" : "FeatureExtractor\/MobilenetV1\/concat:0"
+    },
+    {
+      "k" : 128,
+      "bottom" : "",
+      "n" : 1,
+      "weights" : {
+
+      },
+      "h" : 6,
+      "constant_blob" : 123,
+      "top" : "FeatureExtractor\/MobilenetV1\/zeros_1:0",
+      "w" : 1,
+      "type" : "load_constant",
+      "name" : "FeatureExtractor\/MobilenetV1\/zeros_1:0"
     },
     {
       "axis_h" : 1,
@@ -2363,9 +2105,9 @@
       "pad_b" : 0,
       "pad_l" : 0,
       "top" : "relu_FeatureExtractor\/MobilenetV1\/Conv2d_13_pointwise_2_Conv2d_3_3x3_s2_256\/Relu6:0",
-      "blob_weights" : 151,
+      "blob_weights" : 127,
       "K" : 128,
-      "blob_biases" : 149,
+      "blob_biases" : 125,
       "stride_x" : 2,
       "name" : "FeatureExtractor\/MobilenetV1\/Conv2d_13_pointwise_2_Conv2d_3_3x3_s2_256\/BatchNorm\/batchnorm\/mul_1:0",
       "has_batch_norm" : 0,
@@ -2424,101 +2166,15 @@
     },
     {
       "pad_r" : 0,
-      "fused_relu" : 0,
-      "fused_tanh" : 0,
-      "pad_fill_mode" : 0,
-      "pad_b" : 0,
-      "pad_l" : 0,
-      "top" : "BoxPredictor_3\/ClassPredictor\/BiasAdd:0",
-      "blob_weights" : 155,
-      "K" : 256,
-      "blob_biases" : 153,
-      "name" : "BoxPredictor_3\/ClassPredictor\/convolution:0",
-      "has_batch_norm" : 0,
-      "type" : "convolution",
-      "n_groups" : 1,
-      "pad_t" : 0,
-      "has_biases" : 1,
-      "C" : 546,
-      "bottom" : "FeatureExtractor\/MobilenetV1\/Conv2d_13_pointwise_2_Conv2d_3_3x3_s2_256\/Relu6:0",
-      "weights" : {
-
-      },
-      "pad_mode" : 1,
-      "Nx" : 1,
-      "pad_value" : 0,
-      "Ny" : 1,
-      "n_parallel" : 1
-    },
-    {
-      "name" : "BoxPredictor_3\/Reshape_1:0",
-      "bottom" : "BoxPredictor_3\/ClassPredictor\/BiasAdd:0",
-      "dst_n" : 0,
-      "mode" : 1,
-      "dst_seq" : 1,
-      "dst_k" : 91,
-      "weights" : {
-
-      },
-      "top" : "BoxPredictor_3\/Reshape_1:0",
-      "dst_h" : 1,
-      "dst_w" : 54,
-      "type" : "reshape"
-    },
-    {
-      "pad_r" : 0,
-      "fused_relu" : 0,
-      "fused_tanh" : 0,
-      "pad_fill_mode" : 0,
-      "pad_b" : 0,
-      "pad_l" : 0,
-      "top" : "BoxPredictor_3\/BoxEncodingPredictor\/BiasAdd:0",
-      "blob_weights" : 159,
-      "K" : 256,
-      "blob_biases" : 157,
-      "name" : "BoxPredictor_3\/BoxEncodingPredictor\/convolution:0",
-      "has_batch_norm" : 0,
-      "type" : "convolution",
-      "n_groups" : 1,
-      "pad_t" : 0,
-      "has_biases" : 1,
-      "C" : 24,
-      "bottom" : "FeatureExtractor\/MobilenetV1\/Conv2d_13_pointwise_2_Conv2d_3_3x3_s2_256\/Relu6:0",
-      "weights" : {
-
-      },
-      "pad_mode" : 1,
-      "Nx" : 1,
-      "pad_value" : 0,
-      "Ny" : 1,
-      "n_parallel" : 1
-    },
-    {
-      "name" : "BoxPredictor_3\/Reshape:0",
-      "bottom" : "BoxPredictor_3\/BoxEncodingPredictor\/BiasAdd:0",
-      "dst_n" : 0,
-      "mode" : 1,
-      "dst_seq" : 1,
-      "dst_k" : 4,
-      "weights" : {
-
-      },
-      "top" : "BoxPredictor_3\/Reshape:0",
-      "dst_h" : 1,
-      "dst_w" : 54,
-      "type" : "reshape"
-    },
-    {
-      "pad_r" : 0,
       "fused_relu" : 1,
       "fused_tanh" : 0,
       "pad_fill_mode" : 0,
       "pad_b" : 0,
       "pad_l" : 0,
       "top" : "relu_FeatureExtractor\/MobilenetV1\/Conv2d_13_pointwise_1_Conv2d_4_1x1_128\/Relu6:0",
-      "blob_weights" : 163,
+      "blob_weights" : 131,
       "K" : 256,
-      "blob_biases" : 161,
+      "blob_biases" : 129,
       "name" : "FeatureExtractor\/MobilenetV1\/Conv2d_13_pointwise_1_Conv2d_4_1x1_128\/BatchNorm\/batchnorm\/mul_1:0",
       "has_batch_norm" : 0,
       "type" : "convolution",
@@ -2568,7 +2224,7 @@
 
       },
       "mode" : 6,
-      "top" : "FeatureExtractor\/MobilenetV1\/Conv2d_13_pointwise_1_Conv2d_4_1x1_128\/Relu6:0",
+      "top" : "FeatureExtractor__MobilenetV1__Conv2d_13_pointwise_1_Conv2d_4_1x1_128__Relu6__0",
       "type" : "activation",
       "name" : "FeatureExtractor\/MobilenetV1\/Conv2d_13_pointwise_1_Conv2d_4_1x1_128\/Relu6:0",
       "beta" : 0
@@ -2580,22 +2236,8 @@
       "weights" : {
 
       },
-      "h" : 4,
-      "constant_blob" : 165,
-      "top" : "FeatureExtractor\/MobilenetV1\/zeros_3:0",
-      "w" : 1,
-      "type" : "load_constant",
-      "name" : "FeatureExtractor\/MobilenetV1\/zeros_3:0"
-    },
-    {
-      "k" : 128,
-      "bottom" : "",
-      "n" : 1,
-      "weights" : {
-
-      },
       "h" : 1,
-      "constant_blob" : 167,
+      "constant_blob" : 133,
       "top" : "FeatureExtractor\/MobilenetV1\/zeros_2:0",
       "w" : 3,
       "type" : "load_constant",
@@ -2605,7 +2247,7 @@
       "axis_h" : 2,
       "axis_w" : 0,
       "axis_k" : 1,
-      "bottom" : "FeatureExtractor\/MobilenetV1\/Conv2d_13_pointwise_1_Conv2d_4_1x1_128\/Relu6:0",
+      "bottom" : "FeatureExtractor__MobilenetV1__Conv2d_13_pointwise_1_Conv2d_4_1x1_128__Relu6__0",
       "axis_n" : 3,
       "axis_seq" : 4,
       "weights" : {
@@ -2651,6 +2293,20 @@
       "top" : "FeatureExtractor\/MobilenetV1\/concat_2:0",
       "type" : "transpose",
       "name" : "FeatureExtractor\/MobilenetV1\/concat_2:0"
+    },
+    {
+      "k" : 128,
+      "bottom" : "",
+      "n" : 1,
+      "weights" : {
+
+      },
+      "h" : 4,
+      "constant_blob" : 135,
+      "top" : "FeatureExtractor\/MobilenetV1\/zeros_3:0",
+      "w" : 1,
+      "type" : "load_constant",
+      "name" : "FeatureExtractor\/MobilenetV1\/zeros_3:0"
     },
     {
       "axis_h" : 1,
@@ -2711,9 +2367,9 @@
       "pad_b" : 0,
       "pad_l" : 0,
       "top" : "relu_FeatureExtractor\/MobilenetV1\/Conv2d_13_pointwise_2_Conv2d_4_3x3_s2_256\/Relu6:0",
-      "blob_weights" : 171,
+      "blob_weights" : 139,
       "K" : 128,
-      "blob_biases" : 169,
+      "blob_biases" : 137,
       "stride_x" : 2,
       "name" : "FeatureExtractor\/MobilenetV1\/Conv2d_13_pointwise_2_Conv2d_4_3x3_s2_256\/BatchNorm\/batchnorm\/mul_1:0",
       "has_batch_norm" : 0,
@@ -2772,101 +2428,15 @@
     },
     {
       "pad_r" : 0,
-      "fused_relu" : 0,
-      "fused_tanh" : 0,
-      "pad_fill_mode" : 0,
-      "pad_b" : 0,
-      "pad_l" : 0,
-      "top" : "BoxPredictor_4\/ClassPredictor\/BiasAdd:0",
-      "blob_weights" : 175,
-      "K" : 256,
-      "blob_biases" : 173,
-      "name" : "BoxPredictor_4\/ClassPredictor\/convolution:0",
-      "has_batch_norm" : 0,
-      "type" : "convolution",
-      "n_groups" : 1,
-      "pad_t" : 0,
-      "has_biases" : 1,
-      "C" : 546,
-      "bottom" : "FeatureExtractor\/MobilenetV1\/Conv2d_13_pointwise_2_Conv2d_4_3x3_s2_256\/Relu6:0",
-      "weights" : {
-
-      },
-      "pad_mode" : 1,
-      "Nx" : 1,
-      "pad_value" : 0,
-      "Ny" : 1,
-      "n_parallel" : 1
-    },
-    {
-      "name" : "BoxPredictor_4\/Reshape_1:0",
-      "bottom" : "BoxPredictor_4\/ClassPredictor\/BiasAdd:0",
-      "dst_n" : 0,
-      "mode" : 1,
-      "dst_seq" : 1,
-      "dst_k" : 91,
-      "weights" : {
-
-      },
-      "top" : "BoxPredictor_4\/Reshape_1:0",
-      "dst_h" : 1,
-      "dst_w" : 24,
-      "type" : "reshape"
-    },
-    {
-      "pad_r" : 0,
-      "fused_relu" : 0,
-      "fused_tanh" : 0,
-      "pad_fill_mode" : 0,
-      "pad_b" : 0,
-      "pad_l" : 0,
-      "top" : "BoxPredictor_4\/BoxEncodingPredictor\/BiasAdd:0",
-      "blob_weights" : 179,
-      "K" : 256,
-      "blob_biases" : 177,
-      "name" : "BoxPredictor_4\/BoxEncodingPredictor\/convolution:0",
-      "has_batch_norm" : 0,
-      "type" : "convolution",
-      "n_groups" : 1,
-      "pad_t" : 0,
-      "has_biases" : 1,
-      "C" : 24,
-      "bottom" : "FeatureExtractor\/MobilenetV1\/Conv2d_13_pointwise_2_Conv2d_4_3x3_s2_256\/Relu6:0",
-      "weights" : {
-
-      },
-      "pad_mode" : 1,
-      "Nx" : 1,
-      "pad_value" : 0,
-      "Ny" : 1,
-      "n_parallel" : 1
-    },
-    {
-      "name" : "BoxPredictor_4\/Reshape:0",
-      "bottom" : "BoxPredictor_4\/BoxEncodingPredictor\/BiasAdd:0",
-      "dst_n" : 0,
-      "mode" : 1,
-      "dst_seq" : 1,
-      "dst_k" : 4,
-      "weights" : {
-
-      },
-      "top" : "BoxPredictor_4\/Reshape:0",
-      "dst_h" : 1,
-      "dst_w" : 24,
-      "type" : "reshape"
-    },
-    {
-      "pad_r" : 0,
       "fused_relu" : 1,
       "fused_tanh" : 0,
       "pad_fill_mode" : 0,
       "pad_b" : 0,
       "pad_l" : 0,
       "top" : "relu_FeatureExtractor\/MobilenetV1\/Conv2d_13_pointwise_1_Conv2d_5_1x1_64\/Relu6:0",
-      "blob_weights" : 183,
+      "blob_weights" : 143,
       "K" : 256,
-      "blob_biases" : 181,
+      "blob_biases" : 141,
       "name" : "FeatureExtractor\/MobilenetV1\/Conv2d_13_pointwise_1_Conv2d_5_1x1_64\/BatchNorm\/batchnorm\/mul_1:0",
       "has_batch_norm" : 0,
       "type" : "convolution",
@@ -2929,9 +2499,9 @@
       "pad_b" : 0,
       "pad_l" : 0,
       "top" : "relu_FeatureExtractor\/MobilenetV1\/Conv2d_13_pointwise_2_Conv2d_5_3x3_s2_128\/Relu6:0",
-      "blob_weights" : 187,
+      "blob_weights" : 147,
       "K" : 64,
-      "blob_biases" : 185,
+      "blob_biases" : 145,
       "stride_x" : 2,
       "name" : "FeatureExtractor\/MobilenetV1\/Conv2d_13_pointwise_2_Conv2d_5_3x3_s2_128\/BatchNorm\/batchnorm\/mul_1:0",
       "has_batch_norm" : 0,
@@ -2995,10 +2565,38 @@
       "pad_fill_mode" : 0,
       "pad_b" : 0,
       "pad_l" : 0,
-      "top" : "BoxPredictor_5\/ClassPredictor\/BiasAdd:0",
-      "blob_weights" : 191,
+      "top" : "BoxPredictor_5\/BoxEncodingPredictor\/BiasAdd:0",
+      "blob_weights" : 151,
       "K" : 128,
-      "blob_biases" : 189,
+      "blob_biases" : 149,
+      "name" : "BoxPredictor_5\/BoxEncodingPredictor\/convolution:0",
+      "has_batch_norm" : 0,
+      "type" : "convolution",
+      "n_groups" : 1,
+      "pad_t" : 0,
+      "has_biases" : 1,
+      "C" : 24,
+      "bottom" : "FeatureExtractor\/MobilenetV1\/Conv2d_13_pointwise_2_Conv2d_5_3x3_s2_128\/Relu6:0",
+      "weights" : {
+
+      },
+      "pad_mode" : 1,
+      "Nx" : 1,
+      "pad_value" : 0,
+      "Ny" : 1,
+      "n_parallel" : 1
+    },
+    {
+      "pad_r" : 0,
+      "fused_relu" : 0,
+      "fused_tanh" : 0,
+      "pad_fill_mode" : 0,
+      "pad_b" : 0,
+      "pad_l" : 0,
+      "top" : "BoxPredictor_5\/ClassPredictor\/BiasAdd:0",
+      "blob_weights" : 155,
+      "K" : 128,
+      "blob_biases" : 153,
       "name" : "BoxPredictor_5\/ClassPredictor\/convolution:0",
       "has_batch_norm" : 0,
       "type" : "convolution",
@@ -3017,146 +2615,24 @@
       "n_parallel" : 1
     },
     {
-      "name" : "BoxPredictor_5\/Reshape_1:0",
-      "bottom" : "BoxPredictor_5\/ClassPredictor\/BiasAdd:0",
-      "dst_n" : 0,
-      "mode" : 1,
-      "dst_seq" : 1,
-      "dst_k" : 91,
-      "weights" : {
-
-      },
-      "top" : "BoxPredictor_5\/Reshape_1:0",
-      "dst_h" : 1,
-      "dst_w" : 6,
-      "type" : "reshape"
-    },
-    {
-      "axis_h" : 1,
-      "axis_w" : 2,
-      "axis_k" : 0,
-      "bottom" : "BoxPredictor_0\/Reshape_1:0",
-      "axis_n" : 3,
-      "axis_seq" : 4,
-      "weights" : {
-
-      },
-      "top" : "BoxPredictor_0\/Reshape_1:0_swap_W_C_0",
-      "type" : "transpose",
-      "name" : "concat_1:0_0"
-    },
-    {
-      "axis_h" : 1,
-      "axis_w" : 2,
-      "axis_k" : 0,
-      "bottom" : "BoxPredictor_1\/Reshape_1:0",
-      "axis_n" : 3,
-      "axis_seq" : 4,
-      "weights" : {
-
-      },
-      "top" : "BoxPredictor_1\/Reshape_1:0_swap_W_C_1",
-      "type" : "transpose",
-      "name" : "concat_1:0_1"
-    },
-    {
-      "axis_h" : 1,
-      "axis_w" : 2,
-      "axis_k" : 0,
-      "bottom" : "BoxPredictor_2\/Reshape_1:0",
-      "axis_n" : 3,
-      "axis_seq" : 4,
-      "weights" : {
-
-      },
-      "top" : "BoxPredictor_2\/Reshape_1:0_swap_W_C_2",
-      "type" : "transpose",
-      "name" : "concat_1:0_2"
-    },
-    {
-      "axis_h" : 1,
-      "axis_w" : 2,
-      "axis_k" : 0,
-      "bottom" : "BoxPredictor_3\/Reshape_1:0",
-      "axis_n" : 3,
-      "axis_seq" : 4,
-      "weights" : {
-
-      },
-      "top" : "BoxPredictor_3\/Reshape_1:0_swap_W_C_3",
-      "type" : "transpose",
-      "name" : "concat_1:0_3"
-    },
-    {
-      "axis_h" : 1,
-      "axis_w" : 2,
-      "axis_k" : 0,
-      "bottom" : "BoxPredictor_4\/Reshape_1:0",
-      "axis_n" : 3,
-      "axis_seq" : 4,
-      "weights" : {
-
-      },
-      "top" : "BoxPredictor_4\/Reshape_1:0_swap_W_C_4",
-      "type" : "transpose",
-      "name" : "concat_1:0_4"
-    },
-    {
-      "axis_h" : 1,
-      "axis_w" : 2,
-      "axis_k" : 0,
-      "bottom" : "BoxPredictor_5\/Reshape_1:0",
-      "axis_n" : 3,
-      "axis_seq" : 4,
-      "weights" : {
-
-      },
-      "top" : "BoxPredictor_5\/Reshape_1:0_swap_W_C_5",
-      "type" : "transpose",
-      "name" : "concat_1:0_5"
-    },
-    {
-      "weights" : {
-
-      },
-      "top" : "concat_1:0_concat",
-      "type" : "concat",
-      "name" : "concat_1:0_concat",
-      "bottom" : "BoxPredictor_0\/Reshape_1:0_swap_W_C_0,BoxPredictor_1\/Reshape_1:0_swap_W_C_1,BoxPredictor_2\/Reshape_1:0_swap_W_C_2,BoxPredictor_3\/Reshape_1:0_swap_W_C_3,BoxPredictor_4\/Reshape_1:0_swap_W_C_4,BoxPredictor_5\/Reshape_1:0_swap_W_C_5"
-    },
-    {
-      "axis_h" : 1,
-      "axis_w" : 2,
-      "axis_k" : 0,
-      "bottom" : "concat_1:0_concat",
-      "axis_n" : 3,
-      "axis_seq" : 4,
-      "weights" : {
-
-      },
-      "top" : "concat_1__0",
-      "type" : "transpose",
-      "name" : "concat_1:0"
-    },
-    {
       "pad_r" : 0,
       "fused_relu" : 0,
       "fused_tanh" : 0,
       "pad_fill_mode" : 0,
       "pad_b" : 0,
       "pad_l" : 0,
-      "top" : "BoxPredictor_5\/BoxEncodingPredictor\/BiasAdd:0",
-      "blob_weights" : 195,
-      "K" : 128,
-      "blob_biases" : 193,
-      "name" : "BoxPredictor_5\/BoxEncodingPredictor\/convolution:0",
+      "top" : "BoxPredictor_4\/BoxEncodingPredictor\/BiasAdd:0",
+      "blob_weights" : 159,
+      "K" : 256,
+      "blob_biases" : 157,
+      "name" : "BoxPredictor_4\/BoxEncodingPredictor\/convolution:0",
       "has_batch_norm" : 0,
       "type" : "convolution",
       "n_groups" : 1,
       "pad_t" : 0,
       "has_biases" : 1,
       "C" : 24,
-      "bottom" : "FeatureExtractor\/MobilenetV1\/Conv2d_13_pointwise_2_Conv2d_5_3x3_s2_128\/Relu6:0",
+      "bottom" : "FeatureExtractor\/MobilenetV1\/Conv2d_13_pointwise_2_Conv2d_4_3x3_s2_256\/Relu6:0",
       "weights" : {
 
       },
@@ -3165,6 +2641,408 @@
       "pad_value" : 0,
       "Ny" : 1,
       "n_parallel" : 1
+    },
+    {
+      "pad_r" : 0,
+      "fused_relu" : 0,
+      "fused_tanh" : 0,
+      "pad_fill_mode" : 0,
+      "pad_b" : 0,
+      "pad_l" : 0,
+      "top" : "BoxPredictor_4\/ClassPredictor\/BiasAdd:0",
+      "blob_weights" : 163,
+      "K" : 256,
+      "blob_biases" : 161,
+      "name" : "BoxPredictor_4\/ClassPredictor\/convolution:0",
+      "has_batch_norm" : 0,
+      "type" : "convolution",
+      "n_groups" : 1,
+      "pad_t" : 0,
+      "has_biases" : 1,
+      "C" : 546,
+      "bottom" : "FeatureExtractor\/MobilenetV1\/Conv2d_13_pointwise_2_Conv2d_4_3x3_s2_256\/Relu6:0",
+      "weights" : {
+
+      },
+      "pad_mode" : 1,
+      "Nx" : 1,
+      "pad_value" : 0,
+      "Ny" : 1,
+      "n_parallel" : 1
+    },
+    {
+      "pad_r" : 0,
+      "fused_relu" : 0,
+      "fused_tanh" : 0,
+      "pad_fill_mode" : 0,
+      "pad_b" : 0,
+      "pad_l" : 0,
+      "top" : "BoxPredictor_3\/BoxEncodingPredictor\/BiasAdd:0",
+      "blob_weights" : 167,
+      "K" : 256,
+      "blob_biases" : 165,
+      "name" : "BoxPredictor_3\/BoxEncodingPredictor\/convolution:0",
+      "has_batch_norm" : 0,
+      "type" : "convolution",
+      "n_groups" : 1,
+      "pad_t" : 0,
+      "has_biases" : 1,
+      "C" : 24,
+      "bottom" : "FeatureExtractor\/MobilenetV1\/Conv2d_13_pointwise_2_Conv2d_3_3x3_s2_256\/Relu6:0",
+      "weights" : {
+
+      },
+      "pad_mode" : 1,
+      "Nx" : 1,
+      "pad_value" : 0,
+      "Ny" : 1,
+      "n_parallel" : 1
+    },
+    {
+      "pad_r" : 0,
+      "fused_relu" : 0,
+      "fused_tanh" : 0,
+      "pad_fill_mode" : 0,
+      "pad_b" : 0,
+      "pad_l" : 0,
+      "top" : "BoxPredictor_3\/ClassPredictor\/BiasAdd:0",
+      "blob_weights" : 171,
+      "K" : 256,
+      "blob_biases" : 169,
+      "name" : "BoxPredictor_3\/ClassPredictor\/convolution:0",
+      "has_batch_norm" : 0,
+      "type" : "convolution",
+      "n_groups" : 1,
+      "pad_t" : 0,
+      "has_biases" : 1,
+      "C" : 546,
+      "bottom" : "FeatureExtractor\/MobilenetV1\/Conv2d_13_pointwise_2_Conv2d_3_3x3_s2_256\/Relu6:0",
+      "weights" : {
+
+      },
+      "pad_mode" : 1,
+      "Nx" : 1,
+      "pad_value" : 0,
+      "Ny" : 1,
+      "n_parallel" : 1
+    },
+    {
+      "pad_r" : 0,
+      "fused_relu" : 0,
+      "fused_tanh" : 0,
+      "pad_fill_mode" : 0,
+      "pad_b" : 0,
+      "pad_l" : 0,
+      "top" : "BoxPredictor_2\/BoxEncodingPredictor\/BiasAdd:0",
+      "blob_weights" : 175,
+      "K" : 512,
+      "blob_biases" : 173,
+      "name" : "BoxPredictor_2\/BoxEncodingPredictor\/convolution:0",
+      "has_batch_norm" : 0,
+      "type" : "convolution",
+      "n_groups" : 1,
+      "pad_t" : 0,
+      "has_biases" : 1,
+      "C" : 24,
+      "bottom" : "FeatureExtractor__MobilenetV1__Conv2d_13_pointwise_2_Conv2d_2_3x3_s2_512__Relu6__0",
+      "weights" : {
+
+      },
+      "pad_mode" : 1,
+      "Nx" : 1,
+      "pad_value" : 0,
+      "Ny" : 1,
+      "n_parallel" : 1
+    },
+    {
+      "pad_r" : 0,
+      "fused_relu" : 0,
+      "fused_tanh" : 0,
+      "pad_fill_mode" : 0,
+      "pad_b" : 0,
+      "pad_l" : 0,
+      "top" : "BoxPredictor_2\/ClassPredictor\/BiasAdd:0",
+      "blob_weights" : 179,
+      "K" : 512,
+      "blob_biases" : 177,
+      "name" : "BoxPredictor_2\/ClassPredictor\/convolution:0",
+      "has_batch_norm" : 0,
+      "type" : "convolution",
+      "n_groups" : 1,
+      "pad_t" : 0,
+      "has_biases" : 1,
+      "C" : 546,
+      "bottom" : "FeatureExtractor__MobilenetV1__Conv2d_13_pointwise_2_Conv2d_2_3x3_s2_512__Relu6__0",
+      "weights" : {
+
+      },
+      "pad_mode" : 1,
+      "Nx" : 1,
+      "pad_value" : 0,
+      "Ny" : 1,
+      "n_parallel" : 1
+    },
+    {
+      "pad_r" : 0,
+      "fused_relu" : 0,
+      "fused_tanh" : 0,
+      "pad_fill_mode" : 0,
+      "pad_b" : 0,
+      "pad_l" : 0,
+      "top" : "BoxPredictor_1\/BoxEncodingPredictor\/BiasAdd:0",
+      "blob_weights" : 183,
+      "K" : 1024,
+      "blob_biases" : 181,
+      "name" : "BoxPredictor_1\/BoxEncodingPredictor\/convolution:0",
+      "has_batch_norm" : 0,
+      "type" : "convolution",
+      "n_groups" : 1,
+      "pad_t" : 0,
+      "has_biases" : 1,
+      "C" : 24,
+      "bottom" : "FeatureExtractor\/MobilenetV1\/MobilenetV1\/Conv2d_13_pointwise\/Relu6:0",
+      "weights" : {
+
+      },
+      "pad_mode" : 1,
+      "Nx" : 1,
+      "pad_value" : 0,
+      "Ny" : 1,
+      "n_parallel" : 1
+    },
+    {
+      "pad_r" : 0,
+      "fused_relu" : 0,
+      "fused_tanh" : 0,
+      "pad_fill_mode" : 0,
+      "pad_b" : 0,
+      "pad_l" : 0,
+      "top" : "BoxPredictor_1\/ClassPredictor\/BiasAdd:0",
+      "blob_weights" : 187,
+      "K" : 1024,
+      "blob_biases" : 185,
+      "name" : "BoxPredictor_1\/ClassPredictor\/convolution:0",
+      "has_batch_norm" : 0,
+      "type" : "convolution",
+      "n_groups" : 1,
+      "pad_t" : 0,
+      "has_biases" : 1,
+      "C" : 546,
+      "bottom" : "FeatureExtractor\/MobilenetV1\/MobilenetV1\/Conv2d_13_pointwise\/Relu6:0",
+      "weights" : {
+
+      },
+      "pad_mode" : 1,
+      "Nx" : 1,
+      "pad_value" : 0,
+      "Ny" : 1,
+      "n_parallel" : 1
+    },
+    {
+      "pad_r" : 0,
+      "fused_relu" : 0,
+      "fused_tanh" : 0,
+      "pad_fill_mode" : 0,
+      "pad_b" : 0,
+      "pad_l" : 0,
+      "top" : "BoxPredictor_0\/BoxEncodingPredictor\/BiasAdd:0",
+      "blob_weights" : 191,
+      "K" : 512,
+      "blob_biases" : 189,
+      "name" : "BoxPredictor_0\/BoxEncodingPredictor\/convolution:0",
+      "has_batch_norm" : 0,
+      "type" : "convolution",
+      "n_groups" : 1,
+      "pad_t" : 0,
+      "has_biases" : 1,
+      "C" : 12,
+      "bottom" : "FeatureExtractor\/MobilenetV1\/MobilenetV1\/Conv2d_11_pointwise\/Relu6:0",
+      "weights" : {
+
+      },
+      "pad_mode" : 1,
+      "Nx" : 1,
+      "pad_value" : 0,
+      "Ny" : 1,
+      "n_parallel" : 1
+    },
+    {
+      "pad_r" : 0,
+      "fused_relu" : 0,
+      "fused_tanh" : 0,
+      "pad_fill_mode" : 0,
+      "pad_b" : 0,
+      "pad_l" : 0,
+      "top" : "BoxPredictor_0\/ClassPredictor\/BiasAdd:0",
+      "blob_weights" : 195,
+      "K" : 512,
+      "blob_biases" : 193,
+      "name" : "BoxPredictor_0\/ClassPredictor\/convolution:0",
+      "has_batch_norm" : 0,
+      "type" : "convolution",
+      "n_groups" : 1,
+      "pad_t" : 0,
+      "has_biases" : 1,
+      "C" : 273,
+      "bottom" : "FeatureExtractor\/MobilenetV1\/MobilenetV1\/Conv2d_11_pointwise\/Relu6:0",
+      "weights" : {
+
+      },
+      "pad_mode" : 1,
+      "Nx" : 1,
+      "pad_value" : 0,
+      "Ny" : 1,
+      "n_parallel" : 1
+    },
+    {
+      "name" : "BoxPredictor_0\/Reshape:0",
+      "bottom" : "BoxPredictor_0\/BoxEncodingPredictor\/BiasAdd:0",
+      "dst_n" : 0,
+      "mode" : 1,
+      "dst_seq" : 1,
+      "dst_k" : 4,
+      "weights" : {
+
+      },
+      "top" : "BoxPredictor_0\/Reshape:0",
+      "dst_h" : 1,
+      "dst_w" : 1083,
+      "type" : "reshape"
+    },
+    {
+      "name" : "BoxPredictor_0\/Reshape_1:0",
+      "bottom" : "BoxPredictor_0\/ClassPredictor\/BiasAdd:0",
+      "dst_n" : 0,
+      "mode" : 1,
+      "dst_seq" : 1,
+      "dst_k" : 91,
+      "weights" : {
+
+      },
+      "top" : "BoxPredictor_0\/Reshape_1:0",
+      "dst_h" : 1,
+      "dst_w" : 1083,
+      "type" : "reshape"
+    },
+    {
+      "name" : "BoxPredictor_1\/Reshape:0",
+      "bottom" : "BoxPredictor_1\/BoxEncodingPredictor\/BiasAdd:0",
+      "dst_n" : 0,
+      "mode" : 1,
+      "dst_seq" : 1,
+      "dst_k" : 4,
+      "weights" : {
+
+      },
+      "top" : "BoxPredictor_1\/Reshape:0",
+      "dst_h" : 1,
+      "dst_w" : 600,
+      "type" : "reshape"
+    },
+    {
+      "name" : "BoxPredictor_1\/Reshape_1:0",
+      "bottom" : "BoxPredictor_1\/ClassPredictor\/BiasAdd:0",
+      "dst_n" : 0,
+      "mode" : 1,
+      "dst_seq" : 1,
+      "dst_k" : 91,
+      "weights" : {
+
+      },
+      "top" : "BoxPredictor_1\/Reshape_1:0",
+      "dst_h" : 1,
+      "dst_w" : 600,
+      "type" : "reshape"
+    },
+    {
+      "name" : "BoxPredictor_2\/Reshape:0",
+      "bottom" : "BoxPredictor_2\/BoxEncodingPredictor\/BiasAdd:0",
+      "dst_n" : 0,
+      "mode" : 1,
+      "dst_seq" : 1,
+      "dst_k" : 4,
+      "weights" : {
+
+      },
+      "top" : "BoxPredictor_2\/Reshape:0",
+      "dst_h" : 1,
+      "dst_w" : 150,
+      "type" : "reshape"
+    },
+    {
+      "name" : "BoxPredictor_2\/Reshape_1:0",
+      "bottom" : "BoxPredictor_2\/ClassPredictor\/BiasAdd:0",
+      "dst_n" : 0,
+      "mode" : 1,
+      "dst_seq" : 1,
+      "dst_k" : 91,
+      "weights" : {
+
+      },
+      "top" : "BoxPredictor_2\/Reshape_1:0",
+      "dst_h" : 1,
+      "dst_w" : 150,
+      "type" : "reshape"
+    },
+    {
+      "name" : "BoxPredictor_3\/Reshape:0",
+      "bottom" : "BoxPredictor_3\/BoxEncodingPredictor\/BiasAdd:0",
+      "dst_n" : 0,
+      "mode" : 1,
+      "dst_seq" : 1,
+      "dst_k" : 4,
+      "weights" : {
+
+      },
+      "top" : "BoxPredictor_3\/Reshape:0",
+      "dst_h" : 1,
+      "dst_w" : 54,
+      "type" : "reshape"
+    },
+    {
+      "name" : "BoxPredictor_3\/Reshape_1:0",
+      "bottom" : "BoxPredictor_3\/ClassPredictor\/BiasAdd:0",
+      "dst_n" : 0,
+      "mode" : 1,
+      "dst_seq" : 1,
+      "dst_k" : 91,
+      "weights" : {
+
+      },
+      "top" : "BoxPredictor_3\/Reshape_1:0",
+      "dst_h" : 1,
+      "dst_w" : 54,
+      "type" : "reshape"
+    },
+    {
+      "name" : "BoxPredictor_4\/Reshape:0",
+      "bottom" : "BoxPredictor_4\/BoxEncodingPredictor\/BiasAdd:0",
+      "dst_n" : 0,
+      "mode" : 1,
+      "dst_seq" : 1,
+      "dst_k" : 4,
+      "weights" : {
+
+      },
+      "top" : "BoxPredictor_4\/Reshape:0",
+      "dst_h" : 1,
+      "dst_w" : 24,
+      "type" : "reshape"
+    },
+    {
+      "name" : "BoxPredictor_4\/Reshape_1:0",
+      "bottom" : "BoxPredictor_4\/ClassPredictor\/BiasAdd:0",
+      "dst_n" : 0,
+      "mode" : 1,
+      "dst_seq" : 1,
+      "dst_k" : 91,
+      "weights" : {
+
+      },
+      "top" : "BoxPredictor_4\/Reshape_1:0",
+      "dst_h" : 1,
+      "dst_w" : 24,
+      "type" : "reshape"
     },
     {
       "name" : "BoxPredictor_5\/Reshape:0",
@@ -3287,6 +3165,128 @@
       "top" : "concat__0",
       "type" : "transpose",
       "name" : "concat:0"
+    },
+    {
+      "name" : "BoxPredictor_5\/Reshape_1:0",
+      "bottom" : "BoxPredictor_5\/ClassPredictor\/BiasAdd:0",
+      "dst_n" : 0,
+      "mode" : 1,
+      "dst_seq" : 1,
+      "dst_k" : 91,
+      "weights" : {
+
+      },
+      "top" : "BoxPredictor_5\/Reshape_1:0",
+      "dst_h" : 1,
+      "dst_w" : 6,
+      "type" : "reshape"
+    },
+    {
+      "axis_h" : 1,
+      "axis_w" : 2,
+      "axis_k" : 0,
+      "bottom" : "BoxPredictor_0\/Reshape_1:0",
+      "axis_n" : 3,
+      "axis_seq" : 4,
+      "weights" : {
+
+      },
+      "top" : "BoxPredictor_0\/Reshape_1:0_swap_W_C_0",
+      "type" : "transpose",
+      "name" : "concat_1:0_0"
+    },
+    {
+      "axis_h" : 1,
+      "axis_w" : 2,
+      "axis_k" : 0,
+      "bottom" : "BoxPredictor_1\/Reshape_1:0",
+      "axis_n" : 3,
+      "axis_seq" : 4,
+      "weights" : {
+
+      },
+      "top" : "BoxPredictor_1\/Reshape_1:0_swap_W_C_1",
+      "type" : "transpose",
+      "name" : "concat_1:0_1"
+    },
+    {
+      "axis_h" : 1,
+      "axis_w" : 2,
+      "axis_k" : 0,
+      "bottom" : "BoxPredictor_2\/Reshape_1:0",
+      "axis_n" : 3,
+      "axis_seq" : 4,
+      "weights" : {
+
+      },
+      "top" : "BoxPredictor_2\/Reshape_1:0_swap_W_C_2",
+      "type" : "transpose",
+      "name" : "concat_1:0_2"
+    },
+    {
+      "axis_h" : 1,
+      "axis_w" : 2,
+      "axis_k" : 0,
+      "bottom" : "BoxPredictor_3\/Reshape_1:0",
+      "axis_n" : 3,
+      "axis_seq" : 4,
+      "weights" : {
+
+      },
+      "top" : "BoxPredictor_3\/Reshape_1:0_swap_W_C_3",
+      "type" : "transpose",
+      "name" : "concat_1:0_3"
+    },
+    {
+      "axis_h" : 1,
+      "axis_w" : 2,
+      "axis_k" : 0,
+      "bottom" : "BoxPredictor_4\/Reshape_1:0",
+      "axis_n" : 3,
+      "axis_seq" : 4,
+      "weights" : {
+
+      },
+      "top" : "BoxPredictor_4\/Reshape_1:0_swap_W_C_4",
+      "type" : "transpose",
+      "name" : "concat_1:0_4"
+    },
+    {
+      "axis_h" : 1,
+      "axis_w" : 2,
+      "axis_k" : 0,
+      "bottom" : "BoxPredictor_5\/Reshape_1:0",
+      "axis_n" : 3,
+      "axis_seq" : 4,
+      "weights" : {
+
+      },
+      "top" : "BoxPredictor_5\/Reshape_1:0_swap_W_C_5",
+      "type" : "transpose",
+      "name" : "concat_1:0_5"
+    },
+    {
+      "weights" : {
+
+      },
+      "top" : "concat_1:0_concat",
+      "type" : "concat",
+      "name" : "concat_1:0_concat",
+      "bottom" : "BoxPredictor_0\/Reshape_1:0_swap_W_C_0,BoxPredictor_1\/Reshape_1:0_swap_W_C_1,BoxPredictor_2\/Reshape_1:0_swap_W_C_2,BoxPredictor_3\/Reshape_1:0_swap_W_C_3,BoxPredictor_4\/Reshape_1:0_swap_W_C_4,BoxPredictor_5\/Reshape_1:0_swap_W_C_5"
+    },
+    {
+      "axis_h" : 1,
+      "axis_w" : 2,
+      "axis_k" : 0,
+      "bottom" : "concat_1:0_concat",
+      "axis_n" : 3,
+      "axis_seq" : 4,
+      "weights" : {
+
+      },
+      "top" : "concat_1__0",
+      "type" : "transpose",
+      "name" : "concat_1:0"
     }
   ]
 }

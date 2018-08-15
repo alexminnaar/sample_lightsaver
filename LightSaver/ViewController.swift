@@ -25,6 +25,10 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
     var sessionStarted: Bool = false
     var searching: Bool = false
     
+    @IBOutlet weak var purpleButton: UIButton!
+    @IBOutlet weak var greenButton: UIButton!
+    @IBOutlet weak var pinkButton: UIButton!
+    
     @IBOutlet var mapNotification: UILabel!
     @IBOutlet var drawingInstruction: UIImageView!
     @IBOutlet weak var scanProgressBar: UIProgressView!
@@ -86,6 +90,12 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
         mapNotification.layer.cornerRadius = 5
         mapNotification.layer.masksToBounds = true
         drawingInstruction.isHidden = true
+        if sessionMode! == .localization {
+            purpleButton.isHidden = true
+            pinkButton.isHidden = true
+            greenButton.isHidden = true
+        }
+        
         showMapNotification("Scan around your area to start!")
         
         //Initialize MapSession
@@ -96,8 +106,10 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
         })
     }
     
+    var scanProgressCount: Int = 0
     func incrementScanProgress(scanProgressCount: Int) {
         print("SCAN PROGRESS: \(scanProgressCount)")
+        self.scanProgressCount = scanProgressCount
         
         
         if sessionMode == .localization && scanProgressCount > 4 && !self.alreadyReloaded {
@@ -109,6 +121,13 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
             
             let colorIndex = min(scanProgressCount - 1, 4)
             self.scanProgressBar.progressTintColor = ViewController.progressColors[colorIndex]
+            
+            
+            if self.scanProgressBar.progress >= 1.0 {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+                    self.scanProgressBar.isHidden = true
+                }
+            }
         }
     }
 
@@ -160,7 +179,9 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
                 mapAssets.append(asset)
             } else {
                 DispatchQueue.main.async {
-                    self.showMapNotification("Great Job! Now save your drawing for others to see.")
+                    self.purpleButton.isHidden = true
+                    self.pinkButton.isHidden = true
+                    self.greenButton.isHidden = true
                 }
             }
         }
@@ -236,11 +257,10 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
             self.addAssetToScene(mapAssets)
 
             if !self.alreadyReloaded {
-                self.showMapNotification("Design Found!")
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                self.showMapNotification("Design Found! Continue scanning for improved result!")
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
                     self.mapNotification.isHidden = true
                     self.searching = false
-                    self.scanProgressBar.isHidden = true
                 }
                 
                 self.alreadyReloaded = true

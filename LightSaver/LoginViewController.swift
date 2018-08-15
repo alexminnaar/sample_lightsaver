@@ -39,6 +39,7 @@ class LoginViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     @IBAction func startDrawingButton(_ sender: UIButton) {
         if checkEmptyInput() {
             return

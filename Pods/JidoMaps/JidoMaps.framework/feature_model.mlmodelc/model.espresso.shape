@@ -96,11 +96,11 @@
       "n" : 1,
       "h" : 1
     },
-    "relu_FeatureExtractor\/MobilenetV1\/MobilenetV1\/Conv2d_2_pointwise\/Relu6:0_neg" : {
-      "k" : 128,
-      "w" : 75,
+    "FeatureExtractor\/MobilenetV1\/Conv2d_13_pointwise_1_Conv2d_4_1x1_128\/Relu6:0_swap_H_C_0" : {
+      "k" : 3,
+      "w" : 3,
       "n" : 1,
-      "h" : 75
+      "h" : 128
     },
     "relu_FeatureExtractor\/MobilenetV1\/MobilenetV1\/Conv2d_13_pointwise\/Relu6:0_clip" : {
       "k" : 1024,
@@ -108,11 +108,11 @@
       "n" : 1,
       "h" : 10
     },
-    "FeatureExtractor\/MobilenetV1\/Conv2d_13_pointwise_1_Conv2d_4_1x1_128\/Relu6:0_swap_H_C_0" : {
-      "k" : 3,
-      "w" : 3,
+    "relu_FeatureExtractor\/MobilenetV1\/MobilenetV1\/Conv2d_2_pointwise\/Relu6:0_neg" : {
+      "k" : 128,
+      "w" : 75,
       "n" : 1,
-      "h" : 128
+      "h" : 75
     },
     "BoxPredictor_1\/Reshape_1:0" : {
       "k" : 91,
@@ -240,23 +240,17 @@
       "n" : 1,
       "h" : 19
     },
-    "FeatureExtractor\/MobilenetV1\/Conv2d_13_pointwise_1_Conv2d_4_1x1_128\/Relu6:0" : {
-      "k" : 128,
-      "w" : 3,
+    "relu_FeatureExtractor\/MobilenetV1\/Conv2d_13_pointwise_1_Conv2d_5_1x1_64\/Relu6:0_clip" : {
+      "k" : 64,
+      "w" : 2,
       "n" : 1,
-      "h" : 3
+      "h" : 2
     },
     "relu_FeatureExtractor\/MobilenetV1\/Conv2d_13_pointwise_2_Conv2d_3_3x3_s2_256\/Relu6:0_clip" : {
       "k" : 256,
       "w" : 3,
       "n" : 1,
       "h" : 3
-    },
-    "relu_FeatureExtractor\/MobilenetV1\/Conv2d_13_pointwise_1_Conv2d_5_1x1_64\/Relu6:0_clip" : {
-      "k" : 64,
-      "w" : 2,
-      "n" : 1,
-      "h" : 2
     },
     "Squeeze_5:0_swap_W_C_5" : {
       "k" : 6,
@@ -408,15 +402,15 @@
       "n" : 1,
       "h" : 75
     },
-    "BoxPredictor_3\/Reshape_1:0" : {
-      "k" : 91,
-      "w" : 54,
-      "n" : 1,
-      "h" : 1
-    },
     "BoxPredictor_0\/Reshape:0" : {
       "k" : 4,
       "w" : 1083,
+      "n" : 1,
+      "h" : 1
+    },
+    "BoxPredictor_3\/Reshape_1:0" : {
+      "k" : 91,
+      "w" : 54,
       "n" : 1,
       "h" : 1
     },
@@ -780,6 +774,12 @@
       "n" : 1,
       "h" : 1
     },
+    "FeatureExtractor__MobilenetV1__Conv2d_13_pointwise_2_Conv2d_2_3x3_s2_512__Relu6__0" : {
+      "k" : 512,
+      "w" : 5,
+      "n" : 1,
+      "h" : 5
+    },
     "relu_FeatureExtractor\/MobilenetV1\/Conv2d_13_pointwise_1_Conv2d_3_1x1_128\/Relu6:0_neg" : {
       "k" : 128,
       "w" : 5,
@@ -798,12 +798,6 @@
       "n" : 1,
       "h" : 19
     },
-    "BoxPredictor_2\/ClassPredictor\/BiasAdd:0" : {
-      "k" : 546,
-      "w" : 5,
-      "n" : 1,
-      "h" : 5
-    },
     "relu_FeatureExtractor\/MobilenetV1\/MobilenetV1\/Conv2d_3_pointwise\/Relu6:0_neg" : {
       "k" : 128,
       "w" : 75,
@@ -815,6 +809,12 @@
       "w" : 10,
       "n" : 1,
       "h" : 10
+    },
+    "BoxPredictor_2\/ClassPredictor\/BiasAdd:0" : {
+      "k" : 546,
+      "w" : 5,
+      "n" : 1,
+      "h" : 5
     },
     "relu_FeatureExtractor\/MobilenetV1\/Conv2d_13_pointwise_1_Conv2d_3_1x1_128\/Relu6:0" : {
       "k" : 128,
@@ -948,12 +948,6 @@
       "n" : 1,
       "h" : 19
     },
-    "FeatureExtractor\/MobilenetV1\/Conv2d_13_pointwise_2_Conv2d_2_3x3_s2_512\/Relu6:0" : {
-      "k" : 512,
-      "w" : 5,
-      "n" : 1,
-      "h" : 5
-    },
     "BoxPredictor_0\/Reshape_1:0_swap_W_C_0" : {
       "k" : 1083,
       "w" : 91,
@@ -990,17 +984,17 @@
       "n" : 1,
       "h" : 10
     },
-    "relu_FeatureExtractor\/MobilenetV1\/Conv2d_13_pointwise_1_Conv2d_4_1x1_128\/Relu6:0_neg" : {
-      "k" : 128,
-      "w" : 3,
-      "n" : 1,
-      "h" : 3
-    },
     "FeatureExtractor\/MobilenetV1\/concat_3:0" : {
       "k" : 128,
       "w" : 4,
       "n" : 1,
       "h" : 4
+    },
+    "relu_FeatureExtractor\/MobilenetV1\/Conv2d_13_pointwise_1_Conv2d_4_1x1_128\/Relu6:0_neg" : {
+      "k" : 128,
+      "w" : 3,
+      "n" : 1,
+      "h" : 3
     },
     "FeatureExtractor\/MobilenetV1\/zeros_2:0_swap_H_C_1" : {
       "k" : 1,
@@ -1050,17 +1044,17 @@
       "n" : 1,
       "h" : 19
     },
-    "relu_FeatureExtractor\/MobilenetV1\/MobilenetV1\/Conv2d_11_pointwise\/Relu6:0" : {
-      "k" : 512,
-      "w" : 19,
-      "n" : 1,
-      "h" : 19
-    },
     "FeatureExtractor\/MobilenetV1\/concat_2:0_swap_W_C_0" : {
       "k" : 3,
       "w" : 128,
       "n" : 1,
       "h" : 4
+    },
+    "relu_FeatureExtractor\/MobilenetV1\/MobilenetV1\/Conv2d_11_pointwise\/Relu6:0" : {
+      "k" : 512,
+      "w" : 19,
+      "n" : 1,
+      "h" : 19
     },
     "relu_FeatureExtractor\/MobilenetV1\/MobilenetV1\/Conv2d_1_depthwise\/Relu6:0_neg" : {
       "k" : 32,
@@ -1098,11 +1092,11 @@
       "n" : 1,
       "h" : 3
     },
-    "BoxPredictor_2\/Reshape_1:0" : {
-      "k" : 91,
-      "w" : 150,
+    "FeatureExtractor\/MobilenetV1\/MobilenetV1\/Conv2d_10_depthwise\/Relu6:0" : {
+      "k" : 512,
+      "w" : 19,
       "n" : 1,
-      "h" : 1
+      "h" : 19
     },
     "relu_FeatureExtractor\/MobilenetV1\/MobilenetV1\/Conv2d_13_pointwise\/Relu6:0" : {
       "k" : 1024,
@@ -1110,17 +1104,23 @@
       "n" : 1,
       "h" : 10
     },
-    "FeatureExtractor\/MobilenetV1\/MobilenetV1\/Conv2d_10_depthwise\/Relu6:0" : {
-      "k" : 512,
-      "w" : 19,
+    "BoxPredictor_2\/Reshape_1:0" : {
+      "k" : 91,
+      "w" : 150,
       "n" : 1,
-      "h" : 19
+      "h" : 1
     },
     "FeatureExtractor\/MobilenetV1\/MobilenetV1\/Conv2d_1_pointwise\/Relu6:0" : {
       "k" : 64,
       "w" : 150,
       "n" : 1,
       "h" : 150
+    },
+    "FeatureExtractor__MobilenetV1__Conv2d_13_pointwise_1_Conv2d_4_1x1_128__Relu6__0" : {
+      "k" : 128,
+      "w" : 3,
+      "n" : 1,
+      "h" : 3
     },
     "relu_FeatureExtractor\/MobilenetV1\/MobilenetV1\/Conv2d_10_depthwise\/Relu6:0" : {
       "k" : 512,
