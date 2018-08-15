@@ -8,7 +8,6 @@ Pod::Spec.new do |s|
                    DESC
 
   s.homepage     = "http://www.jidomaps.com/"
-  s.license      = "MIT"
   s.author       = { "Jaeyong Sung" => "jae@jidomaps.com" }
   s.platform     = :ios, "11.0"
   s.source       = { :git => 'https://github.com/jidomaps/jido_pods.git', :tag => 'v0.3.0' }
