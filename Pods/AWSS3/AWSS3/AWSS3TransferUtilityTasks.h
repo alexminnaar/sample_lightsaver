@@ -156,9 +156,6 @@ typedef void (^AWSS3TransferUtilityMultiPartProgressBlock) (AWSS3TransferUtility
  */
 - (void)suspend;
 
-/**
- Set the progress Block
- */
 - (void) setProgressBlock: (AWSS3TransferUtilityProgressBlock) progressBlock;
 
 @end
@@ -223,9 +220,6 @@ typedef void (^AWSS3TransferUtilityMultiPartProgressBlock) (AWSS3TransferUtility
 
 - (void) setCompletionHandler: (AWSS3TransferUtilityMultiPartUploadCompletionHandlerBlock)completionHandler;
 
-/**
- Set the progress Block
- */
 - (void) setProgressBlock: (AWSS3TransferUtilityMultiPartProgressBlock) progressBlock;
 
 @end

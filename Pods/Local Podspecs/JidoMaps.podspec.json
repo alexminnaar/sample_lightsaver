@@ -1,6 +1,6 @@
 {
   "name": "JidoMaps",
-  "version": "0.3.1",
+  "version": "0.3.6",
   "summary": "A short description of JidoMaps.",
   "description": "beta test pod.",
   "homepage": "http://www.jidomaps.com/",
@@ -12,7 +12,7 @@
   },
   "source": {
     "git": "https://github.com/jidomaps/jido_pods.git",
-    "tag": "v0.3.1"
+    "tag": "v0.3.6"
   },
   "ios": {
     "vendored_frameworks": "JidoMaps.framework"

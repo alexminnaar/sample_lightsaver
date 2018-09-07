@@ -207,6 +207,8 @@ enum MapStatus : NSInteger;
 @class ARAnchor;
 @class ARFrame;
 @class Map;
+@class Quaternion;
+@class UnityMultiplayerTransform;
 
 SWIFT_CLASS("_TtC8JidoMaps11JidoSession")
 @interface JidoSession : NSObject
@@ -231,6 +233,7 @@ SWIFT_CLASS("_TtC8JidoMaps11JidoSession")
 - (void)session:(ARSession * _Nonnull)session didAdd:(NSArray<ARAnchor *> * _Nonnull)anchors;
 - (void)session:(ARSession * _Nonnull)session didUpdate:(NSArray<ARAnchor *> * _Nonnull)anchors;
 - (void)session:(ARSession * _Nonnull)session didRemove:(NSArray<ARAnchor *> * _Nonnull)anchors;
++ (UnityMultiplayerTransform * _Nonnull)unityMultiplayerSyncWithLocalA:(vector_float3)localA localB:(vector_float3)localB remoteA:(vector_float3)remoteA remoteB:(vector_float3)remoteB rotationRemote:(Quaternion * _Nullable)rotationRemote SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_DEPRECATED_MSG("-init is unavailable");
 @end
@@ -246,6 +249,9 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class) BOOL USE_BETA_ALGO;)
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class) NSInteger RETRIEVE_ASSETS_INTERVAL;)
 + (NSInteger)RETRIEVE_ASSETS_INTERVAL SWIFT_WARN_UNUSED_RESULT;
 + (void)setRETRIEVE_ASSETS_INTERVAL:(NSInteger)value;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class) BOOL BUILD_HEAVY_MAP;)
++ (BOOL)BUILD_HEAVY_MAP SWIFT_WARN_UNUSED_RESULT;
++ (void)setBUILD_HEAVY_MAP:(BOOL)value;
 @end
 
 
@@ -292,6 +298,19 @@ typedef SWIFT_ENUM(NSInteger, MapStatus) {
 };
 
 
+SWIFT_CLASS("_TtC8JidoMaps10Quaternion")
+@interface Quaternion : NSObject
+@property (nonatomic, readonly) float x;
+@property (nonatomic, readonly) float y;
+@property (nonatomic, readonly) float z;
+@property (nonatomic, readonly) float w;
+- (nonnull instancetype)initWithX:(float)x y:(float)y z:(float)z w:(float)w OBJC_DESIGNATED_INITIALIZER;
++ (Quaternion * _Nonnull)eulerWithX:(float)x y:(float)y z:(float)z SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_DEPRECATED_MSG("-init is unavailable");
+@end
+
+
 
 typedef SWIFT_ENUM(NSInteger, SessionMode) {
   SessionModeMapping = 0,
@@ -305,6 +324,16 @@ typedef SWIFT_ENUM(NSInteger, SessionMode) {
 
 
 
+
+
+SWIFT_CLASS("_TtC8JidoMaps25UnityMultiplayerTransform")
+@interface UnityMultiplayerTransform : NSObject
+@property (nonatomic, readonly, strong) Quaternion * _Nonnull rotationRemoteToLocal;
+@property (nonatomic, readonly) vector_float3 offsetLocalToRemote;
+@property (nonatomic, readonly) float updateError;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_DEPRECATED_MSG("-init is unavailable");
+@end
 
 #if __has_attribute(external_source_symbol)
 # pragma clang attribute pop
