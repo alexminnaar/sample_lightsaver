@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "JidoMaps"
-  s.version      = "0.3.6"
+  s.version      = "0.3.7"
   s.summary      = "A short description of JidoMaps."
 
   s.description  = <<-DESC
