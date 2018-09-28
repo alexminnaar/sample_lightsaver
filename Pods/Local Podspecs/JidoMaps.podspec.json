@@ -12,7 +12,7 @@
   },
   "source": {
     "git": "https://github.com/jidomaps/jido_pods.git",
-    "tag": "v0.3.6"
+    "tag": "v0.3.7"
   },
   "ios": {
     "vendored_frameworks": "JidoMaps.framework"

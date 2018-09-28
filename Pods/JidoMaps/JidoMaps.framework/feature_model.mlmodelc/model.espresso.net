@@ -1,8 +1,19 @@
 {
-  "storage" : "model.espresso.weights",
+  "transform_params" : {
+    "Preprocessor__sub__0" : {
+      "bias_a" : 0,
+      "bias_g" : -1,
+      "bias_r" : -1,
+      "bias_b" : -1,
+      "center_mean" : 0,
+      "is_network_bgr" : 0,
+      "scale" : 0.0078431377187371254
+    }
+  },
   "properties" : {
 
   },
+  "storage" : "model.espresso.weights",
   "format_version" : 200,
   "layers" : [
     {

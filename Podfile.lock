@@ -1,12 +1,12 @@
 PODS:
   - Alamofire (4.6.0)
-  - AWSCloudWatch (2.6.23):
-    - AWSCore (= 2.6.23)
-  - AWSCore (2.6.23)
-  - AWSDynamoDB (2.6.23):
-    - AWSCore (= 2.6.23)
-  - AWSS3 (2.6.23):
-    - AWSCore (= 2.6.23)
+  - AWSCloudWatch (2.6.25):
+    - AWSCore (= 2.6.25)
+  - AWSCore (2.6.25)
+  - AWSDynamoDB (2.6.25):
+    - AWSCore (= 2.6.25)
+  - AWSS3 (2.6.25):
+    - AWSCore (= 2.6.25)
   - JidoMaps (0.3.6):
     - Alamofire (~> 4.6.0)
     - AWSCloudWatch
@@ -26,11 +26,11 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
-  AWSCloudWatch: fa041a8253f580e1dc49772cb9b2941b5f4ea0ec
-  AWSCore: d56f69d7312e652e51c70f3b25e1687a5c2d06ca
-  AWSDynamoDB: 5003441fbcc45e31eb977c8533f99c773e54c3eb
-  AWSS3: 198942f234628f1ad1c373725d65c33ebfe87af6
-  JidoMaps: f98aea1eccf87669e34cf18cedc149dff3767304
+  AWSCloudWatch: e8ff897b682ec82dbedacb22963551e69fc3380d
+  AWSCore: 93ac57c361f6ff9c0749adf9404c4a1a1ecdaa2b
+  AWSDynamoDB: b891ec00abf6b58ca850172e4f92ed8de53d1b16
+  AWSS3: 0614ff4e0f0d11942322b5a15c30927a93fe35db
+  JidoMaps: 038b8194f591ab4e4c0c7f4215f501a7b1d0d775
   SwiftHash: c805de5a434eacfa0dac7210745a50c55d7fe33d
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
 
