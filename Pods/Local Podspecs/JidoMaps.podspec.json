@@ -1,18 +1,18 @@
 {
   "name": "JidoMaps",
-  "version": "0.3.6",
+  "version": "0.3.8",
   "summary": "A short description of JidoMaps.",
   "description": "beta test pod.",
   "homepage": "http://www.jidomaps.com/",
   "authors": {
-    "Jaeyong Sung": "jae@jidomaps.com"
+    "Jaeyong Sung": "info@jidomaps.com"
   },
   "platforms": {
     "ios": "11.0"
   },
   "source": {
     "git": "https://github.com/jidomaps/jido_pods.git",
-    "tag": "v0.3.7"
+    "tag": "v0.3.8"
   },
   "ios": {
     "vendored_frameworks": "JidoMaps.framework"
